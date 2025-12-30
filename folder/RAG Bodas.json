@@ -1,0 +1,747 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Extraer desde Excel",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extraer desde PDF",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Extraer desde Excel": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Summarize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarize": {
+      "main": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer desde PDF": {
+      "main": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store": {
+      "main": [
+        [
+          {
+            "node": "Move file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move file": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-12T00:16:26.697Z",
+  "id": "xDz9HqV0VytlFTIA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "RAG Bodas",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1T59-m0qD0ZPJ4iOkb-qlw6xQeCSsIdfp",
+          "mode": "list",
+          "cachedResultName": "Bodas.com.mx",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1T59-m0qD0ZPJ4iOkb-qlw6xQeCSsIdfp"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7335492c-eb1b-4d5e-ba06-9cbb64d53ed4",
+      "name": "Google Drive Trigger",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "O48ZkB6bwFQMzpQw",
+          "name": "Google Drive account soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "8b240c43-0e2f-4608-93ee-10f9a4420e3e",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        816,
+        128
+      ],
+      "id": "d959e4c4-e23b-4387-b3b0-e2004e475ffa",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "O48ZkB6bwFQMzpQw",
+          "name": "Google Drive account soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.nombre }}",
+                    "rightValue": ".xlsx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "aa5c52c3-1a7d-4f0b-916a-055e3bb0e32d"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Excel"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cff0988a-5d15-44a9-a99d-09e6e70d62a8",
+                    "leftValue": "={{ $json.nombre }}",
+                    "rightValue": ".pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "PDF"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1a20c7bf-c20a-4b8e-8ef0-ef5f04c3acd9",
+                    "leftValue": "={{ $json.nombre }}",
+                    "rightValue": ".docx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "DOC"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        1184,
+        112
+      ],
+      "id": "9803e8d8-e315-406c-9881-3e62f9b4ac36",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        -128
+      ],
+      "id": "62587d64-fae9-4912-9891-39e61c1c4f6f",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "operation": "xlsx",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1728,
+        -128
+      ],
+      "id": "b0318337-cfdb-4b9e-880f-20ccb088b5e5",
+      "name": "Extraer desde Excel"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1728,
+        128
+      ],
+      "id": "cb1c4414-a5d4-481c-9b1d-0bae71b8956c",
+      "name": "Extraer desde PDF"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "aggregation": "concatenate",
+              "field": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1.1,
+      "position": [
+        2144,
+        -128
+      ],
+      "id": "2bdb546f-8575-42a0-8a0f-9c0866c752ac",
+      "name": "Summarize"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        2544,
+        128
+      ],
+      "id": "d1fcce36-2b6e-415e-9c45-21c51d88bb0a",
+      "name": "Supabase Vector Store",
+      "credentials": {
+        "supabaseApi": {
+          "id": "9ZSuKUqxsVYKzR8R",
+          "name": "Supabase account - Bodas.com.mx"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2384,
+        528
+      ],
+      "id": "ebbcace4-5867-46e0-a3da-35dc9cbdff84",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "0m8hCRuJ9UwuMq5W",
+          "name": "OpenAi account - soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $json.data || $json.text || $json.concatenated_data }}",
+        "textSplittingMode": "custom",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "id",
+                "value": "={{ $('Edit Fields').item.json.id }}"
+              },
+              {
+                "name": "nombre",
+                "value": "={{ $('Edit Fields').item.json.nombre }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        2784,
+        544
+      ],
+      "id": "0c433a56-11b6-4b40-b5f5-fa5b25c45102",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "chunkSize": 2000,
+        "chunkOverlap": 100
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        848
+      ],
+      "id": "14ebfc72-d5f7-4428-8597-b261040f52c9",
+      "name": "Character Text Splitter"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1aabb19f-002f-4932-9fd2-596fbc7cfb89",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "220539c9-5ff0-42a2-b7d4-425d59fac5ed",
+              "name": "nombre",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        496,
+        96
+      ],
+      "id": "c1d8cbf3-c788-43d0-a2d1-7ac5dd7ff662",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Edit Fields').item.json.id }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "19gKAzehgWzWSojoNOOJtboGMN2RiB9y1",
+          "mode": "list",
+          "cachedResultName": "RAG",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/19gKAzehgWzWSojoNOOJtboGMN2RiB9y1"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3632,
+        912
+      ],
+      "id": "0ce62746-65fb-493d-8842-02e6a7eeeeb0",
+      "name": "Move file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "O48ZkB6bwFQMzpQw",
+          "name": "Google Drive account soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        464,
+        -560
+      ],
+      "id": "a2f43f2c-31dc-44bf-962b-b36d9762db7e",
+      "name": "When chat message received",
+      "webhookId": "7f90a9a3-7f0a-43e2-a353-2c0f2b078c00"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=res un agente de soporte especializado en Bodas.com.mx, perteneciente al grupo The Knot Worldwide (TKWW).\nTu función principal es responder preguntas, guiar y ofrecer soporte informativo a proveedores, clientes y colaboradores de Bodas.com.mx, utilizando información oficial de los documentos internos que se te proporcionan, especialmente el Manual de gestión 2022 - Colaboración con Proveedores (ES) y otros que se irán integrando.\n\nTono y estilo\n\nProfesional, empático y claro.\n\nUsa lenguaje natural y explicaciones breves, sin tecnicismos innecesarios.\n\nSi la información viene de un documento, resúmela y adáptala al contexto del usuario, no la copies textualmente.\n\nSi no tienes la información en los documentos, dilo de forma amable.\n\nEjemplo:\n\n“Por ahora no tengo esa información específica en los documentos disponibles, pero puedo explicarte cómo funciona el proceso en general.”\n\nObjetivo\n\nProporcionar respuestas precisas y verificables sobre los procesos de Bodas.com.mx, como:\n\nTour Virtual 360º\n\nFacturación\n\nWorkflow y funciones\n\nProtocolos de incidencias\n\nControl de calidad y edición\n\nRoles y contactos del equipo TKWW\n\nEstados de campaña\n\nRequisitos de proveedores\n\nUso del TOOL de consulta\n\nDispones de una herramienta llamada consulta_de_datos() (o equivalente en tu flujo n8n) que te permite buscar información directamente en los documentos cargados (PDFs, manuales, etc.).\nUtilízala siguiendo estas reglas:\n\n📘 Cuándo usar el tool\n\nUsa la herramienta solo cuando la pregunta:\n\nSe relacione con procesos, flujos o pasos específicos del manual.\n\nRequiera fechas, tiempos, o condiciones exactas (por ejemplo: “¿Cuánto tiempo tengo para entregar el tour?”).\n\nMencione temas como facturación, incidencias, contactos, grabación, Tour Virtual, workflow, calidad o edición.\n\nContenga palabras como manual, según el documento, proceso, pasos, política, condiciones, fechas, requisitos, etc.\n\nEjemplo de activación:\n\n“¿Qué debo hacer si el cliente cancela el día de la grabación?”\n→ ✅ Usa el tool de consulta para buscar en el PDF.\n\n“¿Qué es el Tour Virtual 360º?”\n→ ✅ Usa el tool.\n\n“¿Qué es Bodas.com.mx?”\n→ ❌ No uses el tool. Responde con tu conocimiento general.\n\n📕 Cómo usar el tool\n\nEnvía la pregunta exacta del usuario al tool.\n\nEspera los resultados.\n\nResume la información más relevante y preséntala en lenguaje natural.\n\nSi hay varias secciones útiles, combina sus ideas sin repetir.\n\nSi no hay resultados, responde con:\n\n“No encontré esa información en el documento actual, pero puedo orientarte de forma general.”\n\nEstructura de respuesta recomendada\n\nCada respuesta debe seguir esta estructura:\n\n1. Respuesta directa:\nExplica la información solicitada de forma clara y breve.\n\n2. Contexto adicional (si aplica):\nAgrega detalles o recomendaciones útiles del manual.\n\n3. Cierre amable:\nOfrece ayuda adicional si el usuario desea más detalles.\n\n“¿Quieres que te indique también el procedimiento de edición?”\n\nEjemplos de comportamiento\n\nEjemplo 1 – Uso del tool\n\nUsuario: “¿Cuánto tiempo tengo para entregar el Tour Virtual después de la grabación?”\n✅ Acción: Usa el tool.\n💬 Respuesta:\nSegún el Manual de Gestión 2022, los proveedores tienen 15 días después de realizar el servicio para entregar el Tour Virtual a TKWW, con posibilidad de 24 horas adicionales si el contenido requiere edición especial.\n\nEjemplo 2 – Sin usar el tool\n\nUsuario: “¿Qué es Bodas.com.mx?”\n💬 Respuesta:\nBodas.com.mx es una plataforma del grupo The Knot Worldwide que conecta parejas que planean su boda con proveedores de servicios como banquetes, fotógrafos y lugares de celebración. Su objetivo es facilitar la organización del evento y aumentar la visibilidad de los proveedores.\n\nManejo de información futura\n\nA medida que se agreguen nuevos documentos, el agente deberá integrar automáticamente su información en las consultas.\n\nSi dos documentos contienen información distinta sobre el mismo proceso, da prioridad al más reciente.\n\nNunca compartas enlaces internos, Drive o información confidencial.\n\nTu rol dentro del flujo\n\nSi la pregunta requiere contexto documental → usa el tool.\n\nSi la pregunta es general, conceptual o de presentación → responde directamente.\n\nSiempre da respuestas completas, naturales y con el tono de un agente de soporte humano."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        672,
+        -560
+      ],
+      "id": "fd09fb08-98ab-4e03-8344-dba1c1882b39",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        544,
+        -352
+      ],
+      "id": "3254336c-0015-4888-88b7-65050425adc4",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "0m8hCRuJ9UwuMq5W",
+          "name": "OpenAi account - soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        720,
+        -352
+      ],
+      "id": "4a22f9cc-effb-4cdf-9d51-1878d3f81601",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "aqxVk25MsbNe9YCM",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Vas a ocupar mi información para revisar todo lo relacionado con Bodas.com.mx",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        928,
+        -352
+      ],
+      "id": "87b3dc67-4571-4278-82db-47e931bba536",
+      "name": "Supabase Vector Store1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "9ZSuKUqxsVYKzR8R",
+          "name": "Supabase account - Bodas.com.mx"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1008,
+        -176
+      ],
+      "id": "52e3e8ef-7ae4-4ccb-ac6a-1fddc74025be",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "0m8hCRuJ9UwuMq5W",
+          "name": "OpenAi account - soporte@valtmx.com"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-10-12T00:16:26.699Z",
+      "createdAt": "2025-10-12T00:16:26.699Z",
+      "role": "workflow:owner",
+      "workflowId": "xDz9HqV0VytlFTIA",
+      "projectId": "0KR2Gq9Kds58xeIV"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-20T05:27:03.000Z",
+  "versionId": "4f059056-2d0d-4ac2-b12b-8ab7aef7ff0e"
+}
