@@ -1,0 +1,653 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Obtener datos del tablero",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Mapeando columnas Monday",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mapeando columnas Monday": {
+      "main": [
+        [
+          {
+            "node": "Valores de Monday",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener datos del tablero": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valores de Monday": {
+      "main": [
+        [
+          {
+            "node": "Busqueda de Ciudad en Meteored",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Busqueda de Ciudad en Meteored": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-14T16:51:41.717Z",
+  "id": "5CEp6cEDnmEfJgsH",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Revisión del clima",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d7ce5c1f-b720-47b1-bebd-dd385aee6f92",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "d09b69a4-b5ce-411d-8300-ef9091170ba7",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4bf8ca5b-1f12-4771-8f3c-a6f6086ac043",
+              "name": "Nombre",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "0e07fea4-4c64-4140-80c9-71e782154394",
+              "name": "Fecha de Agenda",
+              "value": "={{ $json.column_values[0] }}",
+              "type": "object"
+            },
+            {
+              "id": "d8dc4bab-774f-4d64-b621-c001c6ff3abf",
+              "name": "ID Venue",
+              "value": "={{ $json.column_values[1] }}",
+              "type": "object"
+            },
+            {
+              "id": "c1f12d64-e508-44b3-8456-41c5fdce8834",
+              "name": "Estado del proceso",
+              "value": "={{ $json.column_values[2] }}",
+              "type": "object"
+            },
+            {
+              "id": "307f7dcf-9767-4a0b-94df-2f2c18882c98",
+              "name": "Dirección",
+              "value": "={{ $json.column_values[3] }}",
+              "type": "object"
+            },
+            {
+              "id": "ee84c909-7b65-4fb6-b1bf-59a528adc054",
+              "name": "Teléfono",
+              "value": "={{ $json.column_values[4] }}",
+              "type": "object"
+            },
+            {
+              "id": "7b64bc5b-8c9e-48bb-a61e-f84c13e2b73f",
+              "name": "Móvil",
+              "value": "={{ $json.column_values[5] }}",
+              "type": "object"
+            },
+            {
+              "id": "916df879-74f7-40ba-866b-2cb7894289ec",
+              "name": "Contact Venue",
+              "value": "={{ $json.column_values[6] }}",
+              "type": "object"
+            },
+            {
+              "id": "e5826049-a211-45d3-87e2-162bc42493b4",
+              "name": "Email",
+              "value": "={{ $json.column_values[7] }}",
+              "type": "object"
+            },
+            {
+              "id": "1511e7e9-8c51-4d33-aa37-0fca1ceefa88",
+              "name": "URL Bodas",
+              "value": "={{ $json.column_values[8] }}",
+              "type": "object"
+            },
+            {
+              "id": "419b8b70-8c40-4401-bb97-ce61f2b00d4a",
+              "name": "Ciudad (Weather)",
+              "value": "={{ $json.column_values[9] }}",
+              "type": "object"
+            },
+            {
+              "id": "ac82dc52-8463-43c5-b5c3-66d19b07e743",
+              "name": "Fecha Fin de Contrato",
+              "value": "={{ $json.column_values[10] }}",
+              "type": "object"
+            },
+            {
+              "id": "fbc79239-7768-48ee-9788-ed1f1037c522",
+              "name": "End Contract RW",
+              "value": "={{ $json.column_values[11] }}",
+              "type": "object"
+            },
+            {
+              "id": "09224452-cf35-4f66-8ce7-b1daff5777d1",
+              "name": "Renovación de Contrato",
+              "value": "={{ $json.column_values[12] }}",
+              "type": "object"
+            },
+            {
+              "id": "329d04dc-06db-4964-a977-10afffde679a",
+              "name": "Estatus",
+              "value": "={{ $json.column_values[13] }}",
+              "type": "object"
+            },
+            {
+              "id": "c9be0ce8-f846-4cf2-abe4-2cfeb9b822a3",
+              "name": "Producto",
+              "value": "={{ $json.column_values[14] }}",
+              "type": "object"
+            },
+            {
+              "id": "c8f94c95-4580-455b-ae76-ccc3a28c32de",
+              "name": "Emails",
+              "value": "={{ $json.column_values[15] }}",
+              "type": "object"
+            },
+            {
+              "id": "8b5380e0-3d94-4457-838c-377b03584e43",
+              "name": "Llamadas",
+              "value": "={{ $json.column_values[16] }}",
+              "type": "object"
+            },
+            {
+              "id": "7217f484-2182-43db-84fb-af193881919c",
+              "name": "Whatsapp",
+              "value": "={{ $json.column_values[17] }}",
+              "type": "object"
+            },
+            {
+              "id": "d014aa87-7178-4218-8806-e1c047f86677",
+              "name": "Interes de cliente",
+              "value": "={{ $json.column_values[18] }}",
+              "type": "object"
+            },
+            {
+              "id": "53e45395-718c-4bcc-8065-065f3f92c1db",
+              "name": "Anulaciones",
+              "value": "={{ $json.column_values[19] }}",
+              "type": "object"
+            },
+            {
+              "id": "67bf87e2-18bd-4a24-84b0-d273cd10f6bf",
+              "name": "Comentario Comercial",
+              "value": "={{ $json.column_values[20] }}",
+              "type": "object"
+            },
+            {
+              "id": "1ba9689d-7647-43a8-b38d-7c46db5aa68e",
+              "name": "Automat",
+              "value": "={{ $json.column_values[21] }}",
+              "type": "object"
+            },
+            {
+              "id": "a1cc9048-6592-4e15-b3e4-0e5f764d4819",
+              "name": "Fecha de la cita",
+              "value": "={{ $json.column_values[22] }}",
+              "type": "object"
+            },
+            {
+              "id": "203fcf1b-c8ca-411d-883b-503c48122dd3",
+              "name": "Viaticos",
+              "value": "={{ $json.column_values[23] }}",
+              "type": "object"
+            },
+            {
+              "id": "b7d3f200-d555-49cb-9f7a-cde6e81ce3fa",
+              "name": "Hora",
+              "value": "={{ $json.column_values[24] }}",
+              "type": "object"
+            },
+            {
+              "id": "3b8956c7-ace5-4551-bfb5-47f6694bd28a",
+              "name": "Estado",
+              "value": "={{ $json.column_values[25] }}",
+              "type": "object"
+            },
+            {
+              "id": "43b9f80b-5d0d-4bf7-bcb5-afbb9eb8fc7e",
+              "name": "Técnico",
+              "value": "={{ $json.column_values[26] }}",
+              "type": "object"
+            },
+            {
+              "id": "cd74aaf5-f78a-473d-9bcd-d69e0079293d",
+              "name": "Next Move",
+              "value": "={{ $json.column_values[28] }}",
+              "type": "object"
+            },
+            {
+              "id": "57af140e-dbee-4b55-9288-ccd9971ebff6",
+              "name": "Contactar Interprika",
+              "value": "={{ $json.column_values[29] }}",
+              "type": "object"
+            },
+            {
+              "id": "39fc1c3a-8120-4ba1-8686-131f42890c73",
+              "name": "Creación de Elemento",
+              "value": "={{ $json.column_values[30] }}",
+              "type": "object"
+            },
+            {
+              "id": "2d77e390-b522-4e50-8a6b-5a7d476d2acc",
+              "name": "Zona",
+              "value": "={{ $json.column_values[31] }}",
+              "type": "object"
+            },
+            {
+              "id": "64c8aea8-d938-4c0b-9ebd-5c497aeaa16e",
+              "name": "Item ID",
+              "value": "={{ $json.column_values[32] }}",
+              "type": "object"
+            },
+            {
+              "id": "ec393a59-b153-4906-b43f-a35a58946b60",
+              "name": "Last Updated",
+              "value": "={{ $json.column_values[33] }}",
+              "type": "object"
+            },
+            {
+              "id": "1d0ea039-5665-45f4-a99d-df7fe0d3100f",
+              "name": "Estado WhatsApp",
+              "value": "={{ $json.column_values[34] }}",
+              "type": "object"
+            },
+            {
+              "id": "4ff50e0a-e22f-438b-b685-c77cacce1353",
+              "name": "Estado Email",
+              "value": "={{ $json.column_values[35] }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        672,
+        80
+      ],
+      "id": "a3023c97-ad15-4bf7-865c-39816cd8cfa7",
+      "name": "Mapeando columnas Monday"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "056aa1eb-4b1f-48dd-a24b-aece6fe53de8",
+              "name": "Nombre",
+              "value": "={{ $json.Nombre }}",
+              "type": "string"
+            },
+            {
+              "id": "d5d6a9cf-1fe9-47e7-b3f2-778d470fb3d5",
+              "name": "=Fecha de agenda",
+              "value": "={{ $json['Fecha de Agenda'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "3fcd4e7d-3f1e-44c3-85f0-ce1f2a606a9a",
+              "name": "ID Venue",
+              "value": "={{ $json['ID Venue'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "5d0d89fc-46ae-47b3-941a-61489c37949a",
+              "name": "Estado del proceso",
+              "value": "={{ $json['Estado del proceso'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "3f1c62e6-7eb9-4c28-8e27-d5b67144eb08",
+              "name": "Dirección",
+              "value": "={{ $json['Dirección'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "dfcf8559-fbd3-4038-9472-293cd91bcefc",
+              "name": "Teléfono",
+              "value": "={{ $json['Teléfono'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "2cb6878f-e68d-4755-8ac9-bf60a4775327",
+              "name": "Móvil",
+              "value": "={{ $json['Móvil'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "c30dfeb2-1113-46ab-b86a-059a3b5cefe2",
+              "name": "Contact Venue",
+              "value": "={{ $json['Contact Venue'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "4253982b-b325-42b8-a84b-c915cf6777b6",
+              "name": "Email",
+              "value": "={{ $json.Email.text }}",
+              "type": "string"
+            },
+            {
+              "id": "fae0804e-ed9a-4f4f-a0f0-6f83df5016ee",
+              "name": "URL Bodas",
+              "value": "={{ $json['URL Bodas'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "dfe49e8f-5d6a-459e-b2b1-dd44c5b2b8c7",
+              "name": "Ciudad (Weather)",
+              "value": "={{ $json['Ciudad (Weather)'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "4d91b2b4-4513-4c87-a537-4d5f2e8517e0",
+              "name": "Fecha Fin de Contrato",
+              "value": "={{ $json['Fecha Fin de Contrato'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "1ea183b6-b65f-4ab1-b0c6-d02452222ba1",
+              "name": "End Contract RW",
+              "value": "={{ $json['End Contract RW'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "151ad7f5-f554-4ce3-bbec-96c5f2436ed0",
+              "name": "Renovación de Contrato",
+              "value": "={{ $json['Renovación de Contrato'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "420cfdf6-fc63-4baa-ac6c-e70f42a77208",
+              "name": "Estatus",
+              "value": "={{ $json.Estatus.text }}",
+              "type": "string"
+            },
+            {
+              "id": "4886d1cf-1442-48b0-a68d-0756579e9407",
+              "name": "Producto",
+              "value": "={{ $json.Producto.text }}",
+              "type": "string"
+            },
+            {
+              "id": "6fc0e956-1697-4d87-b4a8-518db8b8d8f9",
+              "name": "Emails",
+              "value": "={{ $json.Emails.text }}",
+              "type": "string"
+            },
+            {
+              "id": "090538e8-8b17-4a00-9b73-c4d97710c3cb",
+              "name": "Llamadas",
+              "value": "={{ $json.Llamadas.text }}",
+              "type": "string"
+            },
+            {
+              "id": "9f737dab-b371-41ba-9268-3acc1013e1d7",
+              "name": "Whatsapp",
+              "value": "={{ $json.Whatsapp.text }}",
+              "type": "string"
+            },
+            {
+              "id": "98e39546-efac-41cc-8aad-4d21b9623907",
+              "name": "Interes de cliente",
+              "value": "={{ $json['Interes de cliente'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "cf5367b0-1201-4205-ae19-c9f9e3ae6346",
+              "name": "Anulaciones",
+              "value": "={{ $json.Anulaciones.text }}",
+              "type": "string"
+            },
+            {
+              "id": "98fa3770-c4e7-428e-b767-9d43265947ea",
+              "name": "Comentario Comercial",
+              "value": "={{ $json['Comentario Comercial'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "64d13949-eea2-4bc9-8ded-90f8b25a676b",
+              "name": "Automat",
+              "value": "={{ $json.Automat.text }}",
+              "type": "string"
+            },
+            {
+              "id": "88d9f7c9-c7a8-4e3a-b320-38117091b3c4",
+              "name": "Fecha de la cita",
+              "value": "={{ $json['Fecha de la cita'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "130969e3-f264-4f55-a505-792de637beea",
+              "name": "Viaticos",
+              "value": "={{ $json.Viaticos.text }}",
+              "type": "string"
+            },
+            {
+              "id": "82632c29-ab3a-4bb3-a6b0-0ab72ca7bbcc",
+              "name": "Hora",
+              "value": "={{ $json.Hora.text }}",
+              "type": "string"
+            },
+            {
+              "id": "f7a4d492-f41f-46ca-a094-e29e7ccb301a",
+              "name": "Estado",
+              "value": "={{ $json.Estado.text }}",
+              "type": "string"
+            },
+            {
+              "id": "83315dab-a856-492d-9505-5d59bcbd7e56",
+              "name": "Técnico",
+              "value": "={{ $json['Técnico'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "70896f24-373a-4311-8e89-8ca77aba27e3",
+              "name": "Next Move",
+              "value": "={{ $json['Next Move'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "f97ccac3-62ae-4217-8f6a-bd4a4d378d94",
+              "name": "Contactar Interprika",
+              "value": "={{ $json['Contactar Interprika'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "d4cf5603-1660-48ca-93af-ec9326b962ca",
+              "name": "Creación de Elemento",
+              "value": "={{ $json['Creación de Elemento'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "38b00530-5e08-4c4e-aa40-052c940a9216",
+              "name": "Zona",
+              "value": "={{ $json.Zona.text }}",
+              "type": "string"
+            },
+            {
+              "id": "eafe62f2-5998-4d0a-b647-3b5141656245",
+              "name": "Item ID",
+              "value": "={{ $json['Item ID'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "a1573f98-0230-46bd-9464-2e2337301118",
+              "name": "Last Updated",
+              "value": "={{ $json['Last Updated'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "7759bfca-1930-408f-97d4-c0c079b49e00",
+              "name": "Estado WhatsApp",
+              "value": "={{ $json['Estado WhatsApp'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "f66bb496-8d04-45bb-b174-a3f8b5535dd0",
+              "name": "Estado Email",
+              "value": "={{ $json['Estado Email'].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        896,
+        80
+      ],
+      "id": "3fd19685-e3e4-481f-a97d-5e253e2db043",
+      "name": "Valores de Monday"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "boardItem",
+        "operation": "getAll",
+        "boardId": "1209925112",
+        "groupId": "duplicate_of_project_a"
+      },
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "64997ef8-e2ce-4eec-a839-f4633f91b097",
+      "name": "Obtener datos del tablero",
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const html = $json.data;\n\n// Buscamos la forma más flexible posible de encontrar el enlace\nconst match = html.match(/https:\\/\\/www\\.meteored\\.mx\\/clima_[^\"&<]+/);\n\nif (!match) {\n  return [{\n    json: {\n      ciudad: $json[\"Ciudad (Weather)\"],\n      url_meteored: null,\n      mensaje: \"No se encontró enlace. Google puede haber devuelto HTML diferente.\"\n    }\n  }];\n}\n\nlet url = decodeURIComponent(match[0]);\nurl = url.split(\"&\")[0];\n\nreturn [{\n  json: {\n    ciudad: $json[\"Ciudad (Weather)\"],\n    url_meteored: url\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1392,
+        0
+      ],
+      "id": "8998e472-2dfb-43f0-ba6a-8dffb4f0bede",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "url": "=https://wttr.in/{{$json[\"Ciudad (Weather)\"]}}?format=j1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1104,
+        80
+      ],
+      "id": "371607ca-6a62-4d90-be03-e4e085e857c5",
+      "name": "Busqueda de Ciudad en Meteored",
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Mexico_City",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-10-14T16:51:41.721Z",
+      "createdAt": "2025-10-14T16:51:41.721Z",
+      "role": "workflow:owner",
+      "workflowId": "5CEp6cEDnmEfJgsH",
+      "projectId": "0KR2Gq9Kds58xeIV"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-14T19:06:54.000Z",
+  "versionId": "2380ff97-5f28-4d3c-b2d1-b34e4ce41f7a"
+}
