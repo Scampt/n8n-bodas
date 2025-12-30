@@ -1,0 +1,1385 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Revisar el estado de Whatsapp - Texto": {
+      "main": [
+        []
+      ]
+    },
+    "Obtener DATA": {
+      "main": [
+        [
+          {
+            "node": "Filtro de mensajes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar DATA": {
+      "main": [
+        [
+          {
+            "node": "Obtener DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Borrar DATA": {
+      "main": [
+        [
+          {
+            "node": "Trylock - Expire",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtro de mensajes": {
+      "main": [
+        [
+          {
+            "node": "Sin Acción",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TryLock - Get",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "25 seconds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tipo de mensaje": {
+      "main": [
+        [
+          {
+            "node": "Mapear campos WA - Audio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mapear campos WA - Texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mapear campos WA - Texto": {
+      "main": [
+        [
+          {
+            "node": "Enviar DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mapear campos WA - Audio": {
+      "main": [
+        [
+          {
+            "node": "Descargar audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Descargar audio": {
+      "main": [
+        [
+          {
+            "node": "Transcribe a recording",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mejorar transcripción": {
+      "main": [
+        [
+          {
+            "node": "Normalizar audio -> Texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcriptor Brain": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Mejorar transcripción",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar audio -> Texto": {
+      "main": [
+        [
+          {
+            "node": "Enviar DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Revisar el estado de Whatsapp": {
+      "main": [
+        [
+          {
+            "node": "Tipo de mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Lock existe?": {
+      "main": [
+        [
+          {
+            "node": "Muere aquí",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TryLock - Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TryLock - Get": {
+      "main": [
+        [
+          {
+            "node": "¿Lock existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trylock - Expire": {
+      "main": [
+        [
+          {
+            "node": "List Length",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TryLock - Set": {
+      "main": [
+        [
+          {
+            "node": "Borrar DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Length": {
+      "main": [
+        [
+          {
+            "node": "CreateLoop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreateLoop": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Pop": {
+      "main": [
+        [
+          {
+            "node": "Redis Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAcc": {
+      "main": [
+        [
+          {
+            "node": "ConcatenateFinal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ConcatenateFinal": {
+      "main": [
+        [
+          {
+            "node": "Pruebas - ¿# de Kevin?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Push": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "GetAcc",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Redis Pop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pruebas - ¿# de Kevin?": {
+      "main": [
+        [
+          {
+            "node": "Agente Bodas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bodas Brain": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente Bodas",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente Bodas",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente Bodas": {
+      "main": [
+        [
+          {
+            "node": "Responder WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "25 seconds": {
+      "main": [
+        [
+          {
+            "node": "TryLock - Get",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe a recording": {
+      "main": [
+        [
+          {
+            "node": "Mejorar transcripción",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-09T02:24:34.175Z",
+  "id": "yfkvpx5Bpe3gV8O1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "3. WhatsApp Automatizado - Buffer de mensaje",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "estado-whatsapp",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2592,
+        3248
+      ],
+      "id": "666bf71f-0341-49eb-bf9e-8c074e78e21d",
+      "name": "Revisar el estado de Whatsapp - Texto",
+      "webhookId": "90605e6e-107b-4387-b53e-ea9e86327a1a",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "estado-whatsapp",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2592,
+        3472
+      ],
+      "id": "67079c99-e229-4d40-818c-6aed570c8099",
+      "name": "Revisar el estado de Whatsapp - Audio1",
+      "webhookId": "90605e6e-107b-4387-b53e-ea9e86327a1a",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "Mensaje",
+        "key": "={{ $json.key }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -1088,
+        3312
+      ],
+      "id": "b0813c87-cebc-4dab-85a6-c3dddc2612ce",
+      "name": "Obtener DATA",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $json.key }}",
+        "messageData": "={{ JSON.stringify({\n      message   : $json.mensaje,\n      sessionID : $json.id,\n      date_time : $json.fecha\n}) }}\n",
+        "tail": true
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        3056
+      ],
+      "id": "e05172fa-45e4-4e84-a22d-f38546fd802a",
+      "name": "Enviar DATA",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ 'acc:' + ($node[\"Revisar el estado de Whatsapp\"].json.body.key || $json.key || $node[\"Enviar DATA\"]?.json?.key) }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        48,
+        3584
+      ],
+      "id": "757bde64-ba12-4921-adb0-5eaa35a3c2ee",
+      "name": "Borrar DATA",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ JSON.parse($json.Mensaje.slice(-1)[0]).sessionID }}",
+                    "rightValue": "={{ String($node[\"Enviar DATA\"].json.id).trim() }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEquals"
+                    },
+                    "id": "81c7205c-84c9-480e-8b5a-1a12b5ff7baa"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ignorar"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4fca4c39-e8bf-490b-8e2e-176c95d9156e",
+                    "leftValue": "={{ DateTime.fromFormat(\n      JSON.parse($json.Mensaje.slice(-1)[0]).date_time,\n      'dd-MM-yyyy HH:mm:ss'\n   ) }}",
+                    "rightValue": "={{ $now.minus(25, 'seconds').toLocal() }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "before"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Continuar"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "Esperar"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -464,
+        3296
+      ],
+      "id": "623c511a-50e0-4354-9f0d-706d9db79e34",
+      "name": "Filtro de mensajes"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.last_input_text || '' }}",
+                    "rightValue": ".ogg",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "bb1ab299-4133-4034-b860-65ec4a481ef1"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2160cfd2-2886-4aae-a16e-fa4b22040dd5",
+                    "leftValue": "={{ $json.body.last_input_text || '' }}",
+                    "rightValue": ".ogg",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notContains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Texto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -1680,
+        2992
+      ],
+      "id": "1fd12020-1906-46cc-af5f-c958cdcd11f5",
+      "name": "Tipo de mensaje"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7c0e7b4b-342a-43d9-98d0-d383de1d8cf7",
+              "name": "key",
+              "value": "={{ $json.body.key }}",
+              "type": "string"
+            },
+            {
+              "id": "f00810b7-e6ef-481b-9026-d0c574b96458",
+              "name": "id",
+              "value": "={{ $json.body.id }}",
+              "type": "string"
+            },
+            {
+              "id": "54e495b7-589b-47ae-993e-e4eac49c6e9f",
+              "name": "nombre",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "6f616e3b-5a54-45ae-89d6-5fe50910a117",
+              "name": "mensaje",
+              "value": "={{ $json.body.last_input_text }}",
+              "type": "string"
+            },
+            {
+              "id": "e74683c5-3350-4987-a200-df59c30f658a",
+              "name": "telefono",
+              "value": "={{ $json.body.whatsapp_phone }}",
+              "type": "string"
+            },
+            {
+              "id": "9ee7edec-1023-4445-bf0b-9207bdb13144",
+              "name": "fecha",
+              "value": "={{ $now.toFormat(\"dd-MM-yyyy HH:mm:ss\") }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1296,
+        3056
+      ],
+      "id": "f89a5a96-ba3b-418c-9700-9c3b3b0e0ef6",
+      "name": "Mapear campos WA - Texto"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        3120
+      ],
+      "id": "43aa81f4-3082-4118-898f-b9b770fd9334",
+      "name": "Sin Acción"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7c0e7b4b-342a-43d9-98d0-d383de1d8cf7",
+              "name": "key",
+              "value": "={{ $json.body.key }}",
+              "type": "string"
+            },
+            {
+              "id": "f00810b7-e6ef-481b-9026-d0c574b96458",
+              "name": "id",
+              "value": "={{ $json.body.id }}",
+              "type": "string"
+            },
+            {
+              "id": "54e495b7-589b-47ae-993e-e4eac49c6e9f",
+              "name": "nombre",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "05a9ef5f-7070-442e-9987-0341177a01db",
+              "name": "audio_url",
+              "value": "={{ $json.body.last_input_text }}",
+              "type": "string"
+            },
+            {
+              "id": "e74683c5-3350-4987-a200-df59c30f658a",
+              "name": "telefono",
+              "value": "={{ $json.body.whatsapp_phone }}",
+              "type": "string"
+            },
+            {
+              "id": "9cbe3c96-288f-4e1f-b9e0-80871e71eb79",
+              "name": "fecha",
+              "value": "={{ $now.toFormat(\"dd-MM-yyyy HH:mm:ss\") }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1520,
+        2816
+      ],
+      "id": "451238dc-9700-43a0-ae9e-39d3c4304c3c",
+      "name": "Mapear campos WA - Audio"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.audio_url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "audio"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -1296,
+        2816
+      ],
+      "id": "4004c144-0187-4d3e-b0a4-fa5de19c0edf",
+      "name": "Descargar audio"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json[\"text\"] }}",
+        "options": {
+          "systemMessage": "Eres un asistente lingüístico experto en mejorar transcripciones de audio.\n\nTu tarea consiste en:\n1. Corregir errores de ortografía, puntuación y gramática.\n2. Aclarar frases ambiguas o entrecortadas para que el texto sea fluido.\n3. Mantener el significado y tono original del hablante.\n4. Si el texto incluye frases en otro idioma, tradúcelas al español respetando el contexto.\n5. No inventes información ni cambies el sentido del mensaje.\n6. Devuelve únicamente el texto limpio, sin comentarios adicionales."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -784,
+        2816
+      ],
+      "id": "4334465b-9f5f-44a1-9b78-93c508b0dc19",
+      "name": "Mejorar transcripción"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -784,
+        2992
+      ],
+      "id": "17c59dc0-7d39-4fbf-b588-55145a82b0ab",
+      "name": "Transcriptor Brain",
+      "credentials": {
+        "openAiApi": {
+          "id": "0m8hCRuJ9UwuMq5W",
+          "name": "OpenAi account - soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ff6d8d52-6087-49f3-b2fc-4cfd8dad6378",
+              "name": "key",
+              "value": "={{ $('Mapear campos WA - Audio').item.json.key }}",
+              "type": "string"
+            },
+            {
+              "id": "4df1247b-bec2-44c0-b985-b53574e8b274",
+              "name": "id",
+              "value": "={{ $('Mapear campos WA - Audio').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "e807a6d8-7dda-41e8-a076-089d372a39bb",
+              "name": "nombre",
+              "value": "={{ $('Mapear campos WA - Audio').item.json.nombre }}",
+              "type": "string"
+            },
+            {
+              "id": "4c2ba023-fa6f-44af-a5ee-d7270ecfd583",
+              "name": "mensaje",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "f513a16a-21d0-4470-bf95-493cfe63379d",
+              "name": "telefono",
+              "value": "={{ $('Mapear campos WA - Audio').item.json.telefono }}",
+              "type": "string"
+            },
+            {
+              "id": "60a6adfa-0268-4d56-8358-37e299997ae9",
+              "name": "fecha",
+              "value": "={{ $('Mapear campos WA - Audio').item.json.fecha }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -288,
+        2816
+      ],
+      "id": "748ecf53-ae52-41e4-8806-41a30c8c2b77",
+      "name": "Normalizar audio -> Texto"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "estado-whatsapp",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1920,
+        2992
+      ],
+      "id": "8fa3c788-ead6-4abc-b2dd-075e849b188d",
+      "name": "Revisar el estado de Whatsapp",
+      "webhookId": "90605e6e-107b-4387-b53e-ea9e86327a1a"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9921e7b4-be17-4160-95f3-5190104624aa",
+              "leftValue": "={{ $node[\"TryLock - Get\"].json[\"value\"] || $node[\"TryLock - Get\"].json[\"propertyName\"] || '' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        80,
+        3312
+      ],
+      "id": "f40c3a90-1a3b-41c4-a4dc-f99068f9eb50",
+      "name": "¿Lock existe?"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "=lock:{{$json.key || $node[\"Revisar el estado de Whatsapp\"]?.json?.body?.key || $node[\"Enviar DATA\"]?.json?.key || \"\"}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        3312
+      ],
+      "id": "2965b3ff-969b-4c9d-b52a-836666af7f3d",
+      "name": "TryLock - Get",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        320,
+        3072
+      ],
+      "id": "f64a38f7-c89b-45d2-8684-8ca5eaf917a0",
+      "name": "Muere aquí"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=lock:{{$json.key || $node[\"Revisar el estado de Whatsapp\"]?.json?.body?.key || $node[\"Enviar DATA\"]?.json?.key || \"\"}}",
+        "expire": true,
+        "ttl": 30
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        352,
+        3584
+      ],
+      "id": "e4e978a9-95e8-44ef-a6f1-f70da9f79950",
+      "name": "Trylock - Expire",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "=lock:{{$json.key || $node[\"Revisar el estado de Whatsapp\"]?.json?.body?.key || $node[\"Enviar DATA\"]?.json?.key || \"\"}}",
+        "value": "1",
+        "expire": true,
+        "ttl": 30
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        320,
+        3328
+      ],
+      "id": "ef50f0be-dcaf-4ea8-8b31-cb335fb7f3cf",
+      "name": "TryLock - Set",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "llen",
+        "list": "={{ $node[\"Revisar el estado de Whatsapp\"].json.body.key || $json.key || $node[\"Enviar DATA\"]?.json?.key }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        512,
+        3344
+      ],
+      "id": "133d42f1-4a7e-4651-ac96-216d2ee96f75",
+      "name": "List Length",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// CreateLoop robusto: soporta varios formatos de salida del nodo \"List Length\"\nconst llJson = $node[\"List Length\"].json;\n\n// función auxiliar para parsear a entero seguro\nfunction toInt(x) {\n  const n = parseInt(x, 10);\n  return Number.isFinite(n) ? n : NaN;\n}\n\nlet n = NaN;\n\n// 1) si el nodo devuelve directamente un número\nif (typeof llJson === 'number') n = llJson;\n\n// 2) si el json tiene field 'value' o 'length'\nelse if (llJson && typeof llJson === 'object') {\n  if (typeof llJson.value !== 'undefined') n = toInt(llJson.value);\n  else if (typeof llJson.length !== 'undefined') n = toInt(llJson.length);\n  else {\n    // 3) caso objeto con clave dinámica: { \"user:1626567589\": 9 }\n    const keys = Object.keys(llJson);\n    if (keys.length === 1) {\n      n = toInt(llJson[keys[0]]);\n    } else {\n      // 4) si hay varias claves, intenta tomar la primera que sea number-like\n      for (const k of keys) {\n        const v = toInt(llJson[k]);\n        if (!Number.isNaN(v)) { n = v; break; }\n      }\n    }\n  }\n}\n// 5) si el nodo devolvió string (ej \"9\")\nif (Number.isNaN(n) && typeof llJson === 'string') n = toInt(llJson);\n\n// fallback: si sigue NaN => 0\nif (Number.isNaN(n)) n = 0;\n\n// construir salida con n elementos\nconst out = [];\nfor (let i = 0; i < n; i++) out.push({ json: { index: i }});\nreturn out;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        3584
+      ],
+      "id": "045a7d40-2e1a-479f-9ae1-1bee604c74b7",
+      "name": "CreateLoop"
+    },
+    {
+      "parameters": {
+        "operation": "pop",
+        "list": "={{ $node[\"Revisar el estado de Whatsapp\"]?.json?.body?.key || $json.key || $node[\"Enviar DATA\"]?.json?.key }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        3536
+      ],
+      "id": "d347f41d-95c2-4118-87c9-1ec5f3c10e82",
+      "name": "Redis Pop",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// mapear/pop parsear\nconst parsed = items.map(it => {\n  // si Redis Pop devolvió { propertyName: \"...\" } o similar, intenta manejar ambos:\n  const v = it.json.propertyName ?? it.json.value ?? it.json;\n  if (typeof v === 'string') {\n    try { return JSON.parse(v); } catch(e) { return v; }\n  }\n  return v;\n});\n\n// obtener key para downstream (toma desde node webhook o Enviar DATA)\nconst key = $node[\"Revisar el estado de Whatsapp\"]?.json?.body?.key || $json.key || $node[\"Enviar DATA\"]?.json?.key;\n\n// devolver en el formato esperado\nreturn [{ json: { Mensaje: parsed, key: key } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1136,
+        3376
+      ],
+      "id": "c686b67d-31b4-4f24-87b8-29346096f5d4",
+      "name": "GetAcc"
+    },
+    {
+      "parameters": {
+        "jsCode": "const arr = items[0].json.Mensaje || [];\nconst texts = arr.map(m => {\n  if (typeof m === 'string') {\n    try { return JSON.parse(m).message || JSON.parse(m).mensaje || String(m); }\n    catch(e) { return String(m); }\n  }\n  // si es objeto\n  return m.message || m.mensaje || JSON.stringify(m);\n});\nconst joined = texts.join(\"\\n\");\nreturn [{ json: { mensaje: joined, count: texts.length, raw: texts, key: items[0].json.key } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1344,
+        3376
+      ],
+      "id": "a794ec0b-e476-4afb-ae30-e3c65599e4b0",
+      "name": "ConcatenateFinal"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ 'acc:' + ($node[\"Revisar el estado de Whatsapp\"].json.body.key || $json.key || $node[\"Enviar DATA\"]?.json?.key) }}",
+        "messageData": "={{ JSON.stringify($json.propertyName ?? $json.value ?? $json) }}",
+        "tail": true
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        3536
+      ],
+      "id": "e643e739-2416-4278-ae3b-0fff18465da8",
+      "name": "Redis Push",
+      "credentials": {
+        "redis": {
+          "id": "PoIp6VIXXjSux6k7",
+          "name": "Redis self-hosted - Bodas.com.mx account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        832,
+        3520
+      ],
+      "id": "45c806cf-dd12-4c3e-ab85-491dda6df0f4",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1fa216c9-cc31-4023-b011-4504352ef83f",
+              "leftValue": "={{$node[\"Revisar el estado de Whatsapp\"].json.body.whatsapp_phone}}",
+              "rightValue": "+5217351842906",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1568,
+        3488
+      ],
+      "id": "a76e9533-a7a3-42b5-a12c-2f3b51e2c052",
+      "name": "Pruebas - ¿# de Kevin?"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.mensaje }}",
+        "options": {
+          "systemMessage": "=Eres un asistente experto de Bodas.com.mx para WhatsApp.\n\nObjetivo:\n- Responder dudas del usuario sobre tours virtuales, citas, disponibilidad y consultas generales.\n- Mantener un tono amable, cálido y profesional.\n\nReglas operativas (obligatorias):\n1. Siempre responde en español neutro.\n2. Responde de manera breve, clara y empática (1–3 frases cuando sea posible).\n3. Nunca inventes información. Si no conoces un dato, ofrece opciones o pide permiso para consultar.\n4. Debes **usar la herramienta** llamada \"Responder WhatsApp\" para enviar la respuesta final.\n5. Cuando uses la herramienta, pásale **únicamente** el texto que se enviará: sin metadatos ni explicaciones.\n6. **NO** devuelvas explicaciones, pasos, o meta-texto al flujo; solo la respuesta final para enviar.\n7. Si el usuario pregunta por datos sensibles o que requieran verificación, responde con: \"Para confirmar eso, ¿te puedo compartir las opciones disponibles o agendar una cita?\"."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        1840,
+        3472
+      ],
+      "id": "b50175fd-89c2-4d38-ad9b-5f3e1f097018",
+      "name": "Agente Bodas"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1776,
+        3680
+      ],
+      "id": "0cc3fce1-6391-4f69-809d-06ab960427c5",
+      "name": "Bodas Brain",
+      "credentials": {
+        "openAiApi": {
+          "id": "0m8hCRuJ9UwuMq5W",
+          "name": "OpenAi account - soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.key }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1904,
+        3680
+      ],
+      "id": "804fbb05-581d-490b-938a-9146072a83b8",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.manychat.com/fb/sending/sendContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"subscriber_id\": {{ $node['Revisar el estado de Whatsapp'].json.body.id }},\n  \"data\": {\n    \"version\": \"v2\",\n    \"content\": {\n      \"type\": \"whatsapp\",\n      \"messages\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{ $json.output }}\"\n        }\n      ]\n    }\n  },\n  \"message_tag\": \"ACCOUNT_UPDATE\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        2208,
+        3472
+      ],
+      "id": "6fe618de-e667-4add-a5a0-03c150440281",
+      "name": "Responder WhatsApp",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "H136lgOUXwEt9kDA",
+          "name": "Bearer Auth - Manychat WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 25
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -272,
+        3440
+      ],
+      "id": "470cf26e-5954-4fbd-b5f5-794a0a1914f3",
+      "name": "25 seconds",
+      "webhookId": "96c27c05-96e6-490e-ac24-3c38c75c7d9b"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "binaryPropertyName": "audio",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2,
+      "position": [
+        -1040,
+        2816
+      ],
+      "id": "a566ef46-c75e-4b05-bab8-e72f4d933fdf",
+      "name": "Transcribe a recording",
+      "credentials": {
+        "openAiApi": {
+          "id": "0m8hCRuJ9UwuMq5W",
+          "name": "OpenAi account - soporte@valtmx.com"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Revisar el estado de Whatsapp - Audio1": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-bodasmx-n8n.z5cvat.easypanel.host",
+            "user-agent": "ManyChat",
+            "content-length": "854",
+            "content-type": "application/json; charset=utf-8",
+            "x-forwarded-for": "3.74.158.122",
+            "x-forwarded-host": "n8n-bodasmx-n8n.z5cvat.easypanel.host",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "e84291a6721b",
+            "x-real-ip": "3.74.158.122",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "key": "user:1626567589",
+            "id": "1626567589",
+            "page_id": "",
+            "user_refs": [],
+            "status": "active",
+            "first_name": "Kevin",
+            "last_name": "",
+            "name": "Kevin",
+            "gender": null,
+            "profile_pic": null,
+            "locale": null,
+            "language": null,
+            "timezone": "UTC±00",
+            "live_chat_url": "https://app.manychat.com/fb3934642/chat/1626567589",
+            "last_input_text": "https://manybot-files.s3.eu-central-1.amazonaws.com/3934642/wa/2025/12/03/original_b9edd2cbfe6bd624459d903f5ac001bd.ogg",
+            "optin_phone": false,
+            "phone": null,
+            "optin_email": false,
+            "email": null,
+            "subscribed": "2025-12-02T14:15:26-06:00",
+            "last_interaction": null,
+            "ig_last_interaction": null,
+            "last_seen": null,
+            "ig_last_seen": null,
+            "is_followup_enabled": true,
+            "ig_username": null,
+            "ig_id": null,
+            "whatsapp_phone": "+5217351842906",
+            "optin_whatsapp": true,
+            "phone_country_code": null,
+            "last_growth_tool": null,
+            "custom_fields": {
+              "fechallegada": "2025-12-02T16:39:52-06:00"
+            }
+          },
+          "webhookUrl": "https://n8n-bodasmx-n8n.z5cvat.easypanel.host/webhook-test/estado-whatsapp",
+          "executionMode": "test"
+        }
+      }
+    ],
+    "Revisar el estado de Whatsapp - Texto": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-bodasmx-n8n.z5cvat.easypanel.host",
+            "user-agent": "ManyChat",
+            "content-length": "739",
+            "content-type": "application/json; charset=utf-8",
+            "x-forwarded-for": "3.74.158.122",
+            "x-forwarded-host": "n8n-bodasmx-n8n.z5cvat.easypanel.host",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "e84291a6721b",
+            "x-real-ip": "3.74.158.122",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "key": "user:1626567589",
+            "id": "1626567589",
+            "page_id": "",
+            "user_refs": [],
+            "status": "active",
+            "first_name": "Kevin",
+            "last_name": "",
+            "name": "Kevin",
+            "gender": null,
+            "profile_pic": null,
+            "locale": null,
+            "language": null,
+            "timezone": "UTC±00",
+            "live_chat_url": "https://app.manychat.com/fb3934642/chat/1626567589",
+            "last_input_text": "Hola",
+            "optin_phone": false,
+            "phone": null,
+            "optin_email": false,
+            "email": null,
+            "subscribed": "2025-12-02T14:15:26-06:00",
+            "last_interaction": null,
+            "ig_last_interaction": null,
+            "last_seen": null,
+            "ig_last_seen": null,
+            "is_followup_enabled": true,
+            "ig_username": null,
+            "ig_id": null,
+            "whatsapp_phone": "+5217351842906",
+            "optin_whatsapp": true,
+            "phone_country_code": null,
+            "last_growth_tool": null,
+            "custom_fields": {
+              "fechallegada": "2025-12-02T16:39:52-06:00"
+            }
+          },
+          "webhookUrl": "https://n8n-bodasmx-n8n.z5cvat.easypanel.host/webhook/estado-whatsapp",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Mexico_City",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-10-09T02:24:34.178Z",
+      "createdAt": "2025-10-09T02:24:34.178Z",
+      "role": "workflow:owner",
+      "workflowId": "yfkvpx5Bpe3gV8O1",
+      "projectId": "0KR2Gq9Kds58xeIV"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-11T17:13:05.000Z",
+  "versionId": "e89e2b52-b858-4685-bbf2-87d644e811a7"
+}
