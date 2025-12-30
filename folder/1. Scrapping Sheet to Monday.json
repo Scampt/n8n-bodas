@@ -1,0 +1,2453 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-12T20:20:00.677Z",
+    "createdAt": "2025-12-12T20:20:00.677Z",
+    "versionId": "dd0006e0-7d41-4f89-ac99-5fee90b6ed69",
+    "workflowId": "cgunIVaaAcYuxM3O",
+    "nodes": [
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "4cbea8cd-5c0a-4de5-b05c-da60723d09e0",
+                "name": "name",
+                "value": "={{ $json['Customer name'] }}",
+                "type": "string"
+              },
+              {
+                "id": "9382fa21-2883-4933-9cb7-756fab5e04f7",
+                "name": "ID Venue",
+                "value": "={{ $json[\"ID EMPRESA\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "450adf32-b927-43e7-9396-18f25fdde150",
+                "name": "Dirección",
+                "value": "={{ $json.Address }}",
+                "type": "string"
+              },
+              {
+                "id": "70ca2856-335a-43ed-ba7f-c4ca9433aaf5",
+                "name": "Teléfono",
+                "value": "={{ $json.telephone }}",
+                "type": "string"
+              },
+              {
+                "id": "486534e5-40f3-4d4e-865d-67fe9918daf5",
+                "name": "Movil",
+                "value": "={{ $json.Mobile }}",
+                "type": "string"
+              },
+              {
+                "id": "9c0b0847-99d6-483d-a6ef-76346db42ee2",
+                "name": "Contact Venue",
+                "value": "={{ $json[\"Contact person\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "80f7e136-1e2a-427a-a626-736827c2d7c9",
+                "name": "Email",
+                "value": "={{ $json[\"e-mail\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "7bb97666-a0b2-4db6-8e5f-bea5355edaf8",
+                "name": "URL Bodas",
+                "value": "={{ $json[\"URL Web\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "116a5fe6-e691-4ad0-bded-9e7523e8b2a4",
+                "name": "Fecha Fin de Contrato",
+                "value": "={{ $json[\"Contract end date\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "9c1b62d3-6ca7-4b6e-991e-b6ae3f6c2bec",
+                "name": "End Contract RW",
+                "value": "={{ $json['End Contract Date\tRW date'] }}",
+                "type": "number"
+              },
+              {
+                "id": "0e724f65-2e6f-40d4-b6cb-0be69db362f5",
+                "name": "Renovación de Contrato",
+                "value": "={{ $json['Fecha RW'] }}",
+                "type": "number"
+              },
+              {
+                "id": "b62c22a9-6b37-4c6b-ba68-3c2f26798edb",
+                "name": "Producto",
+                "value": "={{ $json.Product }}",
+                "type": "string"
+              },
+              {
+                "id": "562bd7a0-9c8b-4e90-be99-647f8d8d7de1",
+                "name": "Estado",
+                "value": "={{ $json.City }}",
+                "type": "string"
+              },
+              {
+                "id": "96df3155-4566-4ef5-8341-2a8f3df0c43e",
+                "name": "Fecha de ingreso",
+                "value": "={{ $json.Date }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {
+            "ignoreConversionErrors": true
+          }
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -5296,
+          752
+        ],
+        "id": "af86392b-217d-4acb-ba8a-7b40e6949755",
+        "name": "Mapeo de variables"
+      },
+      {
+        "parameters": {
+          "authentication": "oAuth2",
+          "resource": "boardItem",
+          "boardId": "1209925112",
+          "groupId": "new_group45304",
+          "name": "={{ $json.name }}",
+          "additionalFields": {
+            "columnValues": "={{ JSON.stringify({\n  id_venue: String($json[\"ID Venue\"] || \"\"),\n  text6: String($json[\"Dirección\"] || \"\"),\n  text_mksz2qkn: String($json[\"Teléfono\"] || \"\"),\n  text_mkszykzf: String($json[\"Movil\"] || \"\"),\n  texto: String($json[\"Contact Venue\"] || \"\"),\n  texto_mkmf8jc0: String($json[\"URL Bodas\"] || \"\"),\n  email: {\n    email: String($json[\"Email\"] || \"\"),\n    text: String($json[\"Email\"] || \"\")\n  },\n  date25: { date: String($json[\"Fecha Fin de Contrato\"]).slice(0, 10) },\n  date_mkszmtcq: { date: String($json[\"End Contract RW\"]).slice(0, 10) },\n  date_mksvhg6v: { date: String($json[\"Renovación de Contrato\"]).slice(0, 10) },\n  color_mkqgwk4v: { label: String($json[\"Producto\"] || \"default\") },\n  dropdown9: { labels: [String($json[\"Estado\"] || \"Sin estado\")] }\n}) }}\n"
+          }
+        },
+        "type": "n8n-nodes-base.mondayCom",
+        "typeVersion": 1,
+        "position": [
+          -2480,
+          960
+        ],
+        "id": "d6310467-8cb1-4fc3-ba9b-6e019dc4326e",
+        "name": "Exportación a Monday",
+        "credentials": {
+          "mondayComOAuth2Api": {
+            "id": "dE8g2W2GVOjXMeZt",
+            "name": "Monday.com account majonb@interprika.com"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "oAuth2",
+          "resource": "boardItem",
+          "operation": "get",
+          "itemId": "={{$json.id }}"
+        },
+        "type": "n8n-nodes-base.mondayCom",
+        "typeVersion": 1,
+        "position": [
+          -1872,
+          768
+        ],
+        "id": "aae5f15b-9b30-46bb-83ad-8b818fb84a62",
+        "name": "Obtener datos del tablero",
+        "credentials": {
+          "mondayComOAuth2Api": {
+            "id": "dE8g2W2GVOjXMeZt",
+            "name": "Monday.com account majonb@interprika.com"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "pollTimes": {
+            "item": [
+              {
+                "hour": 8
+              }
+            ]
+          },
+          "documentId": {
+            "__rl": true,
+            "value": "17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4",
+            "mode": "list",
+            "cachedResultName": "Tour virtual - New data -  Interprika 2025",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Tour Virtual",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4/edit#gid=0"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheetsTrigger",
+        "typeVersion": 1,
+        "position": [
+          -5504,
+          752
+        ],
+        "id": "1797a045-2031-4a1b-af76-769f2597a4c5",
+        "name": "Base de Datos",
+        "credentials": {
+          "googleSheetsTriggerOAuth2Api": {
+            "id": "ZoodLLPG0rYP3zUd",
+            "name": "Google Sheets Trigger account soporte@valtmx.com"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "4bf8ca5b-1f12-4771-8f3c-a6f6086ac043",
+                "name": "Nombre",
+                "value": "={{ $json.name }}",
+                "type": "string"
+              },
+              {
+                "id": "0e07fea4-4c64-4140-80c9-71e782154394",
+                "name": "Fecha de Agenda",
+                "value": "={{ $json.column_values[0] }}",
+                "type": "object"
+              },
+              {
+                "id": "d8dc4bab-774f-4d64-b621-c001c6ff3abf",
+                "name": "ID Venue",
+                "value": "={{ $json.column_values[1] }}",
+                "type": "object"
+              },
+              {
+                "id": "c1f12d64-e508-44b3-8456-41c5fdce8834",
+                "name": "Estado del proceso",
+                "value": "={{ $json.column_values[2] }}",
+                "type": "object"
+              },
+              {
+                "id": "307f7dcf-9767-4a0b-94df-2f2c18882c98",
+                "name": "Dirección",
+                "value": "={{ $json.column_values[3] }}",
+                "type": "object"
+              },
+              {
+                "id": "ee84c909-7b65-4fb6-b1bf-59a528adc054",
+                "name": "Teléfono",
+                "value": "={{ $json.column_values[4] }}",
+                "type": "object"
+              },
+              {
+                "id": "7b64bc5b-8c9e-48bb-a61e-f84c13e2b73f",
+                "name": "Móvil",
+                "value": "={{ $json.column_values[5] }}",
+                "type": "object"
+              },
+              {
+                "id": "916df879-74f7-40ba-866b-2cb7894289ec",
+                "name": "Contact Venue",
+                "value": "={{ $json.column_values[6] }}",
+                "type": "object"
+              },
+              {
+                "id": "e5826049-a211-45d3-87e2-162bc42493b4",
+                "name": "Email",
+                "value": "={{ $json.column_values[7] }}",
+                "type": "object"
+              },
+              {
+                "id": "1511e7e9-8c51-4d33-aa37-0fca1ceefa88",
+                "name": "URL Bodas",
+                "value": "={{ $json.column_values[8] }}",
+                "type": "object"
+              },
+              {
+                "id": "419b8b70-8c40-4401-bb97-ce61f2b00d4a",
+                "name": "Ciudad (Weather)",
+                "value": "={{ $json.column_values[9] }}",
+                "type": "object"
+              },
+              {
+                "id": "ac82dc52-8463-43c5-b5c3-66d19b07e743",
+                "name": "Fecha Fin de Contrato",
+                "value": "={{ $json.column_values[10] }}",
+                "type": "object"
+              },
+              {
+                "id": "fbc79239-7768-48ee-9788-ed1f1037c522",
+                "name": "End Contract RW",
+                "value": "={{ $json.column_values[11] }}",
+                "type": "object"
+              },
+              {
+                "id": "09224452-cf35-4f66-8ce7-b1daff5777d1",
+                "name": "Renovación de Contrato",
+                "value": "={{ $json.column_values[12] }}",
+                "type": "object"
+              },
+              {
+                "id": "329d04dc-06db-4964-a977-10afffde679a",
+                "name": "Estatus",
+                "value": "={{ $json.column_values[13] }}",
+                "type": "object"
+              },
+              {
+                "id": "c9be0ce8-f846-4cf2-abe4-2cfeb9b822a3",
+                "name": "Producto",
+                "value": "={{ $json.column_values[14] }}",
+                "type": "object"
+              },
+              {
+                "id": "c8f94c95-4580-455b-ae76-ccc3a28c32de",
+                "name": "Emails",
+                "value": "={{ $json.column_values[15] }}",
+                "type": "object"
+              },
+              {
+                "id": "8b5380e0-3d94-4457-838c-377b03584e43",
+                "name": "Llamadas",
+                "value": "={{ $json.column_values[16] }}",
+                "type": "object"
+              },
+              {
+                "id": "7217f484-2182-43db-84fb-af193881919c",
+                "name": "Whatsapp",
+                "value": "={{ $json.column_values[17] }}",
+                "type": "object"
+              },
+              {
+                "id": "d014aa87-7178-4218-8806-e1c047f86677",
+                "name": "Interes de cliente",
+                "value": "={{ $json.column_values[18] }}",
+                "type": "object"
+              },
+              {
+                "id": "53e45395-718c-4bcc-8065-065f3f92c1db",
+                "name": "Anulaciones",
+                "value": "={{ $json.column_values[19] }}",
+                "type": "object"
+              },
+              {
+                "id": "67bf87e2-18bd-4a24-84b0-d273cd10f6bf",
+                "name": "Comentario Comercial",
+                "value": "={{ $json.column_values[20] }}",
+                "type": "object"
+              },
+              {
+                "id": "1ba9689d-7647-43a8-b38d-7c46db5aa68e",
+                "name": "Automat",
+                "value": "={{ $json.column_values[21] }}",
+                "type": "object"
+              },
+              {
+                "id": "a1cc9048-6592-4e15-b3e4-0e5f764d4819",
+                "name": "Fecha de la cita",
+                "value": "={{ $json.column_values[22] }}",
+                "type": "object"
+              },
+              {
+                "id": "203fcf1b-c8ca-411d-883b-503c48122dd3",
+                "name": "Viaticos",
+                "value": "={{ $json.column_values[23] }}",
+                "type": "object"
+              },
+              {
+                "id": "b7d3f200-d555-49cb-9f7a-cde6e81ce3fa",
+                "name": "Hora",
+                "value": "={{ $json.column_values[24] }}",
+                "type": "object"
+              },
+              {
+                "id": "3b8956c7-ace5-4551-bfb5-47f6694bd28a",
+                "name": "Estado",
+                "value": "={{ $json.column_values[25] }}",
+                "type": "object"
+              },
+              {
+                "id": "43b9f80b-5d0d-4bf7-bcb5-afbb9eb8fc7e",
+                "name": "Técnico",
+                "value": "={{ $json.column_values[26] }}",
+                "type": "object"
+              },
+              {
+                "id": "cd74aaf5-f78a-473d-9bcd-d69e0079293d",
+                "name": "Next Move",
+                "value": "={{ $json.column_values[28] }}",
+                "type": "object"
+              },
+              {
+                "id": "57af140e-dbee-4b55-9288-ccd9971ebff6",
+                "name": "Contactar Interprika",
+                "value": "={{ $json.column_values[29] }}",
+                "type": "object"
+              },
+              {
+                "id": "39fc1c3a-8120-4ba1-8686-131f42890c73",
+                "name": "Creación de Elemento",
+                "value": "={{ $json.column_values[30] }}",
+                "type": "object"
+              },
+              {
+                "id": "2d77e390-b522-4e50-8a6b-5a7d476d2acc",
+                "name": "Zona",
+                "value": "={{ $json.column_values[31] }}",
+                "type": "object"
+              },
+              {
+                "id": "64c8aea8-d938-4c0b-9ebd-5c497aeaa16e",
+                "name": "Item ID",
+                "value": "={{ $json.column_values[32] }}",
+                "type": "object"
+              },
+              {
+                "id": "ec393a59-b153-4906-b43f-a35a58946b60",
+                "name": "Last Updated",
+                "value": "={{ $json.column_values[33] }}",
+                "type": "object"
+              },
+              {
+                "id": "1d0ea039-5665-45f4-a99d-df7fe0d3100f",
+                "name": "Estado WhatsApp",
+                "value": "={{ $json.column_values[34] }}",
+                "type": "object"
+              },
+              {
+                "id": "4ff50e0a-e22f-438b-b685-c77cacce1353",
+                "name": "Estado Email",
+                "value": "={{ $json.column_values[35] }}",
+                "type": "object"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          800,
+          1488
+        ],
+        "id": "5c60de4a-63ae-4312-9ed0-696b6623f1f6",
+        "name": "Mapeando columnas Monday",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "056aa1eb-4b1f-48dd-a24b-aece6fe53de8",
+                "name": "Nombre",
+                "value": "={{ $json.Nombre }}",
+                "type": "string"
+              },
+              {
+                "id": "d5d6a9cf-1fe9-47e7-b3f2-778d470fb3d5",
+                "name": "=Fecha de agenda",
+                "value": "={{ $json['Fecha de Agenda'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "3fcd4e7d-3f1e-44c3-85f0-ce1f2a606a9a",
+                "name": "ID Venue",
+                "value": "={{ $json['ID Venue'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "5d0d89fc-46ae-47b3-941a-61489c37949a",
+                "name": "Estado del proceso",
+                "value": "={{ $json['Estado del proceso'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "3f1c62e6-7eb9-4c28-8e27-d5b67144eb08",
+                "name": "Dirección",
+                "value": "={{ $json['Dirección'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "dfcf8559-fbd3-4038-9472-293cd91bcefc",
+                "name": "Teléfono",
+                "value": "={{ $json['Teléfono'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "2cb6878f-e68d-4755-8ac9-bf60a4775327",
+                "name": "Móvil",
+                "value": "={{ $json['Móvil'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "c30dfeb2-1113-46ab-b86a-059a3b5cefe2",
+                "name": "Contact Venue",
+                "value": "={{ $json['Contact Venue'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "4253982b-b325-42b8-a84b-c915cf6777b6",
+                "name": "Email",
+                "value": "={{ $json.Email.text }}",
+                "type": "string"
+              },
+              {
+                "id": "fae0804e-ed9a-4f4f-a0f0-6f83df5016ee",
+                "name": "URL Bodas",
+                "value": "={{ $json['URL Bodas'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "dfe49e8f-5d6a-459e-b2b1-dd44c5b2b8c7",
+                "name": "Ciudad (Weather)",
+                "value": "={{ $json['Ciudad (Weather)'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "4d91b2b4-4513-4c87-a537-4d5f2e8517e0",
+                "name": "Fecha Fin de Contrato",
+                "value": "={{ $json['Fecha Fin de Contrato'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "1ea183b6-b65f-4ab1-b0c6-d02452222ba1",
+                "name": "End Contract RW",
+                "value": "={{ $json['End Contract RW'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "151ad7f5-f554-4ce3-bbec-96c5f2436ed0",
+                "name": "Renovación de Contrato",
+                "value": "={{ $json['Renovación de Contrato'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "420cfdf6-fc63-4baa-ac6c-e70f42a77208",
+                "name": "Estatus",
+                "value": "={{ $json.Estatus.text }}",
+                "type": "string"
+              },
+              {
+                "id": "4886d1cf-1442-48b0-a68d-0756579e9407",
+                "name": "Producto",
+                "value": "={{ $json.Producto.text }}",
+                "type": "string"
+              },
+              {
+                "id": "6fc0e956-1697-4d87-b4a8-518db8b8d8f9",
+                "name": "Emails",
+                "value": "={{ $json.Emails.text }}",
+                "type": "string"
+              },
+              {
+                "id": "090538e8-8b17-4a00-9b73-c4d97710c3cb",
+                "name": "Llamadas",
+                "value": "={{ $json.Llamadas.text }}",
+                "type": "string"
+              },
+              {
+                "id": "9f737dab-b371-41ba-9268-3acc1013e1d7",
+                "name": "Whatsapp",
+                "value": "={{ $json.Whatsapp.text }}",
+                "type": "string"
+              },
+              {
+                "id": "98e39546-efac-41cc-8aad-4d21b9623907",
+                "name": "Interes de cliente",
+                "value": "={{ $json['Interes de cliente'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "cf5367b0-1201-4205-ae19-c9f9e3ae6346",
+                "name": "Anulaciones",
+                "value": "={{ $json.Anulaciones.text }}",
+                "type": "string"
+              },
+              {
+                "id": "98fa3770-c4e7-428e-b767-9d43265947ea",
+                "name": "Comentario Comercial",
+                "value": "={{ $json['Comentario Comercial'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "64d13949-eea2-4bc9-8ded-90f8b25a676b",
+                "name": "Automat",
+                "value": "={{ $json.Automat.text }}",
+                "type": "string"
+              },
+              {
+                "id": "88d9f7c9-c7a8-4e3a-b320-38117091b3c4",
+                "name": "Fecha de la cita",
+                "value": "={{ $json['Fecha de la cita'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "130969e3-f264-4f55-a505-792de637beea",
+                "name": "Viaticos",
+                "value": "={{ $json.Viaticos.text }}",
+                "type": "string"
+              },
+              {
+                "id": "82632c29-ab3a-4bb3-a6b0-0ab72ca7bbcc",
+                "name": "Hora",
+                "value": "={{ $json.Hora.text }}",
+                "type": "string"
+              },
+              {
+                "id": "f7a4d492-f41f-46ca-a094-e29e7ccb301a",
+                "name": "Estado",
+                "value": "={{ $json.Estado.text }}",
+                "type": "string"
+              },
+              {
+                "id": "83315dab-a856-492d-9505-5d59bcbd7e56",
+                "name": "Técnico",
+                "value": "={{ $json['Técnico'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "70896f24-373a-4311-8e89-8ca77aba27e3",
+                "name": "Next Move",
+                "value": "={{ $json['Next Move'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "f97ccac3-62ae-4217-8f6a-bd4a4d378d94",
+                "name": "Contactar Interprika",
+                "value": "={{ $json['Contactar Interprika'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "d4cf5603-1660-48ca-93af-ec9326b962ca",
+                "name": "Creación de Elemento",
+                "value": "={{ $json['Creación de Elemento'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "38b00530-5e08-4c4e-aa40-052c940a9216",
+                "name": "Zona",
+                "value": "={{ $json.Zona.text }}",
+                "type": "string"
+              },
+              {
+                "id": "eafe62f2-5998-4d0a-b647-3b5141656245",
+                "name": "Item ID",
+                "value": "={{ $json['Item ID'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "a1573f98-0230-46bd-9464-2e2337301118",
+                "name": "Last Updated",
+                "value": "={{ $json['Last Updated'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "7759bfca-1930-408f-97d4-c0c079b49e00",
+                "name": "Estado WhatsApp",
+                "value": "={{ $json['Estado WhatsApp'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "f66bb496-8d04-45bb-b174-a3f8b5535dd0",
+                "name": "Estado Email",
+                "value": "={{ $json['Estado Email'].text }}",
+                "type": "string"
+              },
+              {
+                "id": "11c6ae52-3e4a-4120-8375-59a788918279",
+                "name": "Whatsapp Contacto",
+                "value": "https://wa.me/5649505612",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1072,
+          1488
+        ],
+        "id": "cba4da1e-0c92-46d5-a41a-3a9f5f2d5a05",
+        "name": "Valores de Monday",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.monday.com/v2",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { items_page(limit: 500) { items { id name column_values(ids:[\\\"id_venue\\\"]) { id text } } } } }\"\n}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          -4320,
+          912
+        ],
+        "id": "e3c01590-6890-49e1-accb-34a808e743b4",
+        "name": "Monday Query",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "Ju2LPS4exSjQdWY8",
+            "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "const CACHE_HOURS = 24;\n\nif (!globalThis.mondayCacheData) {\n  globalThis.mondayCacheData = { cache: [], lastUpdated: 0 };\n}\n\nconst cache = globalThis.mondayCacheData;\nconst now = Date.now();\nconst cacheIsValid = (now - cache.lastUpdated) < CACHE_HOURS * 3600 * 1000;\n\nif (cache.cache.length && cacheIsValid) {\n  return cache.cache.map(i => ({ json: i }));\n}\n\nconst response = items[0].json;\n\nconst mondayItems = response.data.boards[0].items_page.items.map(i => ({\n  ID_Venue: i.column_values?.[0]?.text?.trim() || \"\",\n  ID_Item_Monday: i.id,\n  Nombre: i.name\n}));\n\nglobalThis.mondayCacheData = {\n  cache: mondayItems,\n  lastUpdated: now\n};\n\nreturn mondayItems.map(i => ({\n  json: {\n    ID_Venue: String(i.ID_Venue || \"\").trim().toLowerCase(),\n    ID_Item_Monday: i.ID_Item_Monday,\n    Nombre: i.Nombre\n  }\n}));\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -4128,
+          912
+        ],
+        "id": "23c7012d-613f-4872-996b-a4c51b9fd1f1",
+        "name": "Procesar y Cachear Monday"
+      },
+      {
+        "parameters": {
+          "jsCode": "function convertirFecha(valor) {\n  if (!valor) return null;\n  const str = String(valor).trim();\n\n  if (/^\\d{4}-\\d{2}-\\d{2}/.test(str)) {\n    return str.slice(0, 10);\n  }\n\n  if (/^\\d{1,2}[\\/\\-]\\d{1,2}[\\/\\-]\\d{4}$/.test(str)) {\n    const [d, m, y] = str.split(/[\\/\\-]/).map(Number);\n    const date = new Date(y, m - 1, d);\n    return date.toISOString().split('T')[0];\n  }\n\n  const num = Number(str);\n  if (!isNaN(num) && !str.includes('/')) {\n    const utcDays = num - 25569;\n    const ms = utcDays * 86400 * 1000;\n    const date = new Date(ms);\n    return date.toISOString().split('T')[0];\n  }\n\n  return null;\n}\n\nreturn items.map(item => {\n  const j = item.json;\n\n  return {\n    json: {\n      ...j,\n      \"Fecha de ingreso\": convertirFecha(j[\"Fecha de ingreso\"] || j[\"Date\"]),\n      \"Fecha Fin de Contrato\": convertirFecha(j[\"Fecha Fin de Contrato\"] || j[\"Contract end date\"]),\n      \"End Contract RW\": convertirFecha(j[\"End Contract RW\"] || j[\"End Contract Date RW\"]),\n      \"Renovación de Contrato\": convertirFecha(j[\"Renovación de Contrato\"] || j[\"Fecha RW\"])\n    }\n  };\n});\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -5088,
+          752
+        ],
+        "id": "512fcc6d-2f15-449a-b702-81cba1fe1ac2",
+        "name": "Transformación de fechas"
+      },
+      {
+        "parameters": {
+          "jsCode": "const TARGET_MONTH = $input.first().json.Month;\nconst TARGET_YEAR = $input.first().json.Year;\nconst USE_CURRENT = false;\n\nconst now = new Date();\nconst month = USE_CURRENT ? now.getMonth() + 1 : TARGET_MONTH;\nconst year = USE_CURRENT ? now.getFullYear() : TARGET_YEAR;\n\nfunction parseFecha(valor) {\n  if (!valor) return null;\n  \n  const str = String(valor).trim();\n\n  // Formato YYYY-MM-DD\n  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(str)) {\n    const [y, m, d] = str.split('-').map(Number);\n    return new Date(y, m - 1, d);\n  }\n\n  // Formato DD/MM/YYYY\n  if (/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/.test(str)) {\n    const [d, m, y] = str.split('/').map(Number);\n    return new Date(y, m - 1, d);\n  }\n\n  return null;\n}\nconst CAMPO_FECHA = \"Fecha de ingreso\";\n\nconst filtrados = items.filter(i => {\n  const fecha = parseFecha(i.json[CAMPO_FECHA]);\n  if (!fecha || isNaN(fecha)) return false;\n\n  const mes = fecha.getMonth() + 1;\n  const año = fecha.getFullYear();\n\n  return mes === month && año === year;\n});\n\nreturn filtrados;\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -4672,
+          752
+        ],
+        "id": "6e65206b-ff19-4528-b5a3-6faa297dd9b9",
+        "name": "Filtrar mes actual",
+        "alwaysOutputData": false
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://api.monday.com/v2",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { columns (ids: [\\\"color_mkqgwk4v\\\"]) { id title settings_str } } }\"\n}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          -4320,
+          1120
+        ],
+        "id": "12797f68-7de3-4653-860e-95bd24c0ddc2",
+        "name": "Obtener mapeo de productos",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "Ju2LPS4exSjQdWY8",
+            "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "const response = items[0].json;\n\nconst settingsStr = response.data.boards[0].columns[0].settings_str;\nif (!settingsStr) {\n  throw new Error(\"❌ No se encontró settings_str en la respuesta de Monday.\");\n}\n\nconst settings = JSON.parse(settingsStr);\nconst labels = {};\n\nfor (const [index, name] of Object.entries(settings.labels)) {\n  if (name?.trim()) labels[name.trim().toLowerCase()] = Number(index);\n}\n\nreturn [\n  {\n    json: {\n      \"tour virtual\": 0,\n      \"my photo\": 1,\n      \"my photo cate\": 2,\n      \"default\": 3,\n      \"no aplica\": 5\n    }\n  }\n];\n\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -4112,
+          1120
+        ],
+        "id": "80b89903-2107-4134-b779-5f66c3e8071b",
+        "name": "Procesar mapeo de productos"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "7b897370-524b-4874-bef4-9c1f07075093",
+                "leftValue": "={{ !!$json[\"ID_Item_Monday\"] }}",
+                "rightValue": false,
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          -3088,
+          784
+        ],
+        "id": "60845669-f747-492d-b7bd-de1cca5abb27",
+        "name": "¿Ya existe en Monday?"
+      },
+      {
+        "parameters": {
+          "mode": "combineBySql",
+          "numberInputs": 3,
+          "query": "SELECT\n  a.*,\n  b.ID_Item_Monday AS ID_Item_Monday,\n  b.Nombre AS Nombre_Monday,\n  c.`tour virtual` AS tour_virtual,\n  c.`my photo` AS my_photo,\n  c.`my photo cate` AS my_photo_cate,\n  c.`default` AS default_label,\n  c.`no aplica` AS no_aplica\nFROM input1 a\nLEFT JOIN input2 b\n  ON LOWER(TRIM(a.`ID Venue`)) = LOWER(TRIM(b.`ID_Venue`))\nCROSS JOIN input3 c\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          -3584,
+          768
+        ],
+        "id": "1b451dbe-764b-4dd9-9130-a680f7ae3582",
+        "name": "Unificar Excel + Monday + Mapeo (SQL Merge)"
+      },
+      {
+        "parameters": {
+          "jsCode": "return items.map(item => {\n  item.json.mapeoProductos = {\n    \"tour virtual\": 0,\n    \"my photo\": 1,\n    \"my photo cate\": 2,\n    \"default\": 3,\n    \"no aplica\": 5\n  };\n  return item;\n});\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -3344,
+          784
+        ],
+        "id": "ae991b87-e2e5-4687-bf31-486cfb8e8fef",
+        "name": "Agregar mapeoProductos a cada item"
+      },
+      {
+        "parameters": {
+          "jsCode": "const estadosCorrecciones = {\n  \"Estado México\": \"Estado de México\",\n  \"EdoMéx\": \"Estado de México\",\n  \"Edo Mex\": \"Estado de México\",\n  \"Edomex\": \"Estado de México\",\n  \"Estado de Méx\": \"Estado de México\",\n  \"CDMX\": \"Ciudad de México\",\n  \"DF\": \"Ciudad de México\",\n  \"CdMx\": \"Ciudad de México\",\n  \"Qro\": \"Querétaro\",\n  \"Querétaro\": \"Querétaro\",\n  \"Guanajuato.\": \"Guanajuato\"\n};\n\nreturn $input.all().map(item => {\n  const estadoOriginal = (item.json[\"Estado\"] || \"\").trim();\n  const estadoNormalizado =\n    estadosCorrecciones[estadoOriginal] ||\n    estadoOriginal ||\n    \"Sin estado\";\n\n  return {\n    json: {\n      ...item.json,\n      Estado: estadoNormalizado\n    }\n  };\n});\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -3088,
+          -224
+        ],
+        "id": "97f5a8b8-e64c-445a-bf31-f32561647c94",
+        "name": "Normalizar Estado para Monday en actualizar",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "authentication": "oAuth2",
+          "resource": "boardItem",
+          "operation": "changeMultipleColumnValues",
+          "boardId": "1209925112",
+          "itemId": "={{ $json.ID_Item_Monday }}",
+          "columnValues": "={{ JSON.stringify({\n  name: $json.name,\n  id_venue: $json[\"ID Venue\"],\n  text6: $json[\"Dirección\"],\n  text_mksz2qkn: $json[\"Teléfono\"],\n  text_mkszykzf: $json[\"Movil\"],\n  texto: $json[\"Contact Venue\"],\n  email: {\n    email: $json[\"Email\"],\n    text: $json[\"Email\"]\n  },\n  texto_mkmf8jc0: $json[\"URL Bodas\"],\n  date25: String($json[\"Fecha Fin de Contrato\"]).slice(0,10),\n  date_mkszmtcq: String($json[\"End Contract RW\"]).slice(0,10),\n  date_mksvhg6v: String($json[\"Renovación de Contrato\"]).slice(0,10),\n  color_mkqgwk4v: {\n    index: $json.mapeoProductos[$json[\"Producto\"].toLowerCase()]\n  },\n  dropdown9: { labels: [$json[\"Estado\"]] }\n}) }}"
+        },
+        "type": "n8n-nodes-base.mondayCom",
+        "typeVersion": 1,
+        "position": [
+          -2896,
+          -224
+        ],
+        "id": "bc6e9f3e-d255-4d54-9928-c34d9dcdbbb1",
+        "name": "Actualizar datos Existentes en Monday",
+        "credentials": {
+          "mondayComOAuth2Api": {
+            "id": "dE8g2W2GVOjXMeZt",
+            "name": "Monday.com account majonb@interprika.com"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "jsCode": "return items.map(item => {\n  const j = item.json;\n\n  // --------------------------\n  // 🔹 Normalizar fechas\n  // --------------------------\n  const normalizarFecha = v => {\n    if (!v) return \"2000-01-01\";\n    const str = String(v).trim();\n    if (/^\\d{4}-\\d{2}-\\d{2}$/.test(str)) return str;\n    if (/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/.test(str)) {\n      const [d, m, y] = str.split('/').map(Number);\n      const date = new Date(y, m - 1, d);\n      return date.toISOString().split('T')[0];\n    }\n    return \"2000-01-01\";\n  };\n\n  j[\"Fecha Fin de Contrato\"] = normalizarFecha(j[\"Fecha Fin de Contrato\"]);\n  j[\"End Contract RW\"] = normalizarFecha(j[\"End Contract RW\"]);\n  j[\"Renovación de Contrato\"] = normalizarFecha(j[\"Renovación de Contrato\"]);\n\n  // --------------------------\n  // 🔹 Validar Estado (solo 32 válidos)\n  // --------------------------\n  const estadosValidos = [\n    \"Aguascalientes\",\"Baja California\",\"Baja California Sur\",\"Campeche\",\n    \"Chiapas\",\"Chihuahua\",\"Ciudad de México\",\"Coahuila\",\"Colima\",\"Durango\",\n    \"Estado de México\",\"Guanajuato\",\"Guerrero\",\"Hidalgo\",\"Jalisco\",\n    \"Michoacán\",\"Morelos\",\"Nayarit\",\"Nuevo León\",\"Oaxaca\",\"Puebla\",\n    \"Querétaro\",\"Quintana Roo\",\"San Luis Potosí\",\"Sinaloa\",\"Sonora\",\n    \"Tabasco\",\"Tamaulipas\",\"Tlaxcala\",\"Veracruz\",\"Yucatán\",\"Zacatecas\"\n  ];\n\n  const estado = (j[\"Estado\"] || \"\").trim();\n  j[\"Estado\"] = estadosValidos.includes(estado) ? estado : \"Corregir estado\";\n\n\n  // --------------------------\n// 🔹 Normalizar Producto\n// --------------------------\nconst productosValidos = [\"Tour virtual\", \"My photo\", \"My photo cate\", \"No aplica\"];\nconst producto = (j[\"Producto\"] || \"\").trim().toLowerCase();\nconst productoNormalizado = productosValidos.find(\n  p => p.toLowerCase() === producto\n) || \"No aplica\";\n\nj[\"Producto\"] = productoNormalizado;\n\n  // --------------------------\n  // 🔹 Resultado final\n  // --------------------------\n  return { json: j };\n});\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -2784,
+          960
+        ],
+        "id": "6aaa6f5d-8adb-4a59-8d2d-47d5c7b110de",
+        "name": "Normalizar datos antes de exportar"
+      },
+      {
+        "parameters": {
+          "jsCode": "return items.map(item => {\n  const cols = Array.isArray(item.json.column_values) ? item.json.column_values : [];\n  const getCol = id => cols.find(c => c.id === id)?.text || \"\";\n\n  return {\n    json: {\n      \"Name\": item.json.name || \"\",\n      \"Estado del proceso\": getCol(\"status\"),\n      \"Fecha de la cita\": getCol(\"date\"),\n      \"Contact Venue\": getCol(\"texto\"),\n      \"ID Venue\": getCol(\"id_venue\"),\n      \"Email\": getCol(\"email\"),\n      \"Dirección\": getCol(\"text6\"),\n      \"Estado\": getCol(\"dropdown9\"),\n      \"Hora\": getCol(\"hora\"),\n      \"Comentario Comercial\": getCol(\"long_text7\"),\n      \"Next Move\": getCol(\"status8\"),\n      \"Contactar Interprika\": getCol(\"date3\"),\n      \"Creación de Elemento\": getCol(\"creation_log\"),\n      \"Emails\": getCol(\"numbers3\"),\n      \"Zona\": getCol(\"status7\"),\n      \"Item ID\": getCol(\"item_id2\"),\n      \"Automat\": getCol(\"status85\"),\n      \"Llamadas\": getCol(\"dup__of_email\"),\n      \"Anulaciones\": getCol(\"dup__of_llamadas\"),\n      \"Last Updated\": getCol(\"last_updated\"),\n      \"Ciudad (Weather)\": getCol(\"text78\"),\n      \"Fecha Fin de Contrato\": getCol(\"date25\"),\n      \"Whatsapp\": getCol(\"dup__of_llamadas__1\"),\n      \"Viaticos\": getCol(\"estado_1__1\"),\n      \"URL Bodas\": getCol(\"texto_mkmf8jc0\"),\n      \"Interes de cliente\": getCol(\"rating_mknjhe2e\"),\n      \"Producto\": getCol(\"color_mkqgwk4v\"),\n      \"Técnico\": getCol(\"dropdown_mksgvre0\"),\n      \"Renovación de Contrato\": getCol(\"date_mksvhg6v\"),\n      \"End Contract RW\": getCol(\"date_mkszmtcq\"),\n      \"Teléfono\": getCol(\"text_mksz2qkn\"),\n      \"Móvil\": getCol(\"text_mkszykzf\"),\n      \"Estatus\": getCol(\"color_mktgvy2q\"),\n      \"Fecha de agenda\": getCol(\"date_mkvpb824\"),\n      \"Estado WhatsApp\": getCol(\"color_mkwjc0cf\"),\n      \"Estado Email\": getCol(\"color_mkwkp29q\")\n    }\n  };\n});\n"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          560,
+          1488
+        ],
+        "id": "e62b3119-674b-4036-bfb7-06cf9ac19733",
+        "name": "Code in JavaScript",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "bdc74297-239f-46cf-bdfd-6064cb2c7a67",
+                "name": "Month",
+                "value": "={{ $now.format('MM') }}",
+                "type": "number"
+              },
+              {
+                "id": "63dfd51b-f278-49a0-9702-556d76e07ad1",
+                "name": "Year",
+                "value": "={{ $now.format('yyyy') }}",
+                "type": "number"
+              }
+            ]
+          },
+          "includeOtherFields": true,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -4896,
+          752
+        ],
+        "id": "11c22589-0aef-4cff-afe7-e219158689fb",
+        "name": "Mes y Año",
+        "alwaysOutputData": false
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          -2800,
+          688
+        ],
+        "id": "f271a7ba-968e-447d-a6bb-f94d9cb6d3fd",
+        "name": "Muere aquí"
+      }
+    ],
+    "connections": {
+      "Mapeo de variables": {
+        "main": [
+          [
+            {
+              "node": "Transformación de fechas",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Exportación a Monday": {
+        "main": [
+          [
+            {
+              "node": "Obtener datos del tablero",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          []
+        ]
+      },
+      "Obtener datos del tablero": {
+        "main": [
+          []
+        ]
+      },
+      "Base de Datos": {
+        "main": [
+          [
+            {
+              "node": "Mapeo de variables",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mapeando columnas Monday": {
+        "main": [
+          [
+            {
+              "node": "Valores de Monday",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Valores de Monday": {
+        "main": [
+          []
+        ]
+      },
+      "Monday Query": {
+        "main": [
+          [
+            {
+              "node": "Procesar y Cachear Monday",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Procesar y Cachear Monday": {
+        "main": [
+          [
+            {
+              "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Transformación de fechas": {
+        "main": [
+          [
+            {
+              "node": "Mes y Año",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Filtrar mes actual": {
+        "main": [
+          [
+            {
+              "node": "Monday Query",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Obtener mapeo de productos",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Obtener mapeo de productos": {
+        "main": [
+          [
+            {
+              "node": "Procesar mapeo de productos",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Procesar mapeo de productos": {
+        "main": [
+          [
+            {
+              "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+              "type": "main",
+              "index": 2
+            }
+          ]
+        ]
+      },
+      "¿Ya existe en Monday?": {
+        "main": [
+          [
+            {
+              "node": "Muere aquí",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Normalizar datos antes de exportar",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Unificar Excel + Monday + Mapeo (SQL Merge)": {
+        "main": [
+          [
+            {
+              "node": "Agregar mapeoProductos a cada item",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Agregar mapeoProductos a cada item": {
+        "main": [
+          [
+            {
+              "node": "¿Ya existe en Monday?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Normalizar Estado para Monday en actualizar": {
+        "main": [
+          [
+            {
+              "node": "Actualizar datos Existentes en Monday",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Actualizar datos Existentes en Monday": {
+        "main": [
+          []
+        ]
+      },
+      "Normalizar datos antes de exportar": {
+        "main": [
+          [
+            {
+              "node": "Exportación a Monday",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Code in JavaScript": {
+        "main": [
+          [
+            {
+              "node": "Mapeando columnas Monday",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Mes y Año": {
+        "main": [
+          [
+            {
+              "node": "Filtrar mes actual",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Kevin Quiroz",
+    "name": null,
+    "description": null
+  },
+  "activeVersionId": "dd0006e0-7d41-4f89-ac99-5fee90b6ed69",
+  "connections": {
+    "Mapeo de variables": {
+      "main": [
+        [
+          {
+            "node": "Transformación de fechas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exportación a Monday": {
+      "main": [
+        [
+          {
+            "node": "Obtener datos del tablero",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Obtener datos del tablero": {
+      "main": [
+        []
+      ]
+    },
+    "Base de Datos": {
+      "main": [
+        [
+          {
+            "node": "Mapeo de variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mapeando columnas Monday": {
+      "main": [
+        [
+          {
+            "node": "Valores de Monday",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valores de Monday": {
+      "main": [
+        []
+      ]
+    },
+    "Monday Query": {
+      "main": [
+        [
+          {
+            "node": "Procesar y Cachear Monday",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Procesar y Cachear Monday": {
+      "main": [
+        [
+          {
+            "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Transformación de fechas": {
+      "main": [
+        [
+          {
+            "node": "Mes y Año",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar mes actual": {
+      "main": [
+        [
+          {
+            "node": "Monday Query",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Obtener mapeo de productos",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener mapeo de productos": {
+      "main": [
+        [
+          {
+            "node": "Procesar mapeo de productos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Procesar mapeo de productos": {
+      "main": [
+        [
+          {
+            "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "¿Ya existe en Monday?": {
+      "main": [
+        [
+          {
+            "node": "Muere aquí",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Normalizar datos antes de exportar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unificar Excel + Monday + Mapeo (SQL Merge)": {
+      "main": [
+        [
+          {
+            "node": "Agregar mapeoProductos a cada item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agregar mapeoProductos a cada item": {
+      "main": [
+        [
+          {
+            "node": "¿Ya existe en Monday?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar Estado para Monday en actualizar": {
+      "main": [
+        [
+          {
+            "node": "Actualizar datos Existentes en Monday",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar datos Existentes en Monday": {
+      "main": [
+        []
+      ]
+    },
+    "Normalizar datos antes de exportar": {
+      "main": [
+        [
+          {
+            "node": "Exportación a Monday",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Mapeando columnas Monday",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mes y Año": {
+      "main": [
+        [
+          {
+            "node": "Filtrar mes actual",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-02T15:42:19.799Z",
+  "id": "cgunIVaaAcYuxM3O",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "1. Scrapping Sheet to Monday",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4cbea8cd-5c0a-4de5-b05c-da60723d09e0",
+              "name": "name",
+              "value": "={{ $json['Customer name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "9382fa21-2883-4933-9cb7-756fab5e04f7",
+              "name": "ID Venue",
+              "value": "={{ $json[\"ID EMPRESA\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "450adf32-b927-43e7-9396-18f25fdde150",
+              "name": "Dirección",
+              "value": "={{ $json.Address }}",
+              "type": "string"
+            },
+            {
+              "id": "70ca2856-335a-43ed-ba7f-c4ca9433aaf5",
+              "name": "Teléfono",
+              "value": "={{ $json.telephone }}",
+              "type": "string"
+            },
+            {
+              "id": "486534e5-40f3-4d4e-865d-67fe9918daf5",
+              "name": "Movil",
+              "value": "={{ $json.Mobile }}",
+              "type": "string"
+            },
+            {
+              "id": "9c0b0847-99d6-483d-a6ef-76346db42ee2",
+              "name": "Contact Venue",
+              "value": "={{ $json[\"Contact person\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "80f7e136-1e2a-427a-a626-736827c2d7c9",
+              "name": "Email",
+              "value": "={{ $json[\"e-mail\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "7bb97666-a0b2-4db6-8e5f-bea5355edaf8",
+              "name": "URL Bodas",
+              "value": "={{ $json[\"URL Web\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "116a5fe6-e691-4ad0-bded-9e7523e8b2a4",
+              "name": "Fecha Fin de Contrato",
+              "value": "={{ $json[\"Contract end date\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "9c1b62d3-6ca7-4b6e-991e-b6ae3f6c2bec",
+              "name": "End Contract RW",
+              "value": "={{ $json['End Contract Date\tRW date'] }}",
+              "type": "number"
+            },
+            {
+              "id": "0e724f65-2e6f-40d4-b6cb-0be69db362f5",
+              "name": "Renovación de Contrato",
+              "value": "={{ $json['Fecha RW'] }}",
+              "type": "number"
+            },
+            {
+              "id": "b62c22a9-6b37-4c6b-ba68-3c2f26798edb",
+              "name": "Producto",
+              "value": "={{ $json.Product }}",
+              "type": "string"
+            },
+            {
+              "id": "562bd7a0-9c8b-4e90-be99-647f8d8d7de1",
+              "name": "Estado",
+              "value": "={{ $json.City }}",
+              "type": "string"
+            },
+            {
+              "id": "96df3155-4566-4ef5-8341-2a8f3df0c43e",
+              "name": "Fecha de ingreso",
+              "value": "={{ $json.Date }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5296,
+        752
+      ],
+      "id": "af86392b-217d-4acb-ba8a-7b40e6949755",
+      "name": "Mapeo de variables"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "boardItem",
+        "boardId": "1209925112",
+        "groupId": "new_group45304",
+        "name": "={{ $json.name }}",
+        "additionalFields": {
+          "columnValues": "={{ JSON.stringify({\n  id_venue: String($json[\"ID Venue\"] || \"\"),\n  text6: String($json[\"Dirección\"] || \"\"),\n  text_mksz2qkn: String($json[\"Teléfono\"] || \"\"),\n  text_mkszykzf: String($json[\"Movil\"] || \"\"),\n  texto: String($json[\"Contact Venue\"] || \"\"),\n  texto_mkmf8jc0: String($json[\"URL Bodas\"] || \"\"),\n  email: {\n    email: String($json[\"Email\"] || \"\"),\n    text: String($json[\"Email\"] || \"\")\n  },\n  date25: { date: String($json[\"Fecha Fin de Contrato\"]).slice(0, 10) },\n  date_mkszmtcq: { date: String($json[\"End Contract RW\"]).slice(0, 10) },\n  date_mksvhg6v: { date: String($json[\"Renovación de Contrato\"]).slice(0, 10) },\n  color_mkqgwk4v: { label: String($json[\"Producto\"] || \"default\") },\n  dropdown9: { labels: [String($json[\"Estado\"] || \"Sin estado\")] }\n}) }}\n"
+        }
+      },
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1,
+      "position": [
+        -2480,
+        960
+      ],
+      "id": "d6310467-8cb1-4fc3-ba9b-6e019dc4326e",
+      "name": "Exportación a Monday",
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "boardItem",
+        "operation": "get",
+        "itemId": "={{$json.id }}"
+      },
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1,
+      "position": [
+        -1872,
+        768
+      ],
+      "id": "aae5f15b-9b30-46bb-83ad-8b818fb84a62",
+      "name": "Obtener datos del tablero",
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "hour": 8
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4",
+          "mode": "list",
+          "cachedResultName": "Tour virtual - New data -  Interprika 2025",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Tour Virtual",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -5504,
+        752
+      ],
+      "id": "1797a045-2031-4a1b-af76-769f2597a4c5",
+      "name": "Base de Datos",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "ZoodLLPG0rYP3zUd",
+          "name": "Google Sheets Trigger account soporte@valtmx.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4bf8ca5b-1f12-4771-8f3c-a6f6086ac043",
+              "name": "Nombre",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "0e07fea4-4c64-4140-80c9-71e782154394",
+              "name": "Fecha de Agenda",
+              "value": "={{ $json.column_values[0] }}",
+              "type": "object"
+            },
+            {
+              "id": "d8dc4bab-774f-4d64-b621-c001c6ff3abf",
+              "name": "ID Venue",
+              "value": "={{ $json.column_values[1] }}",
+              "type": "object"
+            },
+            {
+              "id": "c1f12d64-e508-44b3-8456-41c5fdce8834",
+              "name": "Estado del proceso",
+              "value": "={{ $json.column_values[2] }}",
+              "type": "object"
+            },
+            {
+              "id": "307f7dcf-9767-4a0b-94df-2f2c18882c98",
+              "name": "Dirección",
+              "value": "={{ $json.column_values[3] }}",
+              "type": "object"
+            },
+            {
+              "id": "ee84c909-7b65-4fb6-b1bf-59a528adc054",
+              "name": "Teléfono",
+              "value": "={{ $json.column_values[4] }}",
+              "type": "object"
+            },
+            {
+              "id": "7b64bc5b-8c9e-48bb-a61e-f84c13e2b73f",
+              "name": "Móvil",
+              "value": "={{ $json.column_values[5] }}",
+              "type": "object"
+            },
+            {
+              "id": "916df879-74f7-40ba-866b-2cb7894289ec",
+              "name": "Contact Venue",
+              "value": "={{ $json.column_values[6] }}",
+              "type": "object"
+            },
+            {
+              "id": "e5826049-a211-45d3-87e2-162bc42493b4",
+              "name": "Email",
+              "value": "={{ $json.column_values[7] }}",
+              "type": "object"
+            },
+            {
+              "id": "1511e7e9-8c51-4d33-aa37-0fca1ceefa88",
+              "name": "URL Bodas",
+              "value": "={{ $json.column_values[8] }}",
+              "type": "object"
+            },
+            {
+              "id": "419b8b70-8c40-4401-bb97-ce61f2b00d4a",
+              "name": "Ciudad (Weather)",
+              "value": "={{ $json.column_values[9] }}",
+              "type": "object"
+            },
+            {
+              "id": "ac82dc52-8463-43c5-b5c3-66d19b07e743",
+              "name": "Fecha Fin de Contrato",
+              "value": "={{ $json.column_values[10] }}",
+              "type": "object"
+            },
+            {
+              "id": "fbc79239-7768-48ee-9788-ed1f1037c522",
+              "name": "End Contract RW",
+              "value": "={{ $json.column_values[11] }}",
+              "type": "object"
+            },
+            {
+              "id": "09224452-cf35-4f66-8ce7-b1daff5777d1",
+              "name": "Renovación de Contrato",
+              "value": "={{ $json.column_values[12] }}",
+              "type": "object"
+            },
+            {
+              "id": "329d04dc-06db-4964-a977-10afffde679a",
+              "name": "Estatus",
+              "value": "={{ $json.column_values[13] }}",
+              "type": "object"
+            },
+            {
+              "id": "c9be0ce8-f846-4cf2-abe4-2cfeb9b822a3",
+              "name": "Producto",
+              "value": "={{ $json.column_values[14] }}",
+              "type": "object"
+            },
+            {
+              "id": "c8f94c95-4580-455b-ae76-ccc3a28c32de",
+              "name": "Emails",
+              "value": "={{ $json.column_values[15] }}",
+              "type": "object"
+            },
+            {
+              "id": "8b5380e0-3d94-4457-838c-377b03584e43",
+              "name": "Llamadas",
+              "value": "={{ $json.column_values[16] }}",
+              "type": "object"
+            },
+            {
+              "id": "7217f484-2182-43db-84fb-af193881919c",
+              "name": "Whatsapp",
+              "value": "={{ $json.column_values[17] }}",
+              "type": "object"
+            },
+            {
+              "id": "d014aa87-7178-4218-8806-e1c047f86677",
+              "name": "Interes de cliente",
+              "value": "={{ $json.column_values[18] }}",
+              "type": "object"
+            },
+            {
+              "id": "53e45395-718c-4bcc-8065-065f3f92c1db",
+              "name": "Anulaciones",
+              "value": "={{ $json.column_values[19] }}",
+              "type": "object"
+            },
+            {
+              "id": "67bf87e2-18bd-4a24-84b0-d273cd10f6bf",
+              "name": "Comentario Comercial",
+              "value": "={{ $json.column_values[20] }}",
+              "type": "object"
+            },
+            {
+              "id": "1ba9689d-7647-43a8-b38d-7c46db5aa68e",
+              "name": "Automat",
+              "value": "={{ $json.column_values[21] }}",
+              "type": "object"
+            },
+            {
+              "id": "a1cc9048-6592-4e15-b3e4-0e5f764d4819",
+              "name": "Fecha de la cita",
+              "value": "={{ $json.column_values[22] }}",
+              "type": "object"
+            },
+            {
+              "id": "203fcf1b-c8ca-411d-883b-503c48122dd3",
+              "name": "Viaticos",
+              "value": "={{ $json.column_values[23] }}",
+              "type": "object"
+            },
+            {
+              "id": "b7d3f200-d555-49cb-9f7a-cde6e81ce3fa",
+              "name": "Hora",
+              "value": "={{ $json.column_values[24] }}",
+              "type": "object"
+            },
+            {
+              "id": "3b8956c7-ace5-4551-bfb5-47f6694bd28a",
+              "name": "Estado",
+              "value": "={{ $json.column_values[25] }}",
+              "type": "object"
+            },
+            {
+              "id": "43b9f80b-5d0d-4bf7-bcb5-afbb9eb8fc7e",
+              "name": "Técnico",
+              "value": "={{ $json.column_values[26] }}",
+              "type": "object"
+            },
+            {
+              "id": "cd74aaf5-f78a-473d-9bcd-d69e0079293d",
+              "name": "Next Move",
+              "value": "={{ $json.column_values[28] }}",
+              "type": "object"
+            },
+            {
+              "id": "57af140e-dbee-4b55-9288-ccd9971ebff6",
+              "name": "Contactar Interprika",
+              "value": "={{ $json.column_values[29] }}",
+              "type": "object"
+            },
+            {
+              "id": "39fc1c3a-8120-4ba1-8686-131f42890c73",
+              "name": "Creación de Elemento",
+              "value": "={{ $json.column_values[30] }}",
+              "type": "object"
+            },
+            {
+              "id": "2d77e390-b522-4e50-8a6b-5a7d476d2acc",
+              "name": "Zona",
+              "value": "={{ $json.column_values[31] }}",
+              "type": "object"
+            },
+            {
+              "id": "64c8aea8-d938-4c0b-9ebd-5c497aeaa16e",
+              "name": "Item ID",
+              "value": "={{ $json.column_values[32] }}",
+              "type": "object"
+            },
+            {
+              "id": "ec393a59-b153-4906-b43f-a35a58946b60",
+              "name": "Last Updated",
+              "value": "={{ $json.column_values[33] }}",
+              "type": "object"
+            },
+            {
+              "id": "1d0ea039-5665-45f4-a99d-df7fe0d3100f",
+              "name": "Estado WhatsApp",
+              "value": "={{ $json.column_values[34] }}",
+              "type": "object"
+            },
+            {
+              "id": "4ff50e0a-e22f-438b-b685-c77cacce1353",
+              "name": "Estado Email",
+              "value": "={{ $json.column_values[35] }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        1488
+      ],
+      "id": "5c60de4a-63ae-4312-9ed0-696b6623f1f6",
+      "name": "Mapeando columnas Monday",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "056aa1eb-4b1f-48dd-a24b-aece6fe53de8",
+              "name": "Nombre",
+              "value": "={{ $json.Nombre }}",
+              "type": "string"
+            },
+            {
+              "id": "d5d6a9cf-1fe9-47e7-b3f2-778d470fb3d5",
+              "name": "=Fecha de agenda",
+              "value": "={{ $json['Fecha de Agenda'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "3fcd4e7d-3f1e-44c3-85f0-ce1f2a606a9a",
+              "name": "ID Venue",
+              "value": "={{ $json['ID Venue'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "5d0d89fc-46ae-47b3-941a-61489c37949a",
+              "name": "Estado del proceso",
+              "value": "={{ $json['Estado del proceso'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "3f1c62e6-7eb9-4c28-8e27-d5b67144eb08",
+              "name": "Dirección",
+              "value": "={{ $json['Dirección'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "dfcf8559-fbd3-4038-9472-293cd91bcefc",
+              "name": "Teléfono",
+              "value": "={{ $json['Teléfono'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "2cb6878f-e68d-4755-8ac9-bf60a4775327",
+              "name": "Móvil",
+              "value": "={{ $json['Móvil'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "c30dfeb2-1113-46ab-b86a-059a3b5cefe2",
+              "name": "Contact Venue",
+              "value": "={{ $json['Contact Venue'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "4253982b-b325-42b8-a84b-c915cf6777b6",
+              "name": "Email",
+              "value": "={{ $json.Email.text }}",
+              "type": "string"
+            },
+            {
+              "id": "fae0804e-ed9a-4f4f-a0f0-6f83df5016ee",
+              "name": "URL Bodas",
+              "value": "={{ $json['URL Bodas'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "dfe49e8f-5d6a-459e-b2b1-dd44c5b2b8c7",
+              "name": "Ciudad (Weather)",
+              "value": "={{ $json['Ciudad (Weather)'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "4d91b2b4-4513-4c87-a537-4d5f2e8517e0",
+              "name": "Fecha Fin de Contrato",
+              "value": "={{ $json['Fecha Fin de Contrato'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "1ea183b6-b65f-4ab1-b0c6-d02452222ba1",
+              "name": "End Contract RW",
+              "value": "={{ $json['End Contract RW'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "151ad7f5-f554-4ce3-bbec-96c5f2436ed0",
+              "name": "Renovación de Contrato",
+              "value": "={{ $json['Renovación de Contrato'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "420cfdf6-fc63-4baa-ac6c-e70f42a77208",
+              "name": "Estatus",
+              "value": "={{ $json.Estatus.text }}",
+              "type": "string"
+            },
+            {
+              "id": "4886d1cf-1442-48b0-a68d-0756579e9407",
+              "name": "Producto",
+              "value": "={{ $json.Producto.text }}",
+              "type": "string"
+            },
+            {
+              "id": "6fc0e956-1697-4d87-b4a8-518db8b8d8f9",
+              "name": "Emails",
+              "value": "={{ $json.Emails.text }}",
+              "type": "string"
+            },
+            {
+              "id": "090538e8-8b17-4a00-9b73-c4d97710c3cb",
+              "name": "Llamadas",
+              "value": "={{ $json.Llamadas.text }}",
+              "type": "string"
+            },
+            {
+              "id": "9f737dab-b371-41ba-9268-3acc1013e1d7",
+              "name": "Whatsapp",
+              "value": "={{ $json.Whatsapp.text }}",
+              "type": "string"
+            },
+            {
+              "id": "98e39546-efac-41cc-8aad-4d21b9623907",
+              "name": "Interes de cliente",
+              "value": "={{ $json['Interes de cliente'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "cf5367b0-1201-4205-ae19-c9f9e3ae6346",
+              "name": "Anulaciones",
+              "value": "={{ $json.Anulaciones.text }}",
+              "type": "string"
+            },
+            {
+              "id": "98fa3770-c4e7-428e-b767-9d43265947ea",
+              "name": "Comentario Comercial",
+              "value": "={{ $json['Comentario Comercial'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "64d13949-eea2-4bc9-8ded-90f8b25a676b",
+              "name": "Automat",
+              "value": "={{ $json.Automat.text }}",
+              "type": "string"
+            },
+            {
+              "id": "88d9f7c9-c7a8-4e3a-b320-38117091b3c4",
+              "name": "Fecha de la cita",
+              "value": "={{ $json['Fecha de la cita'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "130969e3-f264-4f55-a505-792de637beea",
+              "name": "Viaticos",
+              "value": "={{ $json.Viaticos.text }}",
+              "type": "string"
+            },
+            {
+              "id": "82632c29-ab3a-4bb3-a6b0-0ab72ca7bbcc",
+              "name": "Hora",
+              "value": "={{ $json.Hora.text }}",
+              "type": "string"
+            },
+            {
+              "id": "f7a4d492-f41f-46ca-a094-e29e7ccb301a",
+              "name": "Estado",
+              "value": "={{ $json.Estado.text }}",
+              "type": "string"
+            },
+            {
+              "id": "83315dab-a856-492d-9505-5d59bcbd7e56",
+              "name": "Técnico",
+              "value": "={{ $json['Técnico'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "70896f24-373a-4311-8e89-8ca77aba27e3",
+              "name": "Next Move",
+              "value": "={{ $json['Next Move'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "f97ccac3-62ae-4217-8f6a-bd4a4d378d94",
+              "name": "Contactar Interprika",
+              "value": "={{ $json['Contactar Interprika'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "d4cf5603-1660-48ca-93af-ec9326b962ca",
+              "name": "Creación de Elemento",
+              "value": "={{ $json['Creación de Elemento'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "38b00530-5e08-4c4e-aa40-052c940a9216",
+              "name": "Zona",
+              "value": "={{ $json.Zona.text }}",
+              "type": "string"
+            },
+            {
+              "id": "eafe62f2-5998-4d0a-b647-3b5141656245",
+              "name": "Item ID",
+              "value": "={{ $json['Item ID'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "a1573f98-0230-46bd-9464-2e2337301118",
+              "name": "Last Updated",
+              "value": "={{ $json['Last Updated'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "7759bfca-1930-408f-97d4-c0c079b49e00",
+              "name": "Estado WhatsApp",
+              "value": "={{ $json['Estado WhatsApp'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "f66bb496-8d04-45bb-b174-a3f8b5535dd0",
+              "name": "Estado Email",
+              "value": "={{ $json['Estado Email'].text }}",
+              "type": "string"
+            },
+            {
+              "id": "11c6ae52-3e4a-4120-8375-59a788918279",
+              "name": "Whatsapp Contacto",
+              "value": "https://wa.me/5649505612",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1072,
+        1488
+      ],
+      "id": "cba4da1e-0c92-46d5-a41a-3a9f5f2d5a05",
+      "name": "Valores de Monday",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.monday.com/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { items_page(limit: 500) { items { id name column_values(ids:[\\\"id_venue\\\"]) { id text } } } } }\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -4320,
+        912
+      ],
+      "id": "e3c01590-6890-49e1-accb-34a808e743b4",
+      "name": "Monday Query",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Ju2LPS4exSjQdWY8",
+          "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const CACHE_HOURS = 24;\n\nif (!globalThis.mondayCacheData) {\n  globalThis.mondayCacheData = { cache: [], lastUpdated: 0 };\n}\n\nconst cache = globalThis.mondayCacheData;\nconst now = Date.now();\nconst cacheIsValid = (now - cache.lastUpdated) < CACHE_HOURS * 3600 * 1000;\n\nif (cache.cache.length && cacheIsValid) {\n  return cache.cache.map(i => ({ json: i }));\n}\n\nconst response = items[0].json;\n\nconst mondayItems = response.data.boards[0].items_page.items.map(i => ({\n  ID_Venue: i.column_values?.[0]?.text?.trim() || \"\",\n  ID_Item_Monday: i.id,\n  Nombre: i.name\n}));\n\nglobalThis.mondayCacheData = {\n  cache: mondayItems,\n  lastUpdated: now\n};\n\nreturn mondayItems.map(i => ({\n  json: {\n    ID_Venue: String(i.ID_Venue || \"\").trim().toLowerCase(),\n    ID_Item_Monday: i.ID_Item_Monday,\n    Nombre: i.Nombre\n  }\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4128,
+        912
+      ],
+      "id": "23c7012d-613f-4872-996b-a4c51b9fd1f1",
+      "name": "Procesar y Cachear Monday"
+    },
+    {
+      "parameters": {
+        "jsCode": "function convertirFecha(valor) {\n  if (!valor) return null;\n  const str = String(valor).trim();\n\n  if (/^\\d{4}-\\d{2}-\\d{2}/.test(str)) {\n    return str.slice(0, 10);\n  }\n\n  if (/^\\d{1,2}[\\/\\-]\\d{1,2}[\\/\\-]\\d{4}$/.test(str)) {\n    const [d, m, y] = str.split(/[\\/\\-]/).map(Number);\n    const date = new Date(y, m - 1, d);\n    return date.toISOString().split('T')[0];\n  }\n\n  const num = Number(str);\n  if (!isNaN(num) && !str.includes('/')) {\n    const utcDays = num - 25569;\n    const ms = utcDays * 86400 * 1000;\n    const date = new Date(ms);\n    return date.toISOString().split('T')[0];\n  }\n\n  return null;\n}\n\nreturn items.map(item => {\n  const j = item.json;\n\n  return {\n    json: {\n      ...j,\n      \"Fecha de ingreso\": convertirFecha(j[\"Fecha de ingreso\"] || j[\"Date\"]),\n      \"Fecha Fin de Contrato\": convertirFecha(j[\"Fecha Fin de Contrato\"] || j[\"Contract end date\"]),\n      \"End Contract RW\": convertirFecha(j[\"End Contract RW\"] || j[\"End Contract Date RW\"]),\n      \"Renovación de Contrato\": convertirFecha(j[\"Renovación de Contrato\"] || j[\"Fecha RW\"])\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5088,
+        752
+      ],
+      "id": "512fcc6d-2f15-449a-b702-81cba1fe1ac2",
+      "name": "Transformación de fechas"
+    },
+    {
+      "parameters": {
+        "jsCode": "const TARGET_MONTH = $input.first().json.Month;\nconst TARGET_YEAR = $input.first().json.Year;\nconst USE_CURRENT = false;\n\nconst now = new Date();\nconst month = USE_CURRENT ? now.getMonth() + 1 : TARGET_MONTH;\nconst year = USE_CURRENT ? now.getFullYear() : TARGET_YEAR;\n\nfunction parseFecha(valor) {\n  if (!valor) return null;\n  \n  const str = String(valor).trim();\n\n  // Formato YYYY-MM-DD\n  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(str)) {\n    const [y, m, d] = str.split('-').map(Number);\n    return new Date(y, m - 1, d);\n  }\n\n  // Formato DD/MM/YYYY\n  if (/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/.test(str)) {\n    const [d, m, y] = str.split('/').map(Number);\n    return new Date(y, m - 1, d);\n  }\n\n  return null;\n}\nconst CAMPO_FECHA = \"Fecha de ingreso\";\n\nconst filtrados = items.filter(i => {\n  const fecha = parseFecha(i.json[CAMPO_FECHA]);\n  if (!fecha || isNaN(fecha)) return false;\n\n  const mes = fecha.getMonth() + 1;\n  const año = fecha.getFullYear();\n\n  return mes === month && año === year;\n});\n\nreturn filtrados;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4672,
+        752
+      ],
+      "id": "6e65206b-ff19-4528-b5a3-6faa297dd9b9",
+      "name": "Filtrar mes actual",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.monday.com/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { columns (ids: [\\\"color_mkqgwk4v\\\"]) { id title settings_str } } }\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -4320,
+        1120
+      ],
+      "id": "12797f68-7de3-4653-860e-95bd24c0ddc2",
+      "name": "Obtener mapeo de productos",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Ju2LPS4exSjQdWY8",
+          "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = items[0].json;\n\nconst settingsStr = response.data.boards[0].columns[0].settings_str;\nif (!settingsStr) {\n  throw new Error(\"❌ No se encontró settings_str en la respuesta de Monday.\");\n}\n\nconst settings = JSON.parse(settingsStr);\nconst labels = {};\n\nfor (const [index, name] of Object.entries(settings.labels)) {\n  if (name?.trim()) labels[name.trim().toLowerCase()] = Number(index);\n}\n\nreturn [\n  {\n    json: {\n      \"tour virtual\": 0,\n      \"my photo\": 1,\n      \"my photo cate\": 2,\n      \"default\": 3,\n      \"no aplica\": 5\n    }\n  }\n];\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4112,
+        1120
+      ],
+      "id": "80b89903-2107-4134-b779-5f66c3e8071b",
+      "name": "Procesar mapeo de productos"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7b897370-524b-4874-bef4-9c1f07075093",
+              "leftValue": "={{ !!$json[\"ID_Item_Monday\"] }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3088,
+        784
+      ],
+      "id": "60845669-f747-492d-b7bd-de1cca5abb27",
+      "name": "¿Ya existe en Monday?"
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql",
+        "numberInputs": 3,
+        "query": "SELECT\n  a.*,\n  b.ID_Item_Monday AS ID_Item_Monday,\n  b.Nombre AS Nombre_Monday,\n  c.`tour virtual` AS tour_virtual,\n  c.`my photo` AS my_photo,\n  c.`my photo cate` AS my_photo_cate,\n  c.`default` AS default_label,\n  c.`no aplica` AS no_aplica\nFROM input1 a\nLEFT JOIN input2 b\n  ON LOWER(TRIM(a.`ID Venue`)) = LOWER(TRIM(b.`ID_Venue`))\nCROSS JOIN input3 c\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -3584,
+        768
+      ],
+      "id": "1b451dbe-764b-4dd9-9130-a680f7ae3582",
+      "name": "Unificar Excel + Monday + Mapeo (SQL Merge)"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  item.json.mapeoProductos = {\n    \"tour virtual\": 0,\n    \"my photo\": 1,\n    \"my photo cate\": 2,\n    \"default\": 3,\n    \"no aplica\": 5\n  };\n  return item;\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3344,
+        784
+      ],
+      "id": "ae991b87-e2e5-4687-bf31-486cfb8e8fef",
+      "name": "Agregar mapeoProductos a cada item"
+    },
+    {
+      "parameters": {
+        "jsCode": "const estadosCorrecciones = {\n  \"Estado México\": \"Estado de México\",\n  \"EdoMéx\": \"Estado de México\",\n  \"Edo Mex\": \"Estado de México\",\n  \"Edomex\": \"Estado de México\",\n  \"Estado de Méx\": \"Estado de México\",\n  \"CDMX\": \"Ciudad de México\",\n  \"DF\": \"Ciudad de México\",\n  \"CdMx\": \"Ciudad de México\",\n  \"Qro\": \"Querétaro\",\n  \"Querétaro\": \"Querétaro\",\n  \"Guanajuato.\": \"Guanajuato\"\n};\n\nreturn $input.all().map(item => {\n  const estadoOriginal = (item.json[\"Estado\"] || \"\").trim();\n  const estadoNormalizado =\n    estadosCorrecciones[estadoOriginal] ||\n    estadoOriginal ||\n    \"Sin estado\";\n\n  return {\n    json: {\n      ...item.json,\n      Estado: estadoNormalizado\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3088,
+        -224
+      ],
+      "id": "97f5a8b8-e64c-445a-bf31-f32561647c94",
+      "name": "Normalizar Estado para Monday en actualizar",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "boardItem",
+        "operation": "changeMultipleColumnValues",
+        "boardId": "1209925112",
+        "itemId": "={{ $json.ID_Item_Monday }}",
+        "columnValues": "={{ JSON.stringify({\n  name: $json.name,\n  id_venue: $json[\"ID Venue\"],\n  text6: $json[\"Dirección\"],\n  text_mksz2qkn: $json[\"Teléfono\"],\n  text_mkszykzf: $json[\"Movil\"],\n  texto: $json[\"Contact Venue\"],\n  email: {\n    email: $json[\"Email\"],\n    text: $json[\"Email\"]\n  },\n  texto_mkmf8jc0: $json[\"URL Bodas\"],\n  date25: String($json[\"Fecha Fin de Contrato\"]).slice(0,10),\n  date_mkszmtcq: String($json[\"End Contract RW\"]).slice(0,10),\n  date_mksvhg6v: String($json[\"Renovación de Contrato\"]).slice(0,10),\n  color_mkqgwk4v: {\n    index: $json.mapeoProductos[$json[\"Producto\"].toLowerCase()]\n  },\n  dropdown9: { labels: [$json[\"Estado\"]] }\n}) }}"
+      },
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1,
+      "position": [
+        -2896,
+        -224
+      ],
+      "id": "bc6e9f3e-d255-4d54-9928-c34d9dcdbbb1",
+      "name": "Actualizar datos Existentes en Monday",
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const j = item.json;\n\n  // --------------------------\n  // 🔹 Normalizar fechas\n  // --------------------------\n  const normalizarFecha = v => {\n    if (!v) return \"2000-01-01\";\n    const str = String(v).trim();\n    if (/^\\d{4}-\\d{2}-\\d{2}$/.test(str)) return str;\n    if (/^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$/.test(str)) {\n      const [d, m, y] = str.split('/').map(Number);\n      const date = new Date(y, m - 1, d);\n      return date.toISOString().split('T')[0];\n    }\n    return \"2000-01-01\";\n  };\n\n  j[\"Fecha Fin de Contrato\"] = normalizarFecha(j[\"Fecha Fin de Contrato\"]);\n  j[\"End Contract RW\"] = normalizarFecha(j[\"End Contract RW\"]);\n  j[\"Renovación de Contrato\"] = normalizarFecha(j[\"Renovación de Contrato\"]);\n\n  // --------------------------\n  // 🔹 Validar Estado (solo 32 válidos)\n  // --------------------------\n  const estadosValidos = [\n    \"Aguascalientes\",\"Baja California\",\"Baja California Sur\",\"Campeche\",\n    \"Chiapas\",\"Chihuahua\",\"Ciudad de México\",\"Coahuila\",\"Colima\",\"Durango\",\n    \"Estado de México\",\"Guanajuato\",\"Guerrero\",\"Hidalgo\",\"Jalisco\",\n    \"Michoacán\",\"Morelos\",\"Nayarit\",\"Nuevo León\",\"Oaxaca\",\"Puebla\",\n    \"Querétaro\",\"Quintana Roo\",\"San Luis Potosí\",\"Sinaloa\",\"Sonora\",\n    \"Tabasco\",\"Tamaulipas\",\"Tlaxcala\",\"Veracruz\",\"Yucatán\",\"Zacatecas\"\n  ];\n\n  const estado = (j[\"Estado\"] || \"\").trim();\n  j[\"Estado\"] = estadosValidos.includes(estado) ? estado : \"Corregir estado\";\n\n\n  // --------------------------\n// 🔹 Normalizar Producto\n// --------------------------\nconst productosValidos = [\"Tour virtual\", \"My photo\", \"My photo cate\", \"No aplica\"];\nconst producto = (j[\"Producto\"] || \"\").trim().toLowerCase();\nconst productoNormalizado = productosValidos.find(\n  p => p.toLowerCase() === producto\n) || \"No aplica\";\n\nj[\"Producto\"] = productoNormalizado;\n\n  // --------------------------\n  // 🔹 Resultado final\n  // --------------------------\n  return { json: j };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2784,
+        960
+      ],
+      "id": "6aaa6f5d-8adb-4a59-8d2d-47d5c7b110de",
+      "name": "Normalizar datos antes de exportar"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const cols = Array.isArray(item.json.column_values) ? item.json.column_values : [];\n  const getCol = id => cols.find(c => c.id === id)?.text || \"\";\n\n  return {\n    json: {\n      \"Name\": item.json.name || \"\",\n      \"Estado del proceso\": getCol(\"status\"),\n      \"Fecha de la cita\": getCol(\"date\"),\n      \"Contact Venue\": getCol(\"texto\"),\n      \"ID Venue\": getCol(\"id_venue\"),\n      \"Email\": getCol(\"email\"),\n      \"Dirección\": getCol(\"text6\"),\n      \"Estado\": getCol(\"dropdown9\"),\n      \"Hora\": getCol(\"hora\"),\n      \"Comentario Comercial\": getCol(\"long_text7\"),\n      \"Next Move\": getCol(\"status8\"),\n      \"Contactar Interprika\": getCol(\"date3\"),\n      \"Creación de Elemento\": getCol(\"creation_log\"),\n      \"Emails\": getCol(\"numbers3\"),\n      \"Zona\": getCol(\"status7\"),\n      \"Item ID\": getCol(\"item_id2\"),\n      \"Automat\": getCol(\"status85\"),\n      \"Llamadas\": getCol(\"dup__of_email\"),\n      \"Anulaciones\": getCol(\"dup__of_llamadas\"),\n      \"Last Updated\": getCol(\"last_updated\"),\n      \"Ciudad (Weather)\": getCol(\"text78\"),\n      \"Fecha Fin de Contrato\": getCol(\"date25\"),\n      \"Whatsapp\": getCol(\"dup__of_llamadas__1\"),\n      \"Viaticos\": getCol(\"estado_1__1\"),\n      \"URL Bodas\": getCol(\"texto_mkmf8jc0\"),\n      \"Interes de cliente\": getCol(\"rating_mknjhe2e\"),\n      \"Producto\": getCol(\"color_mkqgwk4v\"),\n      \"Técnico\": getCol(\"dropdown_mksgvre0\"),\n      \"Renovación de Contrato\": getCol(\"date_mksvhg6v\"),\n      \"End Contract RW\": getCol(\"date_mkszmtcq\"),\n      \"Teléfono\": getCol(\"text_mksz2qkn\"),\n      \"Móvil\": getCol(\"text_mkszykzf\"),\n      \"Estatus\": getCol(\"color_mktgvy2q\"),\n      \"Fecha de agenda\": getCol(\"date_mkvpb824\"),\n      \"Estado WhatsApp\": getCol(\"color_mkwjc0cf\"),\n      \"Estado Email\": getCol(\"color_mkwkp29q\")\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        1488
+      ],
+      "id": "e62b3119-674b-4036-bfb7-06cf9ac19733",
+      "name": "Code in JavaScript",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bdc74297-239f-46cf-bdfd-6064cb2c7a67",
+              "name": "Month",
+              "value": "={{ $now.format('MM') }}",
+              "type": "number"
+            },
+            {
+              "id": "63dfd51b-f278-49a0-9702-556d76e07ad1",
+              "name": "Year",
+              "value": "={{ $now.format('yyyy') }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4896,
+        752
+      ],
+      "id": "11c22589-0aef-4cff-afe7-e219158689fb",
+      "name": "Mes y Año",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -2800,
+        688
+      ],
+      "id": "f271a7ba-968e-447d-a6bb-f94d9cb6d3fd",
+      "name": "Muere aquí"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Mexico_City",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-10-02T15:42:19.801Z",
+      "createdAt": "2025-10-02T15:42:19.801Z",
+      "role": "workflow:owner",
+      "workflowId": "cgunIVaaAcYuxM3O",
+      "projectId": "0KR2Gq9Kds58xeIV"
+    }
+  ],
+  "staticData": {
+    "node:Base de Datos": {
+      "documentId": "17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4",
+      "sheetId": 0,
+      "lastRevision": 1460,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=17rLaQHmN-hmRniVey0Rl0QOwMAoOSgjbMW1-HSYkPD4&revision=1460&exportFormat=xlsx"
+    }
+  },
+  "tags": [
+    {
+      "updatedAt": "2025-10-09T02:23:30.480Z",
+      "createdAt": "2025-10-09T02:23:30.480Z",
+      "id": "GTUgITnS8tIc6dCc",
+      "name": "edición"
+    },
+    {
+      "updatedAt": "2025-10-09T02:22:22.948Z",
+      "createdAt": "2025-10-09T02:22:22.948Z",
+      "id": "KC66WgMIV0Vz1t20",
+      "name": "open"
+    },
+    {
+      "updatedAt": "2025-10-09T02:23:32.167Z",
+      "createdAt": "2025-10-09T02:23:32.167Z",
+      "id": "KCwf5zqsqjmgLfRS",
+      "name": "facturación"
+    },
+    {
+      "updatedAt": "2025-10-09T02:22:53.306Z",
+      "createdAt": "2025-10-09T02:22:28.949Z",
+      "id": "LvKvpa1uLH0IqCYa",
+      "name": "creación de reservas"
+    },
+    {
+      "updatedAt": "2025-10-09T02:22:59.532Z",
+      "createdAt": "2025-10-09T02:22:59.532Z",
+      "id": "QCTBnjn1uegZi5vy",
+      "name": "confirmación de reservas"
+    },
+    {
+      "updatedAt": "2025-10-09T02:23:20.076Z",
+      "createdAt": "2025-10-09T02:23:20.076Z",
+      "id": "s4IPuHfR34AGtvV4",
+      "name": "confirmación meteorologi"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-12T20:20:00.000Z",
+  "versionId": "dd0006e0-7d41-4f89-ac99-5fee90b6ed69"
+}
