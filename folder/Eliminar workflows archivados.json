@@ -1,0 +1,162 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Obtener todos los workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener todos los workflows": {
+      "main": [
+        [
+          {
+            "node": "Filtrar archivados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar archivados": {
+      "main": [
+        [
+          {
+            "node": "Borrar Workflows archivados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Borrar Workflows archivados": {
+      "main": [
+        [
+          {
+            "node": "Resumen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-13T01:24:10.846Z",
+  "id": "AVEmoWyN7zcv2zsJ",
+  "isArchived": false,
+  "meta": null,
+  "name": "Eliminar workflows archivados",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        80,
+        0
+      ],
+      "id": "f8a6db2e-841a-4c4e-aea1-33a36e796abf",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://n8n-bodasmx-n8n.z5cvat.easypanel.host/api/v1/workflows",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        336,
+        0
+      ],
+      "id": "059f3655-31bd-4faf-b054-c68797236317",
+      "name": "Obtener todos los workflows",
+      "notesInFlow": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "rdazfP1AIVrejyD7",
+          "name": "Header Auth account - n8n API Key"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "notes": "Agregar api key de n8n como Header Auth"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Detecta si la respuesta viene como array o con propiedad data\nconst all = Array.isArray($json) ? $json : $json.data || [];\n\n// En tu versión, el campo correcto es isArchived\nconst archivados = all.filter(w => w.isArchived === true);\n\nif (archivados.length === 0) {\n  return [{ json: { mensaje: \"No hay workflows archivados (isArchived=true) para eliminar.\" } }];\n}\n\n// Devuelve solo los archivados para eliminarlos\nreturn archivados.map(a => ({\n  json: {\n    id: a.id,\n    name: a.name,\n    isArchived: a.isArchived,\n    active: a.active\n  }\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        544,
+        0
+      ],
+      "id": "d7bb5490-8cb5-401f-9e3f-8211e8f9a1ef",
+      "name": "Filtrar archivados"
+    },
+    {
+      "parameters": {
+        "jsCode": "const total = $items().length;\nreturn [{ json: { totalEliminados: total, mensaje: `Se eliminaron ${total} workflows archivados de n8n.` } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        976,
+        0
+      ],
+      "id": "6969b1b5-9351-44f3-a6b6-aafccdea5ebd",
+      "name": "Resumen"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "=https://n8n-bodasmx-n8n.z5cvat.easypanel.host/api/v1/workflows/{{$json.id}}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        768,
+        0
+      ],
+      "id": "6b1f39ca-0679-43e6-bf23-d6f0fbbb8ddb",
+      "name": "Borrar Workflows archivados",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "rdazfP1AIVrejyD7",
+          "name": "Header Auth account - n8n API Key"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-10-13T01:24:10.850Z",
+      "createdAt": "2025-10-13T01:24:10.850Z",
+      "role": "workflow:owner",
+      "workflowId": "AVEmoWyN7zcv2zsJ",
+      "projectId": "0KR2Gq9Kds58xeIV"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-13T03:19:27.000Z",
+  "versionId": "ded6ceb5-b500-43f3-929f-99ea6f817d99"
+}
