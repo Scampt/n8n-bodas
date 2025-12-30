@@ -1,0 +1,51 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {},
+  "createdAt": "2025-11-20T05:27:07.627Z",
+  "id": "eizMhuYUcjj8Ej9e",
+  "isArchived": true,
+  "meta": null,
+  "name": "Bodas – Cadencia semanal Estado Email",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "daysInterval": 7,
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4f359efd-2304-4c2c-8e20-2353c8b516b7",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-20T05:27:07.638Z",
+      "createdAt": "2025-11-20T05:27:07.638Z",
+      "role": "workflow:owner",
+      "workflowId": "eizMhuYUcjj8Ej9e",
+      "projectId": "0KR2Gq9Kds58xeIV"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-20T05:51:45.000Z",
+  "versionId": "29de41ae-02ed-4b39-94fe-bde968374071"
+}
