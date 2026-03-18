@@ -2,9 +2,9 @@
   "active": true,
   "activeVersion": {
     "authors": "Kevin Quiroz",
-    "autosaved": false,
+    "autosaved": true,
     "connections": {
-      "Fecha de 3 días despues": {
+      "Fecha de 3 días después": {
         "main": [
           [
             {
@@ -20,7 +20,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -31,7 +31,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -42,7 +42,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -53,7 +53,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -64,7 +64,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -75,7 +75,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -86,7 +86,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -97,7 +97,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -108,7 +108,7 @@
           [
             {
               "index": 0,
-              "node": "Fecha de 3 días despues",
+              "node": "Fecha de 3 días después",
               "type": "main"
             }
           ]
@@ -379,938 +379,10 @@
         ]
       }
     },
-    "createdAt": "2026-02-09T23:53:09.596Z",
+    "createdAt": "2026-03-18T00:39:31.135Z",
     "description": "",
-    "name": "Version 2a72aa9e",
+    "name": "Version ad110231",
     "nodes": [
-      {
-        "id": "55510054-104d-4e25-a3ac-b2681b4a03fd",
-        "name": "Revisar el estado de Email",
-        "parameters": {
-          "httpMethod": "POST",
-          "options": {},
-          "path": "estado-email"
-        },
-        "position": [
-          -896,
-          800
-        ],
-        "type": "n8n-nodes-base.webhook",
-        "typeVersion": 2.1,
-        "webhookId": "90605e6e-107b-4387-b53e-ea9e86327a1a"
-      },
-      {
-        "credentials": {
-          "mondayComOAuth2Api": {
-            "id": "dE8g2W2GVOjXMeZt",
-            "name": "Monday.com account majonb@interprika.com"
-          }
-        },
-        "id": "f4d6e04f-8800-47cb-87d0-0e03c73b81bf",
-        "name": "Obtener datos",
-        "parameters": {
-          "authentication": "oAuth2",
-          "itemId": "={{ $json.body.event.pulseId.toString() }}",
-          "operation": "get",
-          "resource": "boardItem"
-        },
-        "position": [
-          -672,
-          800
-        ],
-        "type": "n8n-nodes-base.mondayCom",
-        "typeVersion": 1
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "a1566c52-a55d-4564-881d-b2dc9a13681a",
-        "name": "Mandar primer correo - Tour virtual",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
-          "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\n- La grabación se llevará a cabo en 4 horas.\n\n- Es muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\n- Es imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Misa'] }}.\n\nUn cordial saludo,\n\nSergio Ledesma\nCoordinador de Tour Virtual",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          -160
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "90f74756-e4c0-457e-8912-b037ebe8103c",
-        "name": "Mandar primer correo - My photo",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=Agenda tu sesión del servicio My Photo en {{ $json.Nombre }}",
-          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          592
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "9999efb4-85b1-4a4a-9031-1ffcbdc81103",
-        "name": "Mandar primer correo - My photo cate",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=Agenda tu sesión del servicio My Photo Catering en {{ $json.Nombre }}",
-          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          2000,
-          1344
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "id": "88df9bf8-a58c-4258-a36c-f047247e7e58",
-        "name": "Valores Monday",
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "4bf8ca5b-1f12-4771-8f3c-a6f6086ac043",
-                "name": "Nombre",
-                "type": "string",
-                "value": "={{ $('Obtener datos').item.json.name }}"
-              },
-              {
-                "id": "916df879-74f7-40ba-866b-2cb7894289ec",
-                "name": "Contact Venue",
-                "type": "string",
-                "value": "={{ $('Obtener datos').item.json.column_values[6].text }}"
-              },
-              {
-                "id": "e5826049-a211-45d3-87e2-162bc42493b4",
-                "name": "Email",
-                "type": "string",
-                "value": "={{ $('Obtener datos').item.json.column_values[7].text }}"
-              },
-              {
-                "id": "3f228c66-ad07-45e1-83c7-715f68847888",
-                "name": "Producto",
-                "type": "string",
-                "value": "={{ $json.column_values[14].text }}"
-              },
-              {
-                "id": "64c8aea8-d938-4c0b-9ebd-5c497aeaa16e",
-                "name": "Item ID",
-                "type": "string",
-                "value": "={{ $('Obtener datos').item.json.column_values[32].text }}"
-              },
-              {
-                "id": "1d0ea039-5665-45f4-a99d-df7fe0d3100f",
-                "name": "Estado WhatsApp",
-                "type": "string",
-                "value": "={{ $('Obtener datos').item.json.column_values[34].text }}"
-              },
-              {
-                "id": "4ff50e0a-e22f-438b-b685-c77cacce1353",
-                "name": "Estado Email",
-                "type": "string",
-                "value": "={{ $('Obtener datos').item.json.column_values[35].text }}"
-              },
-              {
-                "id": "acc9527e-58ce-4fd9-a980-2c10b1f64da2",
-                "name": "Whatsapp Misa",
-                "type": "string",
-                "value": "https://wa.me/5649505612"
-              },
-              {
-                "id": "3dd2fbb4-41b5-427c-8915-bc6defead510",
-                "name": "Whatsapp Interprika",
-                "type": "string",
-                "value": "http://wa.me/524772540469"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "position": [
-          -448,
-          800
-        ],
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "9b9bed8c-b951-4f92-8177-c5556f4fd447",
-        "name": "Mandar segundo correo - Tour virtual",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
-          "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          96
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "6ab0a824-8005-4629-afbe-813ceb7e4712",
-        "name": "Mandar segundo correo - My photo",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
-          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          832
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "58acb680-e3b8-4c84-ae8b-2d3af0b50400",
-        "name": "Mandar segundo correo - My photo cate",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
-          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          1648
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "75071624-4ea0-4356-bc85-82ec19da5cf4",
-        "name": "Mandar tercer correo - Tour virtual",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
-          "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          352
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "c47d0059-942e-43a8-8ca6-044548c86a21",
-        "name": "Mandar tercer correo - My photo",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
-          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          1088
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "credentials": {
-          "smtp": {
-            "id": "GhyliWIO0PYy31Mj",
-            "name": "SMTP account Zoho Mail"
-          }
-        },
-        "id": "2178ff84-f2a7-43bb-929c-4a99bf119586",
-        "name": "Mandar tercer correo - My photo cate",
-        "parameters": {
-          "emailFormat": "text",
-          "fromEmail": "contacta@interprika.com",
-          "options": {
-            "appendAttribution": false
-          },
-          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
-          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-          "toEmail": "={{ $json.Email }}"
-        },
-        "position": [
-          1984,
-          1904
-        ],
-        "type": "n8n-nodes-base.emailSend",
-        "typeVersion": 2.1,
-        "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-      },
-      {
-        "id": "2b45e282-064b-42de-a020-8a0954d057ff",
-        "name": "Fecha de 3 días despues",
-        "parameters": {
-          "duration": 3,
-          "magnitude": "={{ $now }}",
-          "operation": "addToDate",
-          "options": {},
-          "outputFieldName": "FechaContactaInterprika"
-        },
-        "position": [
-          2992,
-          848
-        ],
-        "type": "n8n-nodes-base.dateTime",
-        "typeVersion": 2
-      },
-      {
-        "credentials": {
-          "mondayComOAuth2Api": {
-            "id": "dE8g2W2GVOjXMeZt",
-            "name": "Monday.com account majonb@interprika.com"
-          }
-        },
-        "id": "186b1934-5e43-443b-9729-66413824bd3b",
-        "name": "Cambiar fecha en Contactar Interprika",
-        "parameters": {
-          "authentication": "oAuth2",
-          "boardId": "1209925112",
-          "columnId": "date3",
-          "itemId": "={{ $('Obtener datos').item.json.id }}",
-          "operation": "changeColumnValue",
-          "resource": "boardItem",
-          "value": "={ \"date\": \"{{ $json.FechaContactaInterprika }}\" }"
-        },
-        "position": [
-          3520,
-          848
-        ],
-        "type": "n8n-nodes-base.mondayCom",
-        "typeVersion": 1
-      },
-      {
-        "id": "48c8db40-9cde-452a-949f-32114fdb02b7",
-        "name": "Validar producto y estado",
-        "parameters": {
-          "options": {},
-          "rules": {
-            "values": [
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "cb48f50b-f932-4f5e-bb7f-28f9c8c01128",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "=Tour virtual - Email 1 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "Tour virtual 1",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "49329c52-a193-4705-9db0-9476598247e5",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "=Tour virtual - Email 2 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "Tour virtual 2",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "43915f25-f273-409e-a5ae-1e43e5126dca",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "=Tour virtual - Email 3 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "Tour virtual 3",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "2ad8055a-2097-4191-a871-74901cf5a11d",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "My photo - Email 1 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "My photo 1",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "2a17f3c2-4cce-4dd0-8333-42c6c59bfc4f",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "My photo - Email 2 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "My photo 2",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "6164c07d-7055-4c68-bd28-f2556ad264e8",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "My photo - Email 3 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "My photo 3",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "e07a55e2-b1b5-421f-946d-5b9b0d87fbdc",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "My photo Cate - Email 1 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "My photo Cate 1",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "3534450e-b1fc-435e-8622-2b9da59855b2",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "My photo Cate - Email 2 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "My photo Cate 2",
-                "renameOutput": true
-              },
-              {
-                "conditions": {
-                  "combinator": "and",
-                  "conditions": [
-                    {
-                      "id": "682bd2d1-1064-4454-b9d3-393cecc4469a",
-                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                      "operator": {
-                        "name": "filter.operator.equals",
-                        "operation": "equals",
-                        "type": "string"
-                      },
-                      "rightValue": "My photo Cate - Email 3 enviado"
-                    }
-                  ],
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 2
-                  }
-                },
-                "outputKey": "My photo Cate 3",
-                "renameOutput": true
-              }
-            ]
-          }
-        },
-        "position": [
-          -208,
-          688
-        ],
-        "type": "n8n-nodes-base.switch",
-        "typeVersion": 3.3
-      },
-      {
-        "id": "3b490858-0652-4a3d-932e-a9e23ead3670",
-        "name": "Mapear fecha",
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "d4ef919c-a7f3-4248-a786-81ad7dc1be6b",
-                "name": "FechaContactaInterprika",
-                "type": "string",
-                "value": "={{ new Date($json.FechaContactaInterprika).toISOString().split('T')[0] }}"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "position": [
-          3296,
-          848
-        ],
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4
-      },
-      {
-        "id": "d9bd29e9-4923-48d1-a421-2c9e871a3ba3",
-        "name": "Wait",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          -160
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "0778cee2-cac7-4159-bc95-dfab4f48b816"
-      },
-      {
-        "id": "e8b611be-7c49-48a8-af24-e5fd5da323f5",
-        "name": "Wait1",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          96
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "8835d922-1084-4d26-a6b1-2ca190479083"
-      },
-      {
-        "id": "79a4a0cd-3c0a-44dd-8c05-4b5692382f51",
-        "name": "Wait2",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          352
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "97960f96-f919-4ec3-abee-75ae6fb082ba"
-      },
-      {
-        "id": "ac497acc-4336-4576-bd31-73a14b0e7df7",
-        "name": "Wait3",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          592
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "27a9e670-3fef-4c1a-885d-ab0f30657c22"
-      },
-      {
-        "id": "2113edef-5a96-454d-aafd-9dcd47282b64",
-        "name": "Wait4",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          832
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "3a094514-3872-42da-8c13-101b35bee25a"
-      },
-      {
-        "id": "6cb2b56a-d871-495d-8881-1a9f6189b526",
-        "name": "Wait5",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          1088
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "b97d0560-a16a-43cd-baa6-7f827bb1e5bf"
-      },
-      {
-        "id": "ab26e83c-421d-4f34-8205-0b2e07caf9fd",
-        "name": "Wait6",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          1344
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "a6de2409-3b2c-48fa-ae66-42bafb54866f"
-      },
-      {
-        "id": "fa94be56-b518-44bf-8cab-571e8d827ccd",
-        "name": "Wait7",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          1648
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "0399860a-542f-41dd-992c-c5778f2346b7"
-      },
-      {
-        "id": "68646b21-95df-4f20-a349-64f105b0e558",
-        "name": "Wait8",
-        "parameters": {
-          "amount": 20
-        },
-        "position": [
-          1552,
-          1904
-        ],
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "webhookId": "f8fde4ef-72d8-4caa-9be0-9e6ce5409f89"
-      },
-      {
-        "id": "a70a1246-8685-4683-963e-d9e536877347",
-        "name": "Sticky Note",
-        "parameters": {
-          "color": 2,
-          "content": "## Primer email",
-          "height": 272,
-          "width": 272
-        },
-        "position": [
-          1904,
-          -240
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "1d506517-c405-4304-9634-1e7665f277a3",
-        "name": "Sticky Note1",
-        "parameters": {
-          "color": 2,
-          "content": "## Primer email",
-          "height": 272,
-          "width": 272
-        },
-        "position": [
-          1904,
-          528
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "20fce40f-c935-4019-b029-08d3343c3b4a",
-        "name": "Sticky Note2",
-        "parameters": {
-          "color": 2,
-          "content": "## Primer email",
-          "height": 288,
-          "width": 272
-        },
-        "position": [
-          1904,
-          1264
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "3c442998-5ade-4c7b-8e9c-4fe5d071b944",
-        "name": "Sticky Note3",
-        "parameters": {
-          "color": 6,
-          "content": "## Segundo email",
-          "height": 288,
-          "width": 272
-        },
-        "position": [
-          1904,
-          32
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "0c2f431e-9ee8-4912-b4ee-a3051b367b89",
-        "name": "Sticky Note4",
-        "parameters": {
-          "color": 6,
-          "content": "## Segundo email",
-          "height": 240,
-          "width": 272
-        },
-        "position": [
-          1904,
-          784
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "51b2f426-ae7d-41da-9c02-03720374d671",
-        "name": "Sticky Note5",
-        "parameters": {
-          "color": 6,
-          "content": "## Segundo email",
-          "height": 272,
-          "width": 272
-        },
-        "position": [
-          1904,
-          1552
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "b0d44bf9-7529-4224-8128-39c1321c8309",
-        "name": "Sticky Note6",
-        "parameters": {
-          "color": 4,
-          "content": "## Tercer email",
-          "height": 240,
-          "width": 272
-        },
-        "position": [
-          1904,
-          288
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "6874fef7-8faf-4291-8963-60155c6d5629",
-        "name": "Sticky Note7",
-        "parameters": {
-          "color": 4,
-          "content": "## Tercer email",
-          "height": 240,
-          "width": 272
-        },
-        "position": [
-          1904,
-          1024
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
-      {
-        "id": "4208db09-611d-42a0-82ff-a843e4c8a8a5",
-        "name": "Sticky Note8",
-        "parameters": {
-          "color": 4,
-          "content": "## Tercer email",
-          "height": 240,
-          "width": 272
-        },
-        "position": [
-          1904,
-          1824
-        ],
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1
-      },
       {
         "alwaysOutputData": true,
         "credentials": {
@@ -1628,15 +700,943 @@
         ],
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4
+      },
+      {
+        "id": "3ffbef5f-20e3-49e1-a2ff-9a64a47eb164",
+        "name": "Revisar el estado de Email",
+        "parameters": {
+          "httpMethod": "POST",
+          "options": {},
+          "path": "estado-email"
+        },
+        "position": [
+          672,
+          1120
+        ],
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "webhookId": "90605e6e-107b-4387-b53e-ea9e86327a1a"
+      },
+      {
+        "credentials": {
+          "mondayComOAuth2Api": {
+            "id": "dE8g2W2GVOjXMeZt",
+            "name": "Monday.com account majonb@interprika.com"
+          }
+        },
+        "id": "4c8561fb-fd39-49ed-b314-e9d14b451807",
+        "name": "Obtener datos",
+        "parameters": {
+          "authentication": "oAuth2",
+          "itemId": "={{ $json.body.event.pulseId.toString() }}",
+          "operation": "get",
+          "resource": "boardItem"
+        },
+        "position": [
+          896,
+          1120
+        ],
+        "type": "n8n-nodes-base.mondayCom",
+        "typeVersion": 1
+      },
+      {
+        "id": "98ef9a05-c9ce-4219-94df-06b665469cf9",
+        "name": "Valores Monday",
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "4bf8ca5b-1f12-4771-8f3c-a6f6086ac043",
+                "name": "Nombre",
+                "type": "string",
+                "value": "={{ $('Obtener datos').item.json.name }}"
+              },
+              {
+                "id": "916df879-74f7-40ba-866b-2cb7894289ec",
+                "name": "Contact Venue",
+                "type": "string",
+                "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'texto')?.text || '' }}"
+              },
+              {
+                "id": "e5826049-a211-45d3-87e2-162bc42493b4",
+                "name": "Email",
+                "type": "string",
+                "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'email')?.text || '' }}"
+              },
+              {
+                "id": "3f228c66-ad07-45e1-83c7-715f68847888",
+                "name": "Producto",
+                "type": "string",
+                "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'color_mkqgwk4v')?.text || '' }}"
+              },
+              {
+                "id": "64c8aea8-d938-4c0b-9ebd-5c497aeaa16e",
+                "name": "Item ID",
+                "type": "string",
+                "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'item_id2')?.text || '' }}"
+              },
+              {
+                "id": "1d0ea039-5665-45f4-a99d-df7fe0d3100f",
+                "name": "Estado WhatsApp",
+                "type": "string",
+                "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'color_mkwjc0cf')?.text || '' }}"
+              },
+              {
+                "id": "4ff50e0a-e22f-438b-b685-c77cacce1353",
+                "name": "Estado Email",
+                "type": "string",
+                "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'color_mkwkp29q')?.text || '' }}"
+              },
+              {
+                "id": "acc9527e-58ce-4fd9-a980-2c10b1f64da2",
+                "name": "Whatsapp Misa",
+                "type": "string",
+                "value": "https://wa.me/5649505612"
+              },
+              {
+                "id": "3dd2fbb4-41b5-427c-8915-bc6defead510",
+                "name": "Whatsapp Interprika",
+                "type": "string",
+                "value": "http://wa.me/524772540469"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "position": [
+          1120,
+          1120
+        ],
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4
+      },
+      {
+        "id": "dd4c66a7-5afb-4404-89a8-583d0f1180e7",
+        "name": "Validar producto y estado",
+        "parameters": {
+          "options": {},
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "cb48f50b-f932-4f5e-bb7f-28f9c8c01128",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "Tour virtual - Email 1 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "Tour virtual 1",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "49329c52-a193-4705-9db0-9476598247e5",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "Tour virtual - Email 2 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "Tour virtual 2",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "43915f25-f273-409e-a5ae-1e43e5126dca",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "Tour virtual - Email 3 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "Tour virtual 3",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "2ad8055a-2097-4191-a871-74901cf5a11d",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "My photo - Email 1 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "My photo 1",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "2a17f3c2-4cce-4dd0-8333-42c6c59bfc4f",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "My photo - Email 2 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "My photo 2",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "6164c07d-7055-4c68-bd28-f2556ad264e8",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "My photo - Email 3 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "My photo 3",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "e07a55e2-b1b5-421f-946d-5b9b0d87fbdc",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "My photo Cate - Email 1 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "My photo Cate 1",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "3534450e-b1fc-435e-8622-2b9da59855b2",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "My photo Cate - Email 2 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "My photo Cate 2",
+                "renameOutput": true
+              },
+              {
+                "conditions": {
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "682bd2d1-1064-4454-b9d3-393cecc4469a",
+                      "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                      "operator": {
+                        "name": "filter.operator.equals",
+                        "operation": "equals",
+                        "type": "string"
+                      },
+                      "rightValue": "My photo Cate - Email 3 enviado"
+                    }
+                  ],
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  }
+                },
+                "outputKey": "My photo Cate 3",
+                "renameOutput": true
+              }
+            ]
+          }
+        },
+        "position": [
+          1360,
+          1008
+        ],
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.3
+      },
+      {
+        "id": "5a793ae0-dde2-4064-9a6f-307be07ca3e9",
+        "name": "Wait",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          160
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "0778cee2-cac7-4159-bc95-dfab4f48b816"
+      },
+      {
+        "id": "48b36f61-5c14-4936-8135-026ed75206cf",
+        "name": "Wait1",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          416
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "8835d922-1084-4d26-a6b1-2ca190479083"
+      },
+      {
+        "id": "f0a5ac01-79a5-4eb4-a1d9-18cca8283780",
+        "name": "Wait2",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          672
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "97960f96-f919-4ec3-abee-75ae6fb082ba"
+      },
+      {
+        "id": "c8ecfc0e-7242-4e58-a2f2-a87cc3138e60",
+        "name": "Wait3",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          912
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "27a9e670-3fef-4c1a-885d-ab0f30657c22"
+      },
+      {
+        "id": "a40b8fd0-141e-4978-8ad8-1b9f73121518",
+        "name": "Wait4",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          1152
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "3a094514-3872-42da-8c13-101b35bee25a"
+      },
+      {
+        "id": "4808b154-59b2-4caf-9cbd-e38ddeab54e6",
+        "name": "Wait5",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          1408
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "b97d0560-a16a-43cd-baa6-7f827bb1e5bf"
+      },
+      {
+        "id": "fb78f81b-5d43-492b-90ff-1ce4a73eb1b4",
+        "name": "Wait6",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          1664
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "a6de2409-3b2c-48fa-ae66-42bafb54866f"
+      },
+      {
+        "id": "c2a8d792-5c97-4b07-a89c-542f7efc66f9",
+        "name": "Wait7",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          1968
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "0399860a-542f-41dd-992c-c5778f2346b7"
+      },
+      {
+        "id": "d9f4f296-cf8b-4e32-b337-0e8b3097f71c",
+        "name": "Wait8",
+        "parameters": {
+          "amount": 20
+        },
+        "position": [
+          3120,
+          2224
+        ],
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "webhookId": "f8fde4ef-72d8-4caa-9be0-9e6ce5409f89"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "f8610411-f5c2-4d24-a5af-9fd662fc9ac7",
+        "name": "Mandar primer correo - Tour virtual",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
+          "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\n- La grabación se llevará a cabo en 4 horas.\n\n- Es muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\n- Es imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Misa'] }}.\n\nUn cordial saludo,\n\nSergio Ledesma\nCoordinador de Tour Virtual",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          160
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "dbce6c1f-2649-4413-9d56-a97b85728349"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "08b0f0c2-5249-4799-934e-e82c56b42b5f",
+        "name": "Mandar segundo correo - Tour virtual",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
+          "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          416
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "3d548460-c3d2-4aff-b626-3b7439155f03"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "9a12f1a6-0a28-4b9c-b684-35259a8b6de6",
+        "name": "Mandar tercer correo - Tour virtual",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
+          "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          672
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "92b72e7b-fbb6-4303-9f61-6463eb540db7"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "e9db4081-71ae-4d90-8b82-d9ce23279cf1",
+        "name": "Mandar primer correo - My photo",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=Agenda tu sesión del servicio My Photo en {{ $json.Nombre }}",
+          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          912
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "e866fcf3-9dfc-4bfa-acef-dd40aa85d64c"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "0b71b692-814d-4438-8267-5d456c0305db",
+        "name": "Mandar segundo correo - My photo",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
+          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          1152
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "281023ac-a70c-443d-abf2-b353a76afce4"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "677eb0fc-6fd2-4a6f-bf7a-1368872c14fa",
+        "name": "Mandar tercer correo - My photo",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
+          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          1408
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "f14c5b23-71cb-46f6-86d8-f001d2d8393c"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "abcea708-9412-4254-868b-f126c4543340",
+        "name": "Mandar primer correo - My photo cate",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=Agenda tu sesión del servicio My Photo Catering en {{ $json.Nombre }}",
+          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3568,
+          1664
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "d2a09d3a-6439-45f2-8263-645c76b534c9"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "7feb16bd-77b7-48f8-94c9-2c6aa051cde6",
+        "name": "Mandar segundo correo - My photo cate",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
+          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          1968
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "4b10e44c-8095-43ed-87c0-c5b906cecb7e"
+      },
+      {
+        "credentials": {
+          "smtp": {
+            "id": "GhyliWIO0PYy31Mj",
+            "name": "SMTP account Zoho Mail"
+          }
+        },
+        "id": "84440ed4-3256-41d8-b162-4c262059bfee",
+        "name": "Mandar tercer correo - My photo cate",
+        "parameters": {
+          "emailFormat": "text",
+          "fromEmail": "contacta@interprika.com",
+          "options": {
+            "appendAttribution": false
+          },
+          "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
+          "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+          "toEmail": "={{ $json.Email }}"
+        },
+        "position": [
+          3552,
+          2224
+        ],
+        "type": "n8n-nodes-base.emailSend",
+        "typeVersion": 2.1,
+        "webhookId": "f7fa8c92-acef-498b-8419-b98c08a0dc28"
+      },
+      {
+        "id": "fb3c1b9e-8e5e-4ebd-92ef-544a9c69ac15",
+        "name": "Fecha de 3 días después",
+        "parameters": {
+          "duration": 3,
+          "magnitude": "={{ $now.toISO() }}",
+          "operation": "addToDate",
+          "options": {},
+          "outputFieldName": "FechaContactaInterprika"
+        },
+        "position": [
+          4560,
+          1168
+        ],
+        "type": "n8n-nodes-base.dateTime",
+        "typeVersion": 2
+      },
+      {
+        "id": "74af283a-6b14-4887-873f-ea2b06c578b5",
+        "name": "Mapear fecha",
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "d4ef919c-a7f3-4248-a786-81ad7dc1be6b",
+                "name": "FechaContactaInterprika",
+                "type": "string",
+                "value": "={{ new Date($json.FechaContactaInterprika).toISOString().split('T')[0] }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "position": [
+          4864,
+          1168
+        ],
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4
+      },
+      {
+        "credentials": {
+          "mondayComOAuth2Api": {
+            "id": "dE8g2W2GVOjXMeZt",
+            "name": "Monday.com account majonb@interprika.com"
+          }
+        },
+        "id": "d179d8a7-7c69-4742-b7a0-4aae9cc2c7a2",
+        "name": "Cambiar fecha en Contactar Interprika",
+        "parameters": {
+          "authentication": "oAuth2",
+          "boardId": "1209925112",
+          "columnId": "date3",
+          "itemId": "={{ $('Obtener datos').item.json.id }}",
+          "operation": "changeColumnValue",
+          "resource": "boardItem",
+          "value": "={ \"date\": \"{{ $json.FechaContactaInterprika }}\" }"
+        },
+        "position": [
+          5088,
+          1168
+        ],
+        "type": "n8n-nodes-base.mondayCom",
+        "typeVersion": 1
+      },
+      {
+        "id": "739d6c50-a407-49eb-9ebd-794e6233ab96",
+        "name": "Sticky Note",
+        "parameters": {
+          "color": 2,
+          "content": "## Primer email",
+          "height": 272,
+          "width": 272
+        },
+        "position": [
+          3472,
+          80
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "1d282673-1675-49f7-a3c3-c25d5b9e1675",
+        "name": "Sticky Note1",
+        "parameters": {
+          "color": 2,
+          "content": "## Primer email",
+          "height": 272,
+          "width": 272
+        },
+        "position": [
+          3472,
+          848
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "32436682-1b2d-48df-9183-35637fdbd3d6",
+        "name": "Sticky Note2",
+        "parameters": {
+          "color": 2,
+          "content": "## Primer email",
+          "height": 288,
+          "width": 272
+        },
+        "position": [
+          3472,
+          1584
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "6d676c94-4802-4cd4-9f39-50aa526e1e6e",
+        "name": "Sticky Note3",
+        "parameters": {
+          "color": 6,
+          "content": "## Segundo email",
+          "height": 288,
+          "width": 272
+        },
+        "position": [
+          3472,
+          352
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "66106695-d81f-45fd-a53b-04765b9420ed",
+        "name": "Sticky Note4",
+        "parameters": {
+          "color": 6,
+          "content": "## Segundo email",
+          "height": 240,
+          "width": 272
+        },
+        "position": [
+          3472,
+          1104
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "8b2f1777-55fe-4184-bdb8-0ad84041ad56",
+        "name": "Sticky Note5",
+        "parameters": {
+          "color": 6,
+          "content": "## Segundo email",
+          "height": 272,
+          "width": 272
+        },
+        "position": [
+          3472,
+          1872
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "0d1190d9-992d-49f9-9559-bfb77c958ae2",
+        "name": "Sticky Note6",
+        "parameters": {
+          "color": 4,
+          "content": "## Tercer email",
+          "height": 240,
+          "width": 272
+        },
+        "position": [
+          3472,
+          608
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "2503dddb-78ac-4afc-9a32-d378e1e0b793",
+        "name": "Sticky Note7",
+        "parameters": {
+          "color": 4,
+          "content": "## Tercer email",
+          "height": 240,
+          "width": 272
+        },
+        "position": [
+          3472,
+          1344
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
+      },
+      {
+        "id": "e7ef568d-5139-4b9f-802b-d261463fac60",
+        "name": "Sticky Note8",
+        "parameters": {
+          "color": 4,
+          "content": "## Tercer email",
+          "height": 240,
+          "width": 272
+        },
+        "position": [
+          3472,
+          2144
+        ],
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1
       }
     ],
-    "updatedAt": "2026-02-09T23:53:10.000Z",
-    "versionId": "2a72aa9e-003f-43a2-b358-9e7e1a80f1fa",
+    "updatedAt": "2026-03-18T00:40:28.000Z",
+    "versionId": "ad110231-9234-455d-adc6-860165d961e2",
     "workflowId": "2KiLK3UqcH5RAAMg"
   },
-  "activeVersionId": "2a72aa9e-003f-43a2-b358-9e7e1a80f1fa",
+  "activeVersionId": "ad110231-9234-455d-adc6-860165d961e2",
   "connections": {
-    "Fecha de 3 días despues": {
+    "Fecha de 3 días después": {
       "main": [
         [
           {
@@ -1652,7 +1652,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1663,7 +1663,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1674,7 +1674,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1685,7 +1685,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1696,7 +1696,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1707,7 +1707,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1718,7 +1718,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1729,7 +1729,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -1740,7 +1740,7 @@
         [
           {
             "index": 0,
-            "node": "Fecha de 3 días despues",
+            "node": "Fecha de 3 días después",
             "type": "main"
           }
         ]
@@ -2019,934 +2019,6 @@
   },
   "name": "2. Bodas – Emails por Estado (Webhook Monday)",
   "nodes": [
-    {
-      "id": "55510054-104d-4e25-a3ac-b2681b4a03fd",
-      "name": "Revisar el estado de Email",
-      "parameters": {
-        "httpMethod": "POST",
-        "options": {},
-        "path": "estado-email"
-      },
-      "position": [
-        -896,
-        800
-      ],
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "webhookId": "90605e6e-107b-4387-b53e-ea9e86327a1a"
-    },
-    {
-      "credentials": {
-        "mondayComOAuth2Api": {
-          "id": "dE8g2W2GVOjXMeZt",
-          "name": "Monday.com account majonb@interprika.com"
-        }
-      },
-      "id": "f4d6e04f-8800-47cb-87d0-0e03c73b81bf",
-      "name": "Obtener datos",
-      "parameters": {
-        "authentication": "oAuth2",
-        "itemId": "={{ $json.body.event.pulseId.toString() }}",
-        "operation": "get",
-        "resource": "boardItem"
-      },
-      "position": [
-        -672,
-        800
-      ],
-      "type": "n8n-nodes-base.mondayCom",
-      "typeVersion": 1
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "a1566c52-a55d-4564-881d-b2dc9a13681a",
-      "name": "Mandar primer correo - Tour virtual",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
-        "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\n- La grabación se llevará a cabo en 4 horas.\n\n- Es muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\n- Es imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Misa'] }}.\n\nUn cordial saludo,\n\nSergio Ledesma\nCoordinador de Tour Virtual",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        -160
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "90f74756-e4c0-457e-8912-b037ebe8103c",
-      "name": "Mandar primer correo - My photo",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=Agenda tu sesión del servicio My Photo en {{ $json.Nombre }}",
-        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        592
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "9999efb4-85b1-4a4a-9031-1ffcbdc81103",
-      "name": "Mandar primer correo - My photo cate",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=Agenda tu sesión del servicio My Photo Catering en {{ $json.Nombre }}",
-        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        2000,
-        1344
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "id": "88df9bf8-a58c-4258-a36c-f047247e7e58",
-      "name": "Valores Monday",
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "4bf8ca5b-1f12-4771-8f3c-a6f6086ac043",
-              "name": "Nombre",
-              "type": "string",
-              "value": "={{ $('Obtener datos').item.json.name }}"
-            },
-            {
-              "id": "916df879-74f7-40ba-866b-2cb7894289ec",
-              "name": "Contact Venue",
-              "type": "string",
-              "value": "={{ $('Obtener datos').item.json.column_values[6].text }}"
-            },
-            {
-              "id": "e5826049-a211-45d3-87e2-162bc42493b4",
-              "name": "Email",
-              "type": "string",
-              "value": "={{ $('Obtener datos').item.json.column_values[7].text }}"
-            },
-            {
-              "id": "3f228c66-ad07-45e1-83c7-715f68847888",
-              "name": "Producto",
-              "type": "string",
-              "value": "={{ $json.column_values[14].text }}"
-            },
-            {
-              "id": "64c8aea8-d938-4c0b-9ebd-5c497aeaa16e",
-              "name": "Item ID",
-              "type": "string",
-              "value": "={{ $('Obtener datos').item.json.column_values[32].text }}"
-            },
-            {
-              "id": "1d0ea039-5665-45f4-a99d-df7fe0d3100f",
-              "name": "Estado WhatsApp",
-              "type": "string",
-              "value": "={{ $('Obtener datos').item.json.column_values[34].text }}"
-            },
-            {
-              "id": "4ff50e0a-e22f-438b-b685-c77cacce1353",
-              "name": "Estado Email",
-              "type": "string",
-              "value": "={{ $('Obtener datos').item.json.column_values[35].text }}"
-            },
-            {
-              "id": "acc9527e-58ce-4fd9-a980-2c10b1f64da2",
-              "name": "Whatsapp Misa",
-              "type": "string",
-              "value": "https://wa.me/5649505612"
-            },
-            {
-              "id": "3dd2fbb4-41b5-427c-8915-bc6defead510",
-              "name": "Whatsapp Interprika",
-              "type": "string",
-              "value": "http://wa.me/524772540469"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "position": [
-        -448,
-        800
-      ],
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "9b9bed8c-b951-4f92-8177-c5556f4fd447",
-      "name": "Mandar segundo correo - Tour virtual",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
-        "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        96
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "6ab0a824-8005-4629-afbe-813ceb7e4712",
-      "name": "Mandar segundo correo - My photo",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
-        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        832
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "58acb680-e3b8-4c84-ae8b-2d3af0b50400",
-      "name": "Mandar segundo correo - My photo cate",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
-        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        1648
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "75071624-4ea0-4356-bc85-82ec19da5cf4",
-      "name": "Mandar tercer correo - Tour virtual",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
-        "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        352
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "c47d0059-942e-43a8-8ca6-044548c86a21",
-      "name": "Mandar tercer correo - My photo",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
-        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        1088
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "credentials": {
-        "smtp": {
-          "id": "GhyliWIO0PYy31Mj",
-          "name": "SMTP account Zoho Mail"
-        }
-      },
-      "id": "2178ff84-f2a7-43bb-929c-4a99bf119586",
-      "name": "Mandar tercer correo - My photo cate",
-      "parameters": {
-        "emailFormat": "text",
-        "fromEmail": "contacta@interprika.com",
-        "options": {
-          "appendAttribution": false
-        },
-        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
-        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
-        "toEmail": "={{ $json.Email }}"
-      },
-      "position": [
-        1984,
-        1904
-      ],
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "webhookId": "5daecd60-2146-4151-8348-e9889cd80a45"
-    },
-    {
-      "id": "2b45e282-064b-42de-a020-8a0954d057ff",
-      "name": "Fecha de 3 días despues",
-      "parameters": {
-        "duration": 3,
-        "magnitude": "={{ $now }}",
-        "operation": "addToDate",
-        "options": {},
-        "outputFieldName": "FechaContactaInterprika"
-      },
-      "position": [
-        2992,
-        848
-      ],
-      "type": "n8n-nodes-base.dateTime",
-      "typeVersion": 2
-    },
-    {
-      "credentials": {
-        "mondayComOAuth2Api": {
-          "id": "dE8g2W2GVOjXMeZt",
-          "name": "Monday.com account majonb@interprika.com"
-        }
-      },
-      "id": "186b1934-5e43-443b-9729-66413824bd3b",
-      "name": "Cambiar fecha en Contactar Interprika",
-      "parameters": {
-        "authentication": "oAuth2",
-        "boardId": "1209925112",
-        "columnId": "date3",
-        "itemId": "={{ $('Obtener datos').item.json.id }}",
-        "operation": "changeColumnValue",
-        "resource": "boardItem",
-        "value": "={ \"date\": \"{{ $json.FechaContactaInterprika }}\" }"
-      },
-      "position": [
-        3520,
-        848
-      ],
-      "type": "n8n-nodes-base.mondayCom",
-      "typeVersion": 1
-    },
-    {
-      "id": "48c8db40-9cde-452a-949f-32114fdb02b7",
-      "name": "Validar producto y estado",
-      "parameters": {
-        "options": {},
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "cb48f50b-f932-4f5e-bb7f-28f9c8c01128",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "=Tour virtual - Email 1 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "Tour virtual 1",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "49329c52-a193-4705-9db0-9476598247e5",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "=Tour virtual - Email 2 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "Tour virtual 2",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "43915f25-f273-409e-a5ae-1e43e5126dca",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "=Tour virtual - Email 3 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "Tour virtual 3",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "2ad8055a-2097-4191-a871-74901cf5a11d",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "My photo - Email 1 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "My photo 1",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "2a17f3c2-4cce-4dd0-8333-42c6c59bfc4f",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "My photo - Email 2 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "My photo 2",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "6164c07d-7055-4c68-bd28-f2556ad264e8",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "My photo - Email 3 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "My photo 3",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "e07a55e2-b1b5-421f-946d-5b9b0d87fbdc",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "My photo Cate - Email 1 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "My photo Cate 1",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "3534450e-b1fc-435e-8622-2b9da59855b2",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "My photo Cate - Email 2 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "My photo Cate 2",
-              "renameOutput": true
-            },
-            {
-              "conditions": {
-                "combinator": "and",
-                "conditions": [
-                  {
-                    "id": "682bd2d1-1064-4454-b9d3-393cecc4469a",
-                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
-                    "operator": {
-                      "name": "filter.operator.equals",
-                      "operation": "equals",
-                      "type": "string"
-                    },
-                    "rightValue": "My photo Cate - Email 3 enviado"
-                  }
-                ],
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                }
-              },
-              "outputKey": "My photo Cate 3",
-              "renameOutput": true
-            }
-          ]
-        }
-      },
-      "position": [
-        -208,
-        688
-      ],
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.3
-    },
-    {
-      "id": "3b490858-0652-4a3d-932e-a9e23ead3670",
-      "name": "Mapear fecha",
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "d4ef919c-a7f3-4248-a786-81ad7dc1be6b",
-              "name": "FechaContactaInterprika",
-              "type": "string",
-              "value": "={{ new Date($json.FechaContactaInterprika).toISOString().split('T')[0] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "position": [
-        3296,
-        848
-      ],
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4
-    },
-    {
-      "id": "d9bd29e9-4923-48d1-a421-2c9e871a3ba3",
-      "name": "Wait",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        -160
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "0778cee2-cac7-4159-bc95-dfab4f48b816"
-    },
-    {
-      "id": "e8b611be-7c49-48a8-af24-e5fd5da323f5",
-      "name": "Wait1",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        96
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "8835d922-1084-4d26-a6b1-2ca190479083"
-    },
-    {
-      "id": "79a4a0cd-3c0a-44dd-8c05-4b5692382f51",
-      "name": "Wait2",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        352
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "97960f96-f919-4ec3-abee-75ae6fb082ba"
-    },
-    {
-      "id": "ac497acc-4336-4576-bd31-73a14b0e7df7",
-      "name": "Wait3",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        592
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "27a9e670-3fef-4c1a-885d-ab0f30657c22"
-    },
-    {
-      "id": "2113edef-5a96-454d-aafd-9dcd47282b64",
-      "name": "Wait4",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        832
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "3a094514-3872-42da-8c13-101b35bee25a"
-    },
-    {
-      "id": "6cb2b56a-d871-495d-8881-1a9f6189b526",
-      "name": "Wait5",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        1088
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "b97d0560-a16a-43cd-baa6-7f827bb1e5bf"
-    },
-    {
-      "id": "ab26e83c-421d-4f34-8205-0b2e07caf9fd",
-      "name": "Wait6",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        1344
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "a6de2409-3b2c-48fa-ae66-42bafb54866f"
-    },
-    {
-      "id": "fa94be56-b518-44bf-8cab-571e8d827ccd",
-      "name": "Wait7",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        1648
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "0399860a-542f-41dd-992c-c5778f2346b7"
-    },
-    {
-      "id": "68646b21-95df-4f20-a349-64f105b0e558",
-      "name": "Wait8",
-      "parameters": {
-        "amount": 20
-      },
-      "position": [
-        1552,
-        1904
-      ],
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "webhookId": "f8fde4ef-72d8-4caa-9be0-9e6ce5409f89"
-    },
-    {
-      "id": "a70a1246-8685-4683-963e-d9e536877347",
-      "name": "Sticky Note",
-      "parameters": {
-        "color": 2,
-        "content": "## Primer email",
-        "height": 272,
-        "width": 272
-      },
-      "position": [
-        1904,
-        -240
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "1d506517-c405-4304-9634-1e7665f277a3",
-      "name": "Sticky Note1",
-      "parameters": {
-        "color": 2,
-        "content": "## Primer email",
-        "height": 272,
-        "width": 272
-      },
-      "position": [
-        1904,
-        528
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "20fce40f-c935-4019-b029-08d3343c3b4a",
-      "name": "Sticky Note2",
-      "parameters": {
-        "color": 2,
-        "content": "## Primer email",
-        "height": 288,
-        "width": 272
-      },
-      "position": [
-        1904,
-        1264
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "3c442998-5ade-4c7b-8e9c-4fe5d071b944",
-      "name": "Sticky Note3",
-      "parameters": {
-        "color": 6,
-        "content": "## Segundo email",
-        "height": 288,
-        "width": 272
-      },
-      "position": [
-        1904,
-        32
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "0c2f431e-9ee8-4912-b4ee-a3051b367b89",
-      "name": "Sticky Note4",
-      "parameters": {
-        "color": 6,
-        "content": "## Segundo email",
-        "height": 240,
-        "width": 272
-      },
-      "position": [
-        1904,
-        784
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "51b2f426-ae7d-41da-9c02-03720374d671",
-      "name": "Sticky Note5",
-      "parameters": {
-        "color": 6,
-        "content": "## Segundo email",
-        "height": 272,
-        "width": 272
-      },
-      "position": [
-        1904,
-        1552
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "b0d44bf9-7529-4224-8128-39c1321c8309",
-      "name": "Sticky Note6",
-      "parameters": {
-        "color": 4,
-        "content": "## Tercer email",
-        "height": 240,
-        "width": 272
-      },
-      "position": [
-        1904,
-        288
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "6874fef7-8faf-4291-8963-60155c6d5629",
-      "name": "Sticky Note7",
-      "parameters": {
-        "color": 4,
-        "content": "## Tercer email",
-        "height": 240,
-        "width": 272
-      },
-      "position": [
-        1904,
-        1024
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
-    {
-      "id": "4208db09-611d-42a0-82ff-a843e4c8a8a5",
-      "name": "Sticky Note8",
-      "parameters": {
-        "color": 4,
-        "content": "## Tercer email",
-        "height": 240,
-        "width": 272
-      },
-      "position": [
-        1904,
-        1824
-      ],
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1
-    },
     {
       "alwaysOutputData": true,
       "credentials": {
@@ -3264,6 +2336,934 @@
       ],
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4
+    },
+    {
+      "id": "3ffbef5f-20e3-49e1-a2ff-9a64a47eb164",
+      "name": "Revisar el estado de Email",
+      "parameters": {
+        "httpMethod": "POST",
+        "options": {},
+        "path": "estado-email"
+      },
+      "position": [
+        672,
+        1120
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "webhookId": "90605e6e-107b-4387-b53e-ea9e86327a1a"
+    },
+    {
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      },
+      "id": "4c8561fb-fd39-49ed-b314-e9d14b451807",
+      "name": "Obtener datos",
+      "parameters": {
+        "authentication": "oAuth2",
+        "itemId": "={{ $json.body.event.pulseId.toString() }}",
+        "operation": "get",
+        "resource": "boardItem"
+      },
+      "position": [
+        896,
+        1120
+      ],
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1
+    },
+    {
+      "id": "98ef9a05-c9ce-4219-94df-06b665469cf9",
+      "name": "Valores Monday",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4bf8ca5b-1f12-4771-8f3c-a6f6086ac043",
+              "name": "Nombre",
+              "type": "string",
+              "value": "={{ $('Obtener datos').item.json.name }}"
+            },
+            {
+              "id": "916df879-74f7-40ba-866b-2cb7894289ec",
+              "name": "Contact Venue",
+              "type": "string",
+              "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'texto')?.text || '' }}"
+            },
+            {
+              "id": "e5826049-a211-45d3-87e2-162bc42493b4",
+              "name": "Email",
+              "type": "string",
+              "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'email')?.text || '' }}"
+            },
+            {
+              "id": "3f228c66-ad07-45e1-83c7-715f68847888",
+              "name": "Producto",
+              "type": "string",
+              "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'color_mkqgwk4v')?.text || '' }}"
+            },
+            {
+              "id": "64c8aea8-d938-4c0b-9ebd-5c497aeaa16e",
+              "name": "Item ID",
+              "type": "string",
+              "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'item_id2')?.text || '' }}"
+            },
+            {
+              "id": "1d0ea039-5665-45f4-a99d-df7fe0d3100f",
+              "name": "Estado WhatsApp",
+              "type": "string",
+              "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'color_mkwjc0cf')?.text || '' }}"
+            },
+            {
+              "id": "4ff50e0a-e22f-438b-b685-c77cacce1353",
+              "name": "Estado Email",
+              "type": "string",
+              "value": "={{ $('Obtener datos').item.json.column_values.find(c => c.id === 'color_mkwkp29q')?.text || '' }}"
+            },
+            {
+              "id": "acc9527e-58ce-4fd9-a980-2c10b1f64da2",
+              "name": "Whatsapp Misa",
+              "type": "string",
+              "value": "https://wa.me/5649505612"
+            },
+            {
+              "id": "3dd2fbb4-41b5-427c-8915-bc6defead510",
+              "name": "Whatsapp Interprika",
+              "type": "string",
+              "value": "http://wa.me/524772540469"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        1120,
+        1120
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "id": "dd4c66a7-5afb-4404-89a8-583d0f1180e7",
+      "name": "Validar producto y estado",
+      "parameters": {
+        "options": {},
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "cb48f50b-f932-4f5e-bb7f-28f9c8c01128",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "Tour virtual - Email 1 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "Tour virtual 1",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "49329c52-a193-4705-9db0-9476598247e5",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "Tour virtual - Email 2 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "Tour virtual 2",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "43915f25-f273-409e-a5ae-1e43e5126dca",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "Tour virtual - Email 3 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "Tour virtual 3",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "2ad8055a-2097-4191-a871-74901cf5a11d",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "My photo - Email 1 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "My photo 1",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "2a17f3c2-4cce-4dd0-8333-42c6c59bfc4f",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "My photo - Email 2 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "My photo 2",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "6164c07d-7055-4c68-bd28-f2556ad264e8",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "My photo - Email 3 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "My photo 3",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "e07a55e2-b1b5-421f-946d-5b9b0d87fbdc",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "My photo Cate - Email 1 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "My photo Cate 1",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "3534450e-b1fc-435e-8622-2b9da59855b2",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "My photo Cate - Email 2 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "My photo Cate 2",
+              "renameOutput": true
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "682bd2d1-1064-4454-b9d3-393cecc4469a",
+                    "leftValue": "={{ $json[\"Producto\"] + \" - \" + $json[\"Estado Email\"] }}",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "operation": "equals",
+                      "type": "string"
+                    },
+                    "rightValue": "My photo Cate - Email 3 enviado"
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "outputKey": "My photo Cate 3",
+              "renameOutput": true
+            }
+          ]
+        }
+      },
+      "position": [
+        1360,
+        1008
+      ],
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3
+    },
+    {
+      "id": "5a793ae0-dde2-4064-9a6f-307be07ca3e9",
+      "name": "Wait",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        160
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "0778cee2-cac7-4159-bc95-dfab4f48b816"
+    },
+    {
+      "id": "48b36f61-5c14-4936-8135-026ed75206cf",
+      "name": "Wait1",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        416
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "8835d922-1084-4d26-a6b1-2ca190479083"
+    },
+    {
+      "id": "f0a5ac01-79a5-4eb4-a1d9-18cca8283780",
+      "name": "Wait2",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        672
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "97960f96-f919-4ec3-abee-75ae6fb082ba"
+    },
+    {
+      "id": "c8ecfc0e-7242-4e58-a2f2-a87cc3138e60",
+      "name": "Wait3",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        912
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "27a9e670-3fef-4c1a-885d-ab0f30657c22"
+    },
+    {
+      "id": "a40b8fd0-141e-4978-8ad8-1b9f73121518",
+      "name": "Wait4",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        1152
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "3a094514-3872-42da-8c13-101b35bee25a"
+    },
+    {
+      "id": "4808b154-59b2-4caf-9cbd-e38ddeab54e6",
+      "name": "Wait5",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        1408
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "b97d0560-a16a-43cd-baa6-7f827bb1e5bf"
+    },
+    {
+      "id": "fb78f81b-5d43-492b-90ff-1ce4a73eb1b4",
+      "name": "Wait6",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        1664
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "a6de2409-3b2c-48fa-ae66-42bafb54866f"
+    },
+    {
+      "id": "c2a8d792-5c97-4b07-a89c-542f7efc66f9",
+      "name": "Wait7",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        1968
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "0399860a-542f-41dd-992c-c5778f2346b7"
+    },
+    {
+      "id": "d9f4f296-cf8b-4e32-b337-0e8b3097f71c",
+      "name": "Wait8",
+      "parameters": {
+        "amount": 20
+      },
+      "position": [
+        3120,
+        2224
+      ],
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "webhookId": "f8fde4ef-72d8-4caa-9be0-9e6ce5409f89"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "f8610411-f5c2-4d24-a5af-9fd662fc9ac7",
+      "name": "Mandar primer correo - Tour virtual",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
+        "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\n- La grabación se llevará a cabo en 4 horas.\n\n- Es muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\n- Es imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Misa'] }}.\n\nUn cordial saludo,\n\nSergio Ledesma\nCoordinador de Tour Virtual",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        160
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "dbce6c1f-2649-4413-9d56-a97b85728349"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "08b0f0c2-5249-4799-934e-e82c56b42b5f",
+      "name": "Mandar segundo correo - Tour virtual",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
+        "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        416
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "3d548460-c3d2-4aff-b626-3b7439155f03"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "9a12f1a6-0a28-4b9c-b684-35259a8b6de6",
+      "name": "Mandar tercer correo - Tour virtual",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=¿Cuándo podemos grabar el tour virtual 360 en {{ $json.Nombre }}?",
+        "text": "=Buenos días {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar fecha para la grabación del Tour Virtual 360º para tu escaparate en Bodas.com.mx  Cientos de empresas ya disfrutan de los beneficios de esta innovadora herramienta y las parejas ya han podido visitar los salones y jardines de numerosos espacios desde cualquier dispositivo sin tener que desplazarse, ¡así que no esperes más y agenda tu grabación cuanto antes!\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione. {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo el servicio:\n\nLa grabación se llevará a cabo en 4 horas.\n\nEs muy recomendable que decores tu espacio para que los novios puedan imaginar cómo será su boda en tu espacio.\n\nEs imprescindible que no haya personal ni invitados en el lugar en el que el técnico esté grabando.\n\nAquí tienes algunos ejemplos para que puedas obtener ideas:\nhttps://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos a la espera de tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        672
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "92b72e7b-fbb6-4303-9f61-6463eb540db7"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "e9db4081-71ae-4d90-8b82-d9ce23279cf1",
+      "name": "Mandar primer correo - My photo",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=Agenda tu sesión del servicio My Photo en {{ $json.Nombre }}",
+        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        912
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "e866fcf3-9dfc-4bfa-acef-dd40aa85d64c"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "0b71b692-814d-4438-8267-5d456c0305db",
+      "name": "Mandar segundo correo - My photo",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
+        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        1152
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "281023ac-a70c-443d-abf2-b353a76afce4"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "677eb0fc-6fd2-4a6f-bf7a-1368872c14fa",
+      "name": "Mandar tercer correo - My photo",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo?",
+        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para que puedas programar la sesión del servicio My Photo para tu escaparate en Bodas.com.mx. Este servicio te permitirá mejorar la presentación visual de tu espacio o productos, aumentando tu visibilidad ante miles de parejas que buscan proveedores confiables y con presencia profesional en la plataforma.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te recordamos las condiciones para llevar a cabo la sesión:\n\nLa sesión fotográfica tiene una duración aproximada de 1 a 2 horas.\n\nTe recomendamos preparar las áreas o productos que desees destacar visualmente.\n\nEs importante mantener el espacio ordenado, bien iluminado y sin presencia de personal que pueda interferir en las tomas.\n\nSi cuentas con decoraciones, montajes o elementos representativos, te sugerimos tenerlos listos para maximizar el impacto visual.\n\nAquí tienes algunos ejemplos de sesiones My Photo para que puedas obtener ideas e inspiración: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        1408
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "f14c5b23-71cb-46f6-86d8-f001d2d8393c"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "abcea708-9412-4254-868b-f126c4543340",
+      "name": "Mandar primer correo - My photo cate",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=Agenda tu sesión del servicio My Photo Catering en {{ $json.Nombre }}",
+        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nSomos el equipo técnico asignado por Bodas.com.mx para coordinar contigo la sesión del servicio My Photo, un beneficio exclusivo que ya ha sido activado en tu escaparate.\n\n📅 Reserva tu sesión ahora a través de este calendario.\nImportante: Ten a la mano tu número de cliente XXXXXXXX, ya que lo necesitarás para confirmar tu cita.\nQuedamos pendientes de tu respuesta para coordinar la sesión en la fecha que mejor te funcione.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3568,
+        1664
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "d2a09d3a-6439-45f2-8263-645c76b534c9"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "7feb16bd-77b7-48f8-94c9-2c6aa051cde6",
+      "name": "Mandar segundo correo - My photo cate",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
+        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        1968
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "4b10e44c-8095-43ed-87c0-c5b906cecb7e"
+    },
+    {
+      "credentials": {
+        "smtp": {
+          "id": "GhyliWIO0PYy31Mj",
+          "name": "SMTP account Zoho Mail"
+        }
+      },
+      "id": "84440ed4-3256-41d8-b162-4c262059bfee",
+      "name": "Mandar tercer correo - My photo cate",
+      "parameters": {
+        "emailFormat": "text",
+        "fromEmail": "contacta@interprika.com",
+        "options": {
+          "appendAttribution": false
+        },
+        "subject": "=¿Cuándo deseas agendar tu sesión del servicio My Photo Cate?",
+        "text": "=Buenas tardes {{ $json['Contact Venue'] }},\n\nNos ponemos en contacto contigo para coordinar la sesión del servicio My Photo Cate, un beneficio exclusivo activo en tu escaparate en Bodas.com.mx para reforzar tu presencia visual y ayudarte a conectar mejor con las parejas que buscan proveedores con contenido atractivo y actualizado.\n\n📱 Puedes contactarnos directamente por WhatsApp para definir la fecha que mejor te funcione: {{ $json['Whatsapp Misa'] }}\n\nCon el fin de garantizar un servicio de calidad, te compartimos las recomendaciones para realizar la sesión:\n\nLa sesión tiene una duración aproximada de 1 a 2 horas.\n\nPrepara las áreas, productos o montajes que quieras destacar.\n\nTe sugerimos mantener el espacio ordenado, con buena iluminación y sin presencia de personal durante las tomas.\n\nSi cuentas con decoraciones, arreglos o elementos de ambientación, procura que estén listos para la sesión, ya que ayudan a generar un resultado más atractivo.\n\nAquí tienes algunos ejemplos de sesiones realizadas con este servicio para que puedas obtener ideas: https://my.matterport.com/show/?m=aH9eAFJyJri&play=1&hl=2&lang=es&brand=0&title=0&vr=0\n\nQuedamos atentos a tus indicaciones.\nCualquier duda, también puedes comunicarte al {{ $json['Whatsapp Interprika'] }}.\n\nUn cordial saludo,",
+        "toEmail": "={{ $json.Email }}"
+      },
+      "position": [
+        3552,
+        2224
+      ],
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "webhookId": "f7fa8c92-acef-498b-8419-b98c08a0dc28"
+    },
+    {
+      "id": "fb3c1b9e-8e5e-4ebd-92ef-544a9c69ac15",
+      "name": "Fecha de 3 días después",
+      "parameters": {
+        "duration": 3,
+        "magnitude": "={{ $now.toISO() }}",
+        "operation": "addToDate",
+        "options": {},
+        "outputFieldName": "FechaContactaInterprika"
+      },
+      "position": [
+        4560,
+        1168
+      ],
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2
+    },
+    {
+      "id": "74af283a-6b14-4887-873f-ea2b06c578b5",
+      "name": "Mapear fecha",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d4ef919c-a7f3-4248-a786-81ad7dc1be6b",
+              "name": "FechaContactaInterprika",
+              "type": "string",
+              "value": "={{ new Date($json.FechaContactaInterprika).toISOString().split('T')[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "position": [
+        4864,
+        1168
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      },
+      "id": "d179d8a7-7c69-4742-b7a0-4aae9cc2c7a2",
+      "name": "Cambiar fecha en Contactar Interprika",
+      "parameters": {
+        "authentication": "oAuth2",
+        "boardId": "1209925112",
+        "columnId": "date3",
+        "itemId": "={{ $('Obtener datos').item.json.id }}",
+        "operation": "changeColumnValue",
+        "resource": "boardItem",
+        "value": "={ \"date\": \"{{ $json.FechaContactaInterprika }}\" }"
+      },
+      "position": [
+        5088,
+        1168
+      ],
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1
+    },
+    {
+      "id": "739d6c50-a407-49eb-9ebd-794e6233ab96",
+      "name": "Sticky Note",
+      "parameters": {
+        "color": 2,
+        "content": "## Primer email",
+        "height": 272,
+        "width": 272
+      },
+      "position": [
+        3472,
+        80
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "1d282673-1675-49f7-a3c3-c25d5b9e1675",
+      "name": "Sticky Note1",
+      "parameters": {
+        "color": 2,
+        "content": "## Primer email",
+        "height": 272,
+        "width": 272
+      },
+      "position": [
+        3472,
+        848
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "32436682-1b2d-48df-9183-35637fdbd3d6",
+      "name": "Sticky Note2",
+      "parameters": {
+        "color": 2,
+        "content": "## Primer email",
+        "height": 288,
+        "width": 272
+      },
+      "position": [
+        3472,
+        1584
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "6d676c94-4802-4cd4-9f39-50aa526e1e6e",
+      "name": "Sticky Note3",
+      "parameters": {
+        "color": 6,
+        "content": "## Segundo email",
+        "height": 288,
+        "width": 272
+      },
+      "position": [
+        3472,
+        352
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "66106695-d81f-45fd-a53b-04765b9420ed",
+      "name": "Sticky Note4",
+      "parameters": {
+        "color": 6,
+        "content": "## Segundo email",
+        "height": 240,
+        "width": 272
+      },
+      "position": [
+        3472,
+        1104
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "8b2f1777-55fe-4184-bdb8-0ad84041ad56",
+      "name": "Sticky Note5",
+      "parameters": {
+        "color": 6,
+        "content": "## Segundo email",
+        "height": 272,
+        "width": 272
+      },
+      "position": [
+        3472,
+        1872
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "0d1190d9-992d-49f9-9559-bfb77c958ae2",
+      "name": "Sticky Note6",
+      "parameters": {
+        "color": 4,
+        "content": "## Tercer email",
+        "height": 240,
+        "width": 272
+      },
+      "position": [
+        3472,
+        608
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "2503dddb-78ac-4afc-9a32-d378e1e0b793",
+      "name": "Sticky Note7",
+      "parameters": {
+        "color": 4,
+        "content": "## Tercer email",
+        "height": 240,
+        "width": 272
+      },
+      "position": [
+        3472,
+        1344
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
+    },
+    {
+      "id": "e7ef568d-5139-4b9f-802b-d261463fac60",
+      "name": "Sticky Note8",
+      "parameters": {
+        "color": 4,
+        "content": "## Tercer email",
+        "height": 240,
+        "width": 272
+      },
+      "position": [
+        3472,
+        2144
+      ],
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1
     }
   ],
   "pinData": {},
@@ -3282,6 +3282,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-09T23:53:09.593Z",
-  "versionId": "2a72aa9e-003f-43a2-b358-9e7e1a80f1fa"
+  "updatedAt": "2026-03-18T00:39:31.134Z",
+  "versionId": "ad110231-9234-455d-adc6-860165d961e2"
 }
