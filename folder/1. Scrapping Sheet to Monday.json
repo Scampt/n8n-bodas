@@ -2,9 +2,20 @@
   "active": true,
   "activeVersion": {
     "authors": "Kevin Quiroz",
-    "autosaved": false,
+    "autosaved": true,
     "connections": {
-      "Agregar mapeoProductos a cada item": {
+      "Agregar Mes y Año actual": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Filtrar por mes actual",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Calcular product_code": {
         "main": [
           [
             {
@@ -15,88 +26,44 @@
           ]
         ]
       },
-      "Base de Datos": {
+      "Crear item en Monday": {
         "main": [
           [
             {
               "index": 0,
-              "node": "Reconstruir columnas desde Sheet con headers agrupados",
+              "node": "Verificar item creado",
               "type": "main"
             }
           ]
         ]
       },
-      "Exportación a Monday": {
+      "Filtrar por mes actual": {
         "main": [
           [
             {
               "index": 0,
-              "node": "Obtener datos del tablero",
-              "type": "main"
-            }
-          ]
-        ]
-      },
-      "Filtrar mes actual": {
-        "main": [
-          [
-            {
-              "index": 0,
-              "node": "Monday Query",
+              "node": "Obtener items de Monday",
               "type": "main"
             },
             {
               "index": 0,
-              "node": "Obtener mapeo de productos",
+              "node": "Obtener etiquetas de producto",
               "type": "main"
             },
             {
               "index": 0,
-              "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+              "node": "JOIN: Sheet + Monday + Productos",
               "type": "main"
             }
           ]
         ]
       },
-      "Mapeo de variables": {
+      "JOIN: Sheet + Monday + Productos": {
         "main": [
           [
             {
               "index": 0,
-              "node": "Mes y Año",
-              "type": "main"
-            }
-          ]
-        ]
-      },
-      "Mapeo de variables1": {
-        "main": [
-          [
-            {
-              "index": 0,
-              "node": "Exportación a Monday",
-              "type": "main"
-            }
-          ]
-        ]
-      },
-      "Mes y Año": {
-        "main": [
-          [
-            {
-              "index": 0,
-              "node": "Filtrar mes actual",
-              "type": "main"
-            }
-          ]
-        ]
-      },
-      "Monday Query": {
-        "main": [
-          [
-            {
-              "index": 0,
-              "node": "Procesar y Cachear Monday",
+              "node": "Calcular product_code",
               "type": "main"
             }
           ]
@@ -113,56 +80,89 @@
           ]
         ]
       },
-      "Obtener mapeo de productos": {
+      "Normalizar datos del Sheet": {
         "main": [
           [
             {
               "index": 0,
-              "node": "Procesar mapeo de productos",
+              "node": "Preparar campos base",
               "type": "main"
             }
           ]
         ]
       },
-      "Procesar mapeo de productos": {
+      "Obtener etiquetas de producto": {
         "main": [
           [
             {
-              "index": 2,
-              "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+              "index": 0,
+              "node": "Procesar etiquetas",
               "type": "main"
             }
           ]
         ]
       },
-      "Procesar y Cachear Monday": {
+      "Obtener items de Monday": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Procesar cache Monday",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Preparar campos base": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Agregar Mes y Año actual",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Preparar campos para Monday": {
+        "main": [
+          [
+            {
+              "index": 0,
+              "node": "Crear item en Monday",
+              "type": "main"
+            }
+          ]
+        ]
+      },
+      "Procesar cache Monday": {
         "main": [
           [
             {
               "index": 1,
-              "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+              "node": "JOIN: Sheet + Monday + Productos",
               "type": "main"
             }
           ]
         ]
       },
-      "Reconstruir columnas desde Sheet con headers agrupados": {
+      "Procesar etiquetas": {
         "main": [
           [
             {
-              "index": 0,
-              "node": "Mapeo de variables",
+              "index": 2,
+              "node": "JOIN: Sheet + Monday + Productos",
               "type": "main"
             }
           ]
         ]
       },
-      "Unificar Excel + Monday + Mapeo (SQL Merge)": {
+      "Trigger: Google Sheets": {
         "main": [
           [
             {
               "index": 0,
-              "node": "Agregar mapeoProductos a cada item",
+              "node": "Normalizar datos del Sheet",
               "type": "main"
             }
           ]
@@ -173,397 +173,24 @@
           [
             {
               "index": 0,
-              "node": "Muere aquí",
+              "node": "Ya existe – Omitir",
               "type": "main"
             }
           ],
           [
             {
               "index": 0,
-              "node": "Mapeo de variables1",
+              "node": "Preparar campos para Monday",
               "type": "main"
             }
           ]
         ]
       }
     },
-    "createdAt": "2026-02-09T15:27:50.164Z",
+    "createdAt": "2026-03-17T22:35:14.373Z",
     "description": "",
-    "name": "Version 5a9fff62",
+    "name": "Version c4d36bd2",
     "nodes": [
-      {
-        "id": "283629bf-5a27-4eb3-a31c-cbac8c9db105",
-        "name": "Mapeo de variables",
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "f9f27334-b72e-46e4-99a4-98994b15d7f3",
-                "name": "Product",
-                "type": "string",
-                "value": "={{ $json.product }}"
-              },
-              {
-                "id": "531051b2-90ce-42bc-947a-1bf8cef4b725",
-                "name": "Company ID",
-                "type": "number",
-                "value": "={{ $json.company_id }}"
-              },
-              {
-                "id": "d749176d-190f-483f-b0d3-800aa3cc3ba3",
-                "name": "Customer name",
-                "type": "string",
-                "value": "={{ $json.customer_name }}"
-              },
-              {
-                "id": "d8de32f3-309e-46b0-8311-19ddd329d47d",
-                "name": "Address",
-                "type": "string",
-                "value": "={{ $json.address }}"
-              },
-              {
-                "id": "632115ef-4a40-4fa1-8a83-2c79dbe0a2e7",
-                "name": "Zipcode",
-                "type": "string",
-                "value": "={{ $json.zipcode }}"
-              },
-              {
-                "id": "dd6a8e95-97cd-4ed0-9504-034589779b08",
-                "name": "telephone",
-                "type": "string",
-                "value": "={{ $json.telephone }}"
-              },
-              {
-                "id": "b997f2bb-db1a-40a6-8d86-73b5c0c5b1f4",
-                "name": "Mobile",
-                "type": "string",
-                "value": "={{ $json.mobile }}"
-              },
-              {
-                "id": "1bfa6c13-afb6-403c-94ac-2ad3e5ea744b",
-                "name": "Contact person",
-                "type": "string",
-                "value": "={{ $json[\"contact_person\"] }}"
-              },
-              {
-                "id": "a854fb53-e911-4d53-9338-33f5e4543975",
-                "name": "e-mail",
-                "type": "string",
-                "value": "={{ $json[\"email\"] }}"
-              },
-              {
-                "id": "2254acd8-96bd-4b0e-a2ff-fb70b543ef5e",
-                "name": "URL Web",
-                "type": "string",
-                "value": "={{ $json[\"url_web\"] }}"
-              },
-              {
-                "id": "9b1a96c2-d8f6-455b-9fa9-20ba0b6460b2",
-                "name": "City",
-                "type": "string",
-                "value": "={{ $json.city }}"
-              },
-              {
-                "id": "7a06638e-d7ff-432a-83aa-083d105707a0",
-                "name": "End Contract Date",
-                "type": "number",
-                "value": "={{ $json[\"end_contract_date\"] }}"
-              },
-              {
-                "id": "18334583-d86f-4327-be94-2ac80c7c7385",
-                "name": "RW date",
-                "type": "number",
-                "value": "={{ $json[\"rw_date\"] }}"
-              }
-            ]
-          },
-          "options": {
-            "ignoreConversionErrors": true
-          }
-        },
-        "position": [
-          -6784,
-          1504
-        ],
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4
-      },
-      {
-        "credentials": {
-          "mondayComOAuth2Api": {
-            "id": "dE8g2W2GVOjXMeZt",
-            "name": "Monday.com account majonb@interprika.com"
-          }
-        },
-        "id": "0105749f-e61c-41b1-b818-2a246e1826ec",
-        "name": "Exportación a Monday",
-        "parameters": {
-          "additionalFields": {
-            "columnValues": "={{ JSON.stringify({\n  id_venue: String($json[\"ID Venue\"] || \"\"),\n  text6: String($json[\"Dirección\"] || \"\"),\n  text_mksz2qkn: String($json[\"Teléfono\"] || \"\"),\n  text_mkszykzf: String($json[\"Movil\"] || \"\"),\n  texto: String($json[\"Contact Venue\"] || \"\"),\n  texto_mkmf8jc0: String($json[\"URL Bodas\"] || \"\"),\n  email: {\n    email: String($json[\"Email\"] || \"\"),\n    text: String($json[\"Email\"] || \"\")\n  },\n  date25: { date: String($json[\"Fecha Fin de Contrato\"]).slice(0, 10) },\n  date_mkszmtcq: { date: String($json[\"End Contract RW\"]).slice(0, 10) },\n  date_mksvhg6v: { date: String($json[\"Renovación de Contrato\"]).slice(0, 10) },\n  color_mkqgwk4v: { label: String($json[\"Producto\"] || \"default\") },\n  dropdown9: { labels: [String($json[\"Estado\"] || \"Sin estado\")] }\n}) }}\n"
-          },
-          "authentication": "oAuth2",
-          "boardId": "1209925112",
-          "groupId": "new_group45304",
-          "name": "={{ $json[\"Customer name\"] }}",
-          "resource": "boardItem"
-        },
-        "position": [
-          -3680,
-          1728
-        ],
-        "type": "n8n-nodes-base.mondayCom",
-        "typeVersion": 1
-      },
-      {
-        "credentials": {
-          "mondayComOAuth2Api": {
-            "id": "dE8g2W2GVOjXMeZt",
-            "name": "Monday.com account majonb@interprika.com"
-          }
-        },
-        "id": "b72f4e87-05b2-423e-a5af-b45af256997c",
-        "name": "Obtener datos del tablero",
-        "parameters": {
-          "authentication": "oAuth2",
-          "itemId": "={{$json.id }}",
-          "operation": "get",
-          "resource": "boardItem"
-        },
-        "position": [
-          -3072,
-          1520
-        ],
-        "type": "n8n-nodes-base.mondayCom",
-        "typeVersion": 1
-      },
-      {
-        "credentials": {
-          "googleSheetsTriggerOAuth2Api": {
-            "id": "7Vqw3jgYTLrQfF8C",
-            "name": "Google Sheets Trigger account - soporte@interprika.com"
-          }
-        },
-        "id": "9ffc8de4-37c2-4c54-9632-93d567e3e33e",
-        "name": "Base de Datos",
-        "parameters": {
-          "documentId": {
-            "__rl": true,
-            "cachedResultName": "NEW OP 2026 - INTERPRIKA",
-            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit?usp=drivesdk",
-            "mode": "list",
-            "value": "1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c"
-          },
-          "options": {
-            "columnsToWatch": [
-              "PRODUCT INFORMATION",
-              "CUSTOMER INFORMATION",
-              "ACTIONS SUPPLIER",
-              "DATA WITH FORMULA"
-            ],
-            "dataLocationOnSheet": {
-              "values": {
-                "range": "A2:Z",
-                "rangeDefinition": "specifyRangeA1"
-              }
-            }
-          },
-          "pollTimes": {
-            "item": [
-              {
-                "hour": 8
-              }
-            ]
-          },
-          "sheetName": {
-            "__rl": true,
-            "cachedResultName": "NEW OP",
-            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit#gid=0",
-            "mode": "list",
-            "value": "gid=0"
-          }
-        },
-        "position": [
-          -7536,
-          1504
-        ],
-        "type": "n8n-nodes-base.googleSheetsTrigger",
-        "typeVersion": 1
-      },
-      {
-        "credentials": {
-          "httpHeaderAuth": {
-            "id": "Ju2LPS4exSjQdWY8",
-            "name": "Header Auth account  - Monday API Token Bodas.com.mx"
-          }
-        },
-        "id": "c78bb702-5972-46da-9e8d-29c5087fb450",
-        "name": "Monday Query",
-        "parameters": {
-          "authentication": "genericCredentialType",
-          "genericAuthType": "httpHeaderAuth",
-          "headerParameters": {
-            "parameters": [
-              {
-                "name": "Content-Type",
-                "value": "application/json"
-              }
-            ]
-          },
-          "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { items_page(limit: 500) { items { id name column_values(ids:[\\\"id_venue\\\"]) { id text } } } } }\"\n}\n",
-          "method": "POST",
-          "options": {},
-          "sendBody": true,
-          "sendHeaders": true,
-          "specifyBody": "json",
-          "url": "https://api.monday.com/v2"
-        },
-        "position": [
-          -5728,
-          1664
-        ],
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.2
-      },
-      {
-        "id": "1163547f-2a64-4889-ba78-eb0d1f0398e1",
-        "name": "Procesar y Cachear Monday",
-        "parameters": {
-          "jsCode": "const CACHE_HOURS = 24;\n\nif (!globalThis.mondayCacheData) {\n  globalThis.mondayCacheData = { cache: [], lastUpdated: 0 };\n}\n\nconst cache = globalThis.mondayCacheData;\nconst now = Date.now();\nconst cacheIsValid = (now - cache.lastUpdated) < CACHE_HOURS * 3600 * 1000;\n\nif (cache.cache.length && cacheIsValid) {\n  return cache.cache.map(i => ({ json: i }));\n}\n\nconst response = items[0].json;\n\nconst mondayItems = response.data.boards[0].items_page.items.map(i => ({\n  ID_Venue: i.column_values?.[0]?.text?.trim() || \"\",\n  ID_Item_Monday: i.id,\n  Nombre: i.name\n}));\n\nglobalThis.mondayCacheData = {\n  cache: mondayItems,\n  lastUpdated: now\n};\n\nreturn mondayItems.map(i => ({\n  json: {\n    ID_Venue: String(i.ID_Venue || \"\").trim().toLowerCase(),\n    ID_Item_Monday: i.ID_Item_Monday,\n    Nombre: i.Nombre\n  }\n}));\n"
-        },
-        "position": [
-          -5536,
-          1664
-        ],
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2
-      },
-      {
-        "alwaysOutputData": false,
-        "id": "8095f6ab-998e-4cb1-867e-72c07212f26f",
-        "name": "Filtrar mes actual",
-        "parameters": {
-          "jsCode": "// ===============================\n// CONFIGURACIÓN\n// ===============================\nconst TARGET_MONTH = $input.first().json.Month;   // Enero\nconst TARGET_YEAR = $input.first().json.Year;\n\n// ===============================\n// FILTRO\n// ===============================\nconst filtrados = items.filter(item => {\n  const j = item.json;\n\n  // 1️⃣ Eliminar filas basura\n  if (!j[\"Company ID\"] || j[\"Company ID\"] === 0) return false;\n  if (!j[\"Product\"]) return false;\n\n  // 2️⃣ Validar Month / Year existan\n  if (!j.Month || !j.Year) return false;\n\n  // 3️⃣ Comparar contra el mes/año objetivo\n  return (\n    Number(j.Month) === TARGET_MONTH &&\n    Number(j.Year) === TARGET_YEAR\n  );\n});\n\nreturn filtrados;"
-        },
-        "position": [
-          -6080,
-          1504
-        ],
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2
-      },
-      {
-        "credentials": {
-          "httpHeaderAuth": {
-            "id": "Ju2LPS4exSjQdWY8",
-            "name": "Header Auth account  - Monday API Token Bodas.com.mx"
-          }
-        },
-        "id": "ee8a185b-6326-471b-8414-807eb69771af",
-        "name": "Obtener mapeo de productos",
-        "parameters": {
-          "authentication": "genericCredentialType",
-          "genericAuthType": "httpHeaderAuth",
-          "headerParameters": {
-            "parameters": [
-              {
-                "name": "Content-Type",
-                "value": "application/json"
-              }
-            ]
-          },
-          "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { columns (ids: [\\\"color_mkqgwk4v\\\"]) { id title settings_str } } }\"\n}\n",
-          "method": "POST",
-          "options": {},
-          "sendBody": true,
-          "sendHeaders": true,
-          "specifyBody": "json",
-          "url": "https://api.monday.com/v2"
-        },
-        "position": [
-          -5728,
-          1872
-        ],
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.2
-      },
-      {
-        "id": "2526492a-8bd1-49fc-a019-f9b40993bad8",
-        "name": "Procesar mapeo de productos",
-        "parameters": {
-          "jsCode": "const response = items[0].json;\n\nconst settingsStr = response.data.boards[0].columns[0].settings_str;\nif (!settingsStr) {\n  throw new Error(\"❌ No se encontró settings_str en la respuesta de Monday.\");\n}\n\nconst settings = JSON.parse(settingsStr);\nconst labels = {};\n\nfor (const [index, name] of Object.entries(settings.labels)) {\n  if (name?.trim()) labels[name.trim().toLowerCase()] = Number(index);\n}\n\nreturn [\n  {\n    json: {\n      \"tour virtual\": 0,\n      \"my photo\": 1,\n      \"my photo cate\": 2,\n      \"default\": 3,\n      \"no aplica\": 5\n    }\n  }\n];\n\n"
-        },
-        "position": [
-          -5520,
-          1872
-        ],
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2
-      },
-      {
-        "id": "3b48eacd-95c2-4a1c-b172-a51738fe8762",
-        "name": "¿Ya existe en Monday?",
-        "parameters": {
-          "conditions": {
-            "combinator": "and",
-            "conditions": [
-              {
-                "id": "7b897370-524b-4874-bef4-9c1f07075093",
-                "leftValue": "={{ $json[\"ID_Item_Monday\"] === undefined || $json[\"ID_Item_Monday\"] === null || $json[\"ID_Item_Monday\"] === \"\" }}",
-                "operator": {
-                  "operation": "true",
-                  "singleValue": true,
-                  "type": "boolean"
-                },
-                "rightValue": false
-              }
-            ],
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "loose",
-              "version": 2
-            }
-          },
-          "looseTypeValidation": true,
-          "options": {}
-        },
-        "position": [
-          -4496,
-          1536
-        ],
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.2
-      },
-      {
-        "alwaysOutputData": true,
-        "id": "3195bf6f-5f13-4fdd-8f8f-cd0ab02b6f25",
-        "name": "Unificar Excel + Monday + Mapeo (SQL Merge)",
-        "parameters": {
-          "mode": "combineBySql",
-          "numberInputs": 3,
-          "options": {},
-          "query": "SELECT\n  a.*,\n  b.ID_Item_Monday AS ID_Item_Monday,\n  b.Nombre AS Nombre_Monday,\n  c.`tour virtual` AS tour_virtual,\n  c.`my photo` AS my_photo,\n  c.`my photo cate` AS my_photo_cate,\n  c.`default` AS default_label,\n  c.`no aplica` AS no_aplica\nFROM input1 a\nLEFT JOIN input2 b\n  ON LOWER(TRIM(a.`ID Venue`)) = LOWER(TRIM(b.`ID_Venue`))\nCROSS JOIN input3 c\n"
-        },
-        "position": [
-          -4992,
-          1520
-        ],
-        "type": "n8n-nodes-base.merge",
-        "typeVersion": 3.2
-      },
-      {
-        "id": "e22efcac-fa0f-4fab-a923-43f60dfba147",
-        "name": "Agregar mapeoProductos a cada item",
-        "parameters": {
-          "jsCode": "function normalize(text) {\n  return String(text || \"\")\n    .toLowerCase()\n    .trim()\n    .normalize(\"NFD\")\n    .replace(/[\\u0300-\\u036f]/g, \"\");\n}\n\nconst PRODUCT_MAP = {\n  \"tour virtual\": 0,\n  \"my photo\": 1,\n  \"my photo cate\": 2,\n  \"default\": 3,\n  \"no aplica\": 5\n};\n\nreturn items.map(item => {\n  const rawProduct = item.json.Product || item.json.product || \"\";\n  const normalized = normalize(rawProduct);\n\n  const productCode =\n    PRODUCT_MAP[normalized] ??\n    PRODUCT_MAP[\"default\"];\n\n  return {\n    json: {\n      ...item.json,\n      product_code: productCode\n    }\n  };\n});"
-        },
-        "position": [
-          -4752,
-          1536
-        ],
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2
-      },
       {
         "disabled": true,
         "id": "42a19c27-9e18-4c37-84e8-4a9829249cc3",
@@ -604,9 +231,178 @@
         "typeVersion": 1
       },
       {
+        "credentials": {
+          "googleSheetsTriggerOAuth2Api": {
+            "id": "7Vqw3jgYTLrQfF8C",
+            "name": "Google Sheets Trigger account - soporte@interprika.com"
+          }
+        },
+        "id": "e82f0453-677e-484d-90ab-aac822adbb90",
+        "name": "Trigger: Google Sheets",
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "cachedResultName": "NEW OP 2026 - INTERPRIKA",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit?usp=drivesdk",
+            "mode": "list",
+            "value": "1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c"
+          },
+          "options": {
+            "columnsToWatch": [
+              "PRODUCT INFORMATION",
+              "CUSTOMER INFORMATION",
+              "ACTIONS SUPPLIER",
+              "DATA WITH FORMULA"
+            ],
+            "dataLocationOnSheet": {
+              "values": {
+                "range": "A2:Z",
+                "rangeDefinition": "specifyRangeA1"
+              }
+            }
+          },
+          "pollTimes": {
+            "item": [
+              {
+                "hour": 8
+              }
+            ]
+          },
+          "sheetName": {
+            "__rl": true,
+            "cachedResultName": "NEW OP",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit#gid=0",
+            "mode": "list",
+            "value": "gid=0"
+          }
+        },
+        "position": [
+          -8544,
+          1920
+        ],
+        "type": "n8n-nodes-base.googleSheetsTrigger",
+        "typeVersion": 1
+      },
+      {
+        "id": "87fbbc79-f05f-4351-b1ad-bcaf00ab3cf1",
+        "name": "Normalizar datos del Sheet",
+        "parameters": {
+          "jsCode": "function gsDateToISO(value) {\n  if (!value || isNaN(value)) return \"\";\n  const epoch = new Date(Date.UTC(1899, 11, 30));\n  epoch.setDate(epoch.getDate() + Number(value));\n  return epoch.toISOString().split(\"T\")[0];\n}\n\nfunction normalizeCity(raw) {\n  const c = String(raw || \"\").trim();\n  const lower = c.toLowerCase()\n    .normalize(\"NFD\")\n    .replace(/[\\u0300-\\u036f]/g, \"\");\n\n  // Todas las variantes de Estado de México → valor exacto en Monday\n  if (\n    lower === \"estado mexico\" ||\n    lower === \"estado de mexico\" ||\n    lower === \"edomex\" ||\n    lower === \"edo mexico\" ||\n    lower === \"edo. mexico\" ||\n    lower === \"edo. de mexico\" ||\n    lower === \"estado de mex\" ||\n    lower === \"estado mex\"\n  ) {\n    return \"Estado de México\";\n  }\n\n  return c;\n}\n\nreturn items.map(item => {\n  const j = item.json;\n  return {\n    json: {\n      product:           j[\"Product\"]        || \"\",\n      company_id:        j[\"ID EMPRESA\"]      || \"\",\n      customer_name:     j[\"Customer name\"]  || \"\",\n      address:           j[\"Address\"]        || \"\",\n      zipcode:           j[\"Zipcode\"]        || \"\",\n      telephone:         j[\"telephone\"]      || \"\",\n      mobile:            j[\"Mobile\"]         || \"\",\n      contact_person:    j[\"Contact person\"] || \"\",\n      email:             j[\"e-mail\"]         || \"\",\n      url_web:           j[\"URL Web\"]        || \"\",\n      city:              normalizeCity(j[\"City\"]),\n      id_venue:          String(j[\"ID EMPRESA\"] || \"\"),\n      end_contract_date: gsDateToISO(j[\"End Contract Date\"]),\n      rw_date:           gsDateToISO(j[\"RW date\"])\n    }\n  };\n});\n"
+        },
+        "position": [
+          -8208,
+          1920
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "dcfdac62-d1cf-4040-83b5-6892de16a388",
+        "name": "Preparar campos base",
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "f9f27334-b72e-46e4-99a4-98994b15d7f3",
+                "name": "Product",
+                "type": "string",
+                "value": "={{ $json.product }}"
+              },
+              {
+                "id": "531051b2-90ce-42bc-947a-1bf8cef4b725",
+                "name": "Company ID",
+                "type": "string",
+                "value": "={{ $json.company_id }}"
+              },
+              {
+                "id": "d749176d-190f-483f-b0d3-800aa3cc3ba3",
+                "name": "Customer name",
+                "type": "string",
+                "value": "={{ $json.customer_name }}"
+              },
+              {
+                "id": "d8de32f3-309e-46b0-8311-19ddd329d47d",
+                "name": "Address",
+                "type": "string",
+                "value": "={{ $json.address }}"
+              },
+              {
+                "id": "632115ef-4a40-4fa1-8a83-2c79dbe0a2e7",
+                "name": "Zipcode",
+                "type": "string",
+                "value": "={{ $json.zipcode }}"
+              },
+              {
+                "id": "dd6a8e95-97cd-4ed0-9504-034589779b08",
+                "name": "Telephone",
+                "type": "string",
+                "value": "={{ $json.telephone }}"
+              },
+              {
+                "id": "b997f2bb-db1a-40a6-8d86-73b5c0c5b1f4",
+                "name": "Mobile",
+                "type": "string",
+                "value": "={{ $json.mobile }}"
+              },
+              {
+                "id": "1bfa6c13-afb6-403c-94ac-2ad3e5ea744b",
+                "name": "Contact person",
+                "type": "string",
+                "value": "={{ $json.contact_person }}"
+              },
+              {
+                "id": "a854fb53-e911-4d53-9338-33f5e4543975",
+                "name": "Email",
+                "type": "string",
+                "value": "={{ $json.email }}"
+              },
+              {
+                "id": "2254acd8-96bd-4b0e-a2ff-fb70b543ef5e",
+                "name": "URL Web",
+                "type": "string",
+                "value": "={{ $json.url_web }}"
+              },
+              {
+                "id": "9b1a96c2-d8f6-455b-9fa9-20ba0b6460b2",
+                "name": "City",
+                "type": "string",
+                "value": "={{ $json.city }}"
+              },
+              {
+                "id": "7a06638e-d7ff-432a-83aa-083d105707a0",
+                "name": "End Contract Date",
+                "type": "string",
+                "value": "={{ $json.end_contract_date }}"
+              },
+              {
+                "id": "18334583-d86f-4327-be94-2ac80c7c7385",
+                "name": "RW date",
+                "type": "string",
+                "value": "={{ $json.rw_date }}"
+              },
+              {
+                "id": "c93a6414-1550-4dc1-bd52-234bd228accc",
+                "name": "ID Venue",
+                "type": "string",
+                "value": "={{ $json.id_venue }}"
+              }
+            ]
+          },
+          "options": {
+            "ignoreConversionErrors": true
+          }
+        },
+        "position": [
+          -7792,
+          1920
+        ],
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4
+      },
+      {
         "alwaysOutputData": false,
-        "id": "fb705777-7f5e-4ec6-aa2c-8ceef1ad97ab",
-        "name": "Mes y Año",
+        "id": "85091ff7-8503-4bfe-8c38-f596e46c286d",
+        "name": "Agregar Mes y Año actual",
         "parameters": {
           "assignments": {
             "assignments": [
@@ -628,39 +424,201 @@
           "options": {}
         },
         "position": [
-          -6304,
-          1504
+          -7312,
+          1920
         ],
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4
       },
       {
-        "id": "03feb93e-71ca-4d07-a42c-93acf8f60796",
-        "name": "Muere aquí",
-        "parameters": {},
-        "position": [
-          -4048,
-          1456
-        ],
-        "type": "n8n-nodes-base.noOp",
-        "typeVersion": 1
-      },
-      {
-        "id": "5259d588-b5db-4664-9b68-22073c3b5b06",
-        "name": "Reconstruir columnas desde Sheet con headers agrupados",
+        "alwaysOutputData": false,
+        "id": "8e3e33a3-706c-4992-8ce0-1dd74f489522",
+        "name": "Filtrar por mes actual",
         "parameters": {
-          "jsCode": "function gsDateToISO(value) {\n  if (!value || isNaN(value)) return \"\";\n  const epoch = new Date(Date.UTC(1899, 11, 30));\n  epoch.setDate(epoch.getDate() + Number(value));\n  return epoch.toISOString().split(\"T\")[0];\n}\n\nreturn items.map(item => {\n  const j = item.json;\n\n  return {\n    json: {\n      product: j[\"Product\"] || \"\",\n      company_id: j[\"ID EMPRESA\"] || \"\",\n      customer_name: j[\"Customer name\"] || \"\",\n      address: j[\"Address\"] || \"\",\n      zipcode: j[\"Zipcode\"] || \"\",\n      telephone: j[\"telephone\"] || \"\",\n      mobile: j[\"Mobile\"] || \"\",\n      contact_person: j[\"Contact person\"] || \"\",\n      email: j[\"e-mail\"] || \"\",\n      url_web: j[\"URL Web\"] || \"\",\n      city: j[\"City\"] || \"\",\n      end_contract_date: gsDateToISO(j[\"End Contract Date\"]),\n      rw_date: gsDateToISO(j[\"RW date\"])\n    }\n  };\n});\n"
+          "jsCode": "const TARGET_MONTH = $input.first().json.Month;\nconst TARGET_YEAR  = $input.first().json.Year;\n\nconst filtrados = items.filter(item => {\n  const j = item.json;\n  if (!j[\"Company ID\"] || j[\"Company ID\"] === 0 || j[\"Company ID\"] === \"\") return false;\n  if (!j[\"Product\"]) return false;\n  if (!j.Month || !j.Year) return false;\n  return (\n    Number(j.Month) === TARGET_MONTH &&\n    Number(j.Year)  === TARGET_YEAR\n  );\n});\n\nreturn filtrados;"
         },
         "position": [
-          -7328,
-          1504
+          -7088,
+          1920
         ],
         "type": "n8n-nodes-base.code",
         "typeVersion": 2
       },
       {
-        "id": "1656c893-90d1-4fe3-adcf-c55651d9b86f",
-        "name": "Mapeo de variables1",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "Ju2LPS4exSjQdWY8",
+            "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+          }
+        },
+        "id": "f338ce6a-0e33-4e87-9f14-c87e9ee483bf",
+        "name": "Obtener items de Monday",
+        "parameters": {
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { items_page(limit: 500) { items { id name column_values(ids:[\\\"id_venue\\\"]) { id text } } } } }\"\n}\n",
+          "method": "POST",
+          "options": {},
+          "sendBody": true,
+          "sendHeaders": true,
+          "specifyBody": "json",
+          "url": "https://api.monday.com/v2"
+        },
+        "position": [
+          -6736,
+          2080
+        ],
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2
+      },
+      {
+        "id": "93c4ddb3-5774-4047-8556-42a8b49aaf73",
+        "name": "Procesar cache Monday",
+        "parameters": {
+          "jsCode": "const CACHE_HOURS = 24;\n\nif (!globalThis.mondayCacheData) {\n  globalThis.mondayCacheData = { cache: [], lastUpdated: 0 };\n}\n\nconst cache = globalThis.mondayCacheData;\nconst now = Date.now();\nconst cacheIsValid = (now - cache.lastUpdated) < CACHE_HOURS * 3600 * 1000;\n\nif (cache.cache.length && cacheIsValid) {\n  return cache.cache.map(i => ({ json: i }));\n}\n\nconst response = items[0].json;\nconst mondayItems = response.data.boards[0].items_page.items.map(i => ({\n  ID_Venue:       String(i.column_values?.[0]?.text || \"\").trim(),\n  ID_Item_Monday: i.id,\n  Nombre:         i.name\n}));\n\nglobalThis.mondayCacheData = { cache: mondayItems, lastUpdated: now };\n\nreturn mondayItems.map(i => ({ json: i }));\n"
+        },
+        "position": [
+          -6544,
+          2080
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "Ju2LPS4exSjQdWY8",
+            "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+          }
+        },
+        "id": "174bb67c-3d43-4f4b-a2a8-7826bb7c9a5b",
+        "name": "Obtener etiquetas de producto",
+        "parameters": {
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { columns (ids: [\\\"color_mkqgwk4v\\\"]) { id title settings_str } } }\"\n}\n",
+          "method": "POST",
+          "options": {},
+          "sendBody": true,
+          "sendHeaders": true,
+          "specifyBody": "json",
+          "url": "https://api.monday.com/v2"
+        },
+        "position": [
+          -6736,
+          2288
+        ],
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2
+      },
+      {
+        "id": "76844a3a-0e62-4d85-83bf-11029ba3435c",
+        "name": "Procesar etiquetas",
+        "parameters": {
+          "jsCode": "return [\n  {\n    json: {\n      \"tour virtual\":  0,\n      \"my photo\":      1,\n      \"my photo cate\": 2,\n      \"default\":       3,\n      \"no aplica\":     5\n    }\n  }\n];\n"
+        },
+        "position": [
+          -6528,
+          2288
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "alwaysOutputData": true,
+        "id": "631e687b-72f8-4bef-980f-c6cc0bcba5ed",
+        "name": "JOIN: Sheet + Monday + Productos",
+        "parameters": {
+          "mode": "combineBySql",
+          "numberInputs": 3,
+          "options": {},
+          "query": "SELECT\n  a.*,\n  b.ID_Item_Monday AS ID_Item_Monday,\n  b.Nombre         AS Nombre_Monday,\n  c.`tour virtual`  AS tour_virtual,\n  c.`my photo`      AS my_photo,\n  c.`my photo cate` AS my_photo_cate,\n  c.`default`       AS default_label,\n  c.`no aplica`     AS no_aplica\nFROM input1 a\nLEFT JOIN input2 b\n  ON TRIM(CAST(a.`Company ID` AS TEXT)) = TRIM(b.`ID_Venue`)\nCROSS JOIN input3 c\n"
+        },
+        "position": [
+          -6000,
+          1936
+        ],
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2
+      },
+      {
+        "id": "deecad15-1320-4356-b43a-9fb539f91af2",
+        "name": "Calcular product_code",
+        "parameters": {
+          "jsCode": "function normalize(text) {\n  return String(text || \"\")\n    .toLowerCase().trim()\n    .normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\");\n}\n\nconst PRODUCT_MAP = {\n  \"tour virtual\":  0,\n  \"my photo\":      1,\n  \"my photo cate\": 2,\n  \"default\":       3,\n  \"no aplica\":     5\n};\n\nreturn items.map(item => {\n  const raw        = item.json.Product || item.json.product || \"\";\n  const normalized = normalize(raw);\n  const code       = PRODUCT_MAP[normalized] ?? PRODUCT_MAP[\"default\"];\n  return { json: { ...item.json, product_code: code } };\n});"
+        },
+        "position": [
+          -5760,
+          1952
+        ],
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2
+      },
+      {
+        "id": "19c9834e-2f8c-4f73-bd45-4b724b6b8738",
+        "name": "¿Ya existe en Monday?",
+        "parameters": {
+          "conditions": {
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "7b897370-524b-4874-bef4-9c1f07075093",
+                "leftValue": "={{ $json[\"ID_Item_Monday\"] === undefined || $json[\"ID_Item_Monday\"] === null || $json[\"ID_Item_Monday\"] === \"\" }}",
+                "operator": {
+                  "operation": "false",
+                  "singleValue": true,
+                  "type": "boolean"
+                },
+                "rightValue": false
+              }
+            ],
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 2
+            }
+          },
+          "looseTypeValidation": true,
+          "options": {}
+        },
+        "position": [
+          -5504,
+          1952
+        ],
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2
+      },
+      {
+        "id": "83b1346b-46f5-4314-875c-39ffe826b827",
+        "name": "Ya existe – Omitir",
+        "parameters": {},
+        "position": [
+          -5056,
+          1872
+        ],
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1
+      },
+      {
+        "id": "78a42e3e-c966-47b4-8db0-fbf98756f0c8",
+        "name": "Preparar campos para Monday",
         "parameters": {
           "assignments": {
             "assignments": [
@@ -673,14 +631,14 @@
               {
                 "id": "531051b2-90ce-42bc-947a-1bf8cef4b725",
                 "name": "Company ID",
-                "type": "number",
-                "value": "={{ $json[\"Company ID\"] }}"
+                "type": "string",
+                "value": "={{ $json['Company ID'] }}"
               },
               {
                 "id": "d749176d-190f-483f-b0d3-800aa3cc3ba3",
                 "name": "Customer name",
                 "type": "string",
-                "value": "={{ $json[\"Customer name\"] }}"
+                "value": "={{ $json['Customer name'] }}"
               },
               {
                 "id": "d8de32f3-309e-46b0-8311-19ddd329d47d",
@@ -698,7 +656,7 @@
                 "id": "dd6a8e95-97cd-4ed0-9504-034589779b08",
                 "name": "Telephone",
                 "type": "string",
-                "value": "={{ $json.telephone }}"
+                "value": "={{ $json.Telephone }}"
               },
               {
                 "id": "b997f2bb-db1a-40a6-8d86-73b5c0c5b1f4",
@@ -710,19 +668,19 @@
                 "id": "1bfa6c13-afb6-403c-94ac-2ad3e5ea744b",
                 "name": "Contact person",
                 "type": "string",
-                "value": "={{ $json[\"Contact person\"] }}"
+                "value": "={{ $json['Contact person'] }}"
               },
               {
                 "id": "a854fb53-e911-4d53-9338-33f5e4543975",
                 "name": "Email",
                 "type": "string",
-                "value": "={{ $json[\"e-mail\"] }}"
+                "value": "={{ $json.Email }}"
               },
               {
                 "id": "2254acd8-96bd-4b0e-a2ff-fb70b543ef5e",
                 "name": "URL Web",
                 "type": "string",
-                "value": "={{ $json[\"URL Web\"] }}"
+                "value": "={{ $json['URL Web'] }}"
               },
               {
                 "id": "9b1a96c2-d8f6-455b-9fa9-20ba0b6460b2",
@@ -733,14 +691,26 @@
               {
                 "id": "7a06638e-d7ff-432a-83aa-083d105707a0",
                 "name": "End Contract Date",
-                "type": "number",
-                "value": "={{ $json[\"End Contract Date\"] }}"
+                "type": "string",
+                "value": "={{ $json['End Contract Date'] }}"
               },
               {
                 "id": "18334583-d86f-4327-be94-2ac80c7c7385",
                 "name": "RW date",
+                "type": "string",
+                "value": "={{ $json['RW date'] }}"
+              },
+              {
+                "id": "c93a6414-1550-4dc1-bd52-234bd228accc",
+                "name": "ID Venue",
+                "type": "string",
+                "value": "={{ $json['ID Venue'] }}"
+              },
+              {
+                "id": "aa11bb22-0000-0000-0000-000000000001",
+                "name": "product_code",
                 "type": "number",
-                "value": "={{ $json[\"RW date\"] }}"
+                "value": "={{ $json.product_code }}"
               }
             ]
           },
@@ -749,20 +719,79 @@
           }
         },
         "position": [
-          -4048,
-          1728
+          -5056,
+          2144
         ],
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4
+      },
+      {
+        "credentials": {
+          "mondayComOAuth2Api": {
+            "id": "dE8g2W2GVOjXMeZt",
+            "name": "Monday.com account majonb@interprika.com"
+          }
+        },
+        "id": "ef26520e-9ccc-494b-9044-f1e586ca26d7",
+        "name": "Crear item en Monday",
+        "parameters": {
+          "additionalFields": {
+            "columnValues": "={{ JSON.stringify({\n  id_venue:        String($json['Company ID']      || ''),\n  text6:           String($json['Address']         || ''),\n  text_mksz2qkn:   String($json['Telephone']       || ''),\n  text_mkszykzf:   String($json['Mobile']          || ''),\n  texto:           String($json['Contact person']  || ''),\n  texto_mkmf8jc0:  String($json['URL Web']         || ''),\n  email: {\n    email: String($json['Email'] || ''),\n    text:  String($json['Email'] || '')\n  },\n  date25:         { date: String($json['End Contract Date'] || '').slice(0, 10) },\n  date_mkszmtcq:  { date: String($json['RW date']          || '').slice(0, 10) },\n  date_mksvhg6v:  { date: String($json['RW date']          || '').slice(0, 10) },\n  color_mkqgwk4v: { index: $json['product_code'] },\n  dropdown9:      { labels: [String($json['City']          || '')] }\n}) }}\n"
+          },
+          "authentication": "oAuth2",
+          "boardId": "1209925112",
+          "groupId": "new_group45304",
+          "name": "={{ $json['Customer name'] }}",
+          "resource": "boardItem"
+        },
+        "position": [
+          -4688,
+          2144
+        ],
+        "type": "n8n-nodes-base.mondayCom",
+        "typeVersion": 1
+      },
+      {
+        "credentials": {
+          "mondayComOAuth2Api": {
+            "id": "dE8g2W2GVOjXMeZt",
+            "name": "Monday.com account majonb@interprika.com"
+          }
+        },
+        "id": "bfe0a822-3c65-4809-8a7e-6e3464de1200",
+        "name": "Verificar item creado",
+        "parameters": {
+          "authentication": "oAuth2",
+          "itemId": "={{$json.id }}",
+          "operation": "get",
+          "resource": "boardItem"
+        },
+        "position": [
+          -4080,
+          1936
+        ],
+        "type": "n8n-nodes-base.mondayCom",
+        "typeVersion": 1
       }
     ],
-    "updatedAt": "2026-02-09T15:27:53.000Z",
-    "versionId": "5a9fff62-a31f-478e-8499-45a16d89e513",
+    "updatedAt": "2026-03-17T22:37:32.000Z",
+    "versionId": "c4d36bd2-886b-4eb7-8aaa-ca5599a0d4f2",
     "workflowId": "cgunIVaaAcYuxM3O"
   },
-  "activeVersionId": "5a9fff62-a31f-478e-8499-45a16d89e513",
+  "activeVersionId": "c4d36bd2-886b-4eb7-8aaa-ca5599a0d4f2",
   "connections": {
-    "Agregar mapeoProductos a cada item": {
+    "Agregar Mes y Año actual": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Filtrar por mes actual",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Calcular product_code": {
       "main": [
         [
           {
@@ -773,88 +802,44 @@
         ]
       ]
     },
-    "Base de Datos": {
+    "Crear item en Monday": {
       "main": [
         [
           {
             "index": 0,
-            "node": "Reconstruir columnas desde Sheet con headers agrupados",
+            "node": "Verificar item creado",
             "type": "main"
           }
         ]
       ]
     },
-    "Exportación a Monday": {
+    "Filtrar por mes actual": {
       "main": [
         [
           {
             "index": 0,
-            "node": "Obtener datos del tablero",
-            "type": "main"
-          }
-        ]
-      ]
-    },
-    "Filtrar mes actual": {
-      "main": [
-        [
-          {
-            "index": 0,
-            "node": "Monday Query",
+            "node": "Obtener items de Monday",
             "type": "main"
           },
           {
             "index": 0,
-            "node": "Obtener mapeo de productos",
+            "node": "Obtener etiquetas de producto",
             "type": "main"
           },
           {
             "index": 0,
-            "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+            "node": "JOIN: Sheet + Monday + Productos",
             "type": "main"
           }
         ]
       ]
     },
-    "Mapeo de variables": {
+    "JOIN: Sheet + Monday + Productos": {
       "main": [
         [
           {
             "index": 0,
-            "node": "Mes y Año",
-            "type": "main"
-          }
-        ]
-      ]
-    },
-    "Mapeo de variables1": {
-      "main": [
-        [
-          {
-            "index": 0,
-            "node": "Exportación a Monday",
-            "type": "main"
-          }
-        ]
-      ]
-    },
-    "Mes y Año": {
-      "main": [
-        [
-          {
-            "index": 0,
-            "node": "Filtrar mes actual",
-            "type": "main"
-          }
-        ]
-      ]
-    },
-    "Monday Query": {
-      "main": [
-        [
-          {
-            "index": 0,
-            "node": "Procesar y Cachear Monday",
+            "node": "Calcular product_code",
             "type": "main"
           }
         ]
@@ -871,56 +856,89 @@
         ]
       ]
     },
-    "Obtener mapeo de productos": {
+    "Normalizar datos del Sheet": {
       "main": [
         [
           {
             "index": 0,
-            "node": "Procesar mapeo de productos",
+            "node": "Preparar campos base",
             "type": "main"
           }
         ]
       ]
     },
-    "Procesar mapeo de productos": {
+    "Obtener etiquetas de producto": {
       "main": [
         [
           {
-            "index": 2,
-            "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+            "index": 0,
+            "node": "Procesar etiquetas",
             "type": "main"
           }
         ]
       ]
     },
-    "Procesar y Cachear Monday": {
+    "Obtener items de Monday": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Procesar cache Monday",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Preparar campos base": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Agregar Mes y Año actual",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Preparar campos para Monday": {
+      "main": [
+        [
+          {
+            "index": 0,
+            "node": "Crear item en Monday",
+            "type": "main"
+          }
+        ]
+      ]
+    },
+    "Procesar cache Monday": {
       "main": [
         [
           {
             "index": 1,
-            "node": "Unificar Excel + Monday + Mapeo (SQL Merge)",
+            "node": "JOIN: Sheet + Monday + Productos",
             "type": "main"
           }
         ]
       ]
     },
-    "Reconstruir columnas desde Sheet con headers agrupados": {
+    "Procesar etiquetas": {
       "main": [
         [
           {
-            "index": 0,
-            "node": "Mapeo de variables",
+            "index": 2,
+            "node": "JOIN: Sheet + Monday + Productos",
             "type": "main"
           }
         ]
       ]
     },
-    "Unificar Excel + Monday + Mapeo (SQL Merge)": {
+    "Trigger: Google Sheets": {
       "main": [
         [
           {
             "index": 0,
-            "node": "Agregar mapeoProductos a cada item",
+            "node": "Normalizar datos del Sheet",
             "type": "main"
           }
         ]
@@ -931,14 +949,14 @@
         [
           {
             "index": 0,
-            "node": "Muere aquí",
+            "node": "Ya existe – Omitir",
             "type": "main"
           }
         ],
         [
           {
             "index": 0,
-            "node": "Mapeo de variables1",
+            "node": "Preparar campos para Monday",
             "type": "main"
           }
         ]
@@ -953,379 +971,6 @@
   },
   "name": "1. Scrapping Sheet to Monday",
   "nodes": [
-    {
-      "id": "283629bf-5a27-4eb3-a31c-cbac8c9db105",
-      "name": "Mapeo de variables",
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "f9f27334-b72e-46e4-99a4-98994b15d7f3",
-              "name": "Product",
-              "type": "string",
-              "value": "={{ $json.product }}"
-            },
-            {
-              "id": "531051b2-90ce-42bc-947a-1bf8cef4b725",
-              "name": "Company ID",
-              "type": "number",
-              "value": "={{ $json.company_id }}"
-            },
-            {
-              "id": "d749176d-190f-483f-b0d3-800aa3cc3ba3",
-              "name": "Customer name",
-              "type": "string",
-              "value": "={{ $json.customer_name }}"
-            },
-            {
-              "id": "d8de32f3-309e-46b0-8311-19ddd329d47d",
-              "name": "Address",
-              "type": "string",
-              "value": "={{ $json.address }}"
-            },
-            {
-              "id": "632115ef-4a40-4fa1-8a83-2c79dbe0a2e7",
-              "name": "Zipcode",
-              "type": "string",
-              "value": "={{ $json.zipcode }}"
-            },
-            {
-              "id": "dd6a8e95-97cd-4ed0-9504-034589779b08",
-              "name": "telephone",
-              "type": "string",
-              "value": "={{ $json.telephone }}"
-            },
-            {
-              "id": "b997f2bb-db1a-40a6-8d86-73b5c0c5b1f4",
-              "name": "Mobile",
-              "type": "string",
-              "value": "={{ $json.mobile }}"
-            },
-            {
-              "id": "1bfa6c13-afb6-403c-94ac-2ad3e5ea744b",
-              "name": "Contact person",
-              "type": "string",
-              "value": "={{ $json[\"contact_person\"] }}"
-            },
-            {
-              "id": "a854fb53-e911-4d53-9338-33f5e4543975",
-              "name": "e-mail",
-              "type": "string",
-              "value": "={{ $json[\"email\"] }}"
-            },
-            {
-              "id": "2254acd8-96bd-4b0e-a2ff-fb70b543ef5e",
-              "name": "URL Web",
-              "type": "string",
-              "value": "={{ $json[\"url_web\"] }}"
-            },
-            {
-              "id": "9b1a96c2-d8f6-455b-9fa9-20ba0b6460b2",
-              "name": "City",
-              "type": "string",
-              "value": "={{ $json.city }}"
-            },
-            {
-              "id": "7a06638e-d7ff-432a-83aa-083d105707a0",
-              "name": "End Contract Date",
-              "type": "number",
-              "value": "={{ $json[\"end_contract_date\"] }}"
-            },
-            {
-              "id": "18334583-d86f-4327-be94-2ac80c7c7385",
-              "name": "RW date",
-              "type": "number",
-              "value": "={{ $json[\"rw_date\"] }}"
-            }
-          ]
-        },
-        "options": {
-          "ignoreConversionErrors": true
-        }
-      },
-      "position": [
-        -6784,
-        1504
-      ],
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4
-    },
-    {
-      "credentials": {
-        "mondayComOAuth2Api": {
-          "id": "dE8g2W2GVOjXMeZt",
-          "name": "Monday.com account majonb@interprika.com"
-        }
-      },
-      "id": "0105749f-e61c-41b1-b818-2a246e1826ec",
-      "name": "Exportación a Monday",
-      "parameters": {
-        "additionalFields": {
-          "columnValues": "={{ JSON.stringify({\n  id_venue: String($json[\"ID Venue\"] || \"\"),\n  text6: String($json[\"Dirección\"] || \"\"),\n  text_mksz2qkn: String($json[\"Teléfono\"] || \"\"),\n  text_mkszykzf: String($json[\"Movil\"] || \"\"),\n  texto: String($json[\"Contact Venue\"] || \"\"),\n  texto_mkmf8jc0: String($json[\"URL Bodas\"] || \"\"),\n  email: {\n    email: String($json[\"Email\"] || \"\"),\n    text: String($json[\"Email\"] || \"\")\n  },\n  date25: { date: String($json[\"Fecha Fin de Contrato\"]).slice(0, 10) },\n  date_mkszmtcq: { date: String($json[\"End Contract RW\"]).slice(0, 10) },\n  date_mksvhg6v: { date: String($json[\"Renovación de Contrato\"]).slice(0, 10) },\n  color_mkqgwk4v: { label: String($json[\"Producto\"] || \"default\") },\n  dropdown9: { labels: [String($json[\"Estado\"] || \"Sin estado\")] }\n}) }}\n"
-        },
-        "authentication": "oAuth2",
-        "boardId": "1209925112",
-        "groupId": "new_group45304",
-        "name": "={{ $json[\"Customer name\"] }}",
-        "resource": "boardItem"
-      },
-      "position": [
-        -3680,
-        1728
-      ],
-      "type": "n8n-nodes-base.mondayCom",
-      "typeVersion": 1
-    },
-    {
-      "credentials": {
-        "mondayComOAuth2Api": {
-          "id": "dE8g2W2GVOjXMeZt",
-          "name": "Monday.com account majonb@interprika.com"
-        }
-      },
-      "id": "b72f4e87-05b2-423e-a5af-b45af256997c",
-      "name": "Obtener datos del tablero",
-      "parameters": {
-        "authentication": "oAuth2",
-        "itemId": "={{$json.id }}",
-        "operation": "get",
-        "resource": "boardItem"
-      },
-      "position": [
-        -3072,
-        1520
-      ],
-      "type": "n8n-nodes-base.mondayCom",
-      "typeVersion": 1
-    },
-    {
-      "credentials": {
-        "googleSheetsTriggerOAuth2Api": {
-          "id": "7Vqw3jgYTLrQfF8C",
-          "name": "Google Sheets Trigger account - soporte@interprika.com"
-        }
-      },
-      "id": "9ffc8de4-37c2-4c54-9632-93d567e3e33e",
-      "name": "Base de Datos",
-      "parameters": {
-        "documentId": {
-          "__rl": true,
-          "cachedResultName": "NEW OP 2026 - INTERPRIKA",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit?usp=drivesdk",
-          "mode": "list",
-          "value": "1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c"
-        },
-        "options": {
-          "columnsToWatch": [
-            "PRODUCT INFORMATION",
-            "CUSTOMER INFORMATION",
-            "ACTIONS SUPPLIER",
-            "DATA WITH FORMULA"
-          ],
-          "dataLocationOnSheet": {
-            "values": {
-              "range": "A2:Z",
-              "rangeDefinition": "specifyRangeA1"
-            }
-          }
-        },
-        "pollTimes": {
-          "item": [
-            {
-              "hour": 8
-            }
-          ]
-        },
-        "sheetName": {
-          "__rl": true,
-          "cachedResultName": "NEW OP",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit#gid=0",
-          "mode": "list",
-          "value": "gid=0"
-        }
-      },
-      "position": [
-        -7536,
-        1504
-      ],
-      "type": "n8n-nodes-base.googleSheetsTrigger",
-      "typeVersion": 1
-    },
-    {
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "Ju2LPS4exSjQdWY8",
-          "name": "Header Auth account  - Monday API Token Bodas.com.mx"
-        }
-      },
-      "id": "c78bb702-5972-46da-9e8d-29c5087fb450",
-      "name": "Monday Query",
-      "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { items_page(limit: 500) { items { id name column_values(ids:[\\\"id_venue\\\"]) { id text } } } } }\"\n}\n",
-        "method": "POST",
-        "options": {},
-        "sendBody": true,
-        "sendHeaders": true,
-        "specifyBody": "json",
-        "url": "https://api.monday.com/v2"
-      },
-      "position": [
-        -5728,
-        1664
-      ],
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2
-    },
-    {
-      "id": "1163547f-2a64-4889-ba78-eb0d1f0398e1",
-      "name": "Procesar y Cachear Monday",
-      "parameters": {
-        "jsCode": "const CACHE_HOURS = 24;\n\nif (!globalThis.mondayCacheData) {\n  globalThis.mondayCacheData = { cache: [], lastUpdated: 0 };\n}\n\nconst cache = globalThis.mondayCacheData;\nconst now = Date.now();\nconst cacheIsValid = (now - cache.lastUpdated) < CACHE_HOURS * 3600 * 1000;\n\nif (cache.cache.length && cacheIsValid) {\n  return cache.cache.map(i => ({ json: i }));\n}\n\nconst response = items[0].json;\n\nconst mondayItems = response.data.boards[0].items_page.items.map(i => ({\n  ID_Venue: i.column_values?.[0]?.text?.trim() || \"\",\n  ID_Item_Monday: i.id,\n  Nombre: i.name\n}));\n\nglobalThis.mondayCacheData = {\n  cache: mondayItems,\n  lastUpdated: now\n};\n\nreturn mondayItems.map(i => ({\n  json: {\n    ID_Venue: String(i.ID_Venue || \"\").trim().toLowerCase(),\n    ID_Item_Monday: i.ID_Item_Monday,\n    Nombre: i.Nombre\n  }\n}));\n"
-      },
-      "position": [
-        -5536,
-        1664
-      ],
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2
-    },
-    {
-      "alwaysOutputData": false,
-      "id": "8095f6ab-998e-4cb1-867e-72c07212f26f",
-      "name": "Filtrar mes actual",
-      "parameters": {
-        "jsCode": "// ===============================\n// CONFIGURACIÓN\n// ===============================\nconst TARGET_MONTH = $input.first().json.Month;   // Enero\nconst TARGET_YEAR = $input.first().json.Year;\n\n// ===============================\n// FILTRO\n// ===============================\nconst filtrados = items.filter(item => {\n  const j = item.json;\n\n  // 1️⃣ Eliminar filas basura\n  if (!j[\"Company ID\"] || j[\"Company ID\"] === 0) return false;\n  if (!j[\"Product\"]) return false;\n\n  // 2️⃣ Validar Month / Year existan\n  if (!j.Month || !j.Year) return false;\n\n  // 3️⃣ Comparar contra el mes/año objetivo\n  return (\n    Number(j.Month) === TARGET_MONTH &&\n    Number(j.Year) === TARGET_YEAR\n  );\n});\n\nreturn filtrados;"
-      },
-      "position": [
-        -6080,
-        1504
-      ],
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2
-    },
-    {
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "Ju2LPS4exSjQdWY8",
-          "name": "Header Auth account  - Monday API Token Bodas.com.mx"
-        }
-      },
-      "id": "ee8a185b-6326-471b-8414-807eb69771af",
-      "name": "Obtener mapeo de productos",
-      "parameters": {
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { columns (ids: [\\\"color_mkqgwk4v\\\"]) { id title settings_str } } }\"\n}\n",
-        "method": "POST",
-        "options": {},
-        "sendBody": true,
-        "sendHeaders": true,
-        "specifyBody": "json",
-        "url": "https://api.monday.com/v2"
-      },
-      "position": [
-        -5728,
-        1872
-      ],
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2
-    },
-    {
-      "id": "2526492a-8bd1-49fc-a019-f9b40993bad8",
-      "name": "Procesar mapeo de productos",
-      "parameters": {
-        "jsCode": "const response = items[0].json;\n\nconst settingsStr = response.data.boards[0].columns[0].settings_str;\nif (!settingsStr) {\n  throw new Error(\"❌ No se encontró settings_str en la respuesta de Monday.\");\n}\n\nconst settings = JSON.parse(settingsStr);\nconst labels = {};\n\nfor (const [index, name] of Object.entries(settings.labels)) {\n  if (name?.trim()) labels[name.trim().toLowerCase()] = Number(index);\n}\n\nreturn [\n  {\n    json: {\n      \"tour virtual\": 0,\n      \"my photo\": 1,\n      \"my photo cate\": 2,\n      \"default\": 3,\n      \"no aplica\": 5\n    }\n  }\n];\n\n"
-      },
-      "position": [
-        -5520,
-        1872
-      ],
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2
-    },
-    {
-      "id": "3b48eacd-95c2-4a1c-b172-a51738fe8762",
-      "name": "¿Ya existe en Monday?",
-      "parameters": {
-        "conditions": {
-          "combinator": "and",
-          "conditions": [
-            {
-              "id": "7b897370-524b-4874-bef4-9c1f07075093",
-              "leftValue": "={{ $json[\"ID_Item_Monday\"] === undefined || $json[\"ID_Item_Monday\"] === null || $json[\"ID_Item_Monday\"] === \"\" }}",
-              "operator": {
-                "operation": "true",
-                "singleValue": true,
-                "type": "boolean"
-              },
-              "rightValue": false
-            }
-          ],
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "loose",
-            "version": 2
-          }
-        },
-        "looseTypeValidation": true,
-        "options": {}
-      },
-      "position": [
-        -4496,
-        1536
-      ],
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2
-    },
-    {
-      "alwaysOutputData": true,
-      "id": "3195bf6f-5f13-4fdd-8f8f-cd0ab02b6f25",
-      "name": "Unificar Excel + Monday + Mapeo (SQL Merge)",
-      "parameters": {
-        "mode": "combineBySql",
-        "numberInputs": 3,
-        "options": {},
-        "query": "SELECT\n  a.*,\n  b.ID_Item_Monday AS ID_Item_Monday,\n  b.Nombre AS Nombre_Monday,\n  c.`tour virtual` AS tour_virtual,\n  c.`my photo` AS my_photo,\n  c.`my photo cate` AS my_photo_cate,\n  c.`default` AS default_label,\n  c.`no aplica` AS no_aplica\nFROM input1 a\nLEFT JOIN input2 b\n  ON LOWER(TRIM(a.`ID Venue`)) = LOWER(TRIM(b.`ID_Venue`))\nCROSS JOIN input3 c\n"
-      },
-      "position": [
-        -4992,
-        1520
-      ],
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2
-    },
-    {
-      "id": "e22efcac-fa0f-4fab-a923-43f60dfba147",
-      "name": "Agregar mapeoProductos a cada item",
-      "parameters": {
-        "jsCode": "function normalize(text) {\n  return String(text || \"\")\n    .toLowerCase()\n    .trim()\n    .normalize(\"NFD\")\n    .replace(/[\\u0300-\\u036f]/g, \"\");\n}\n\nconst PRODUCT_MAP = {\n  \"tour virtual\": 0,\n  \"my photo\": 1,\n  \"my photo cate\": 2,\n  \"default\": 3,\n  \"no aplica\": 5\n};\n\nreturn items.map(item => {\n  const rawProduct = item.json.Product || item.json.product || \"\";\n  const normalized = normalize(rawProduct);\n\n  const productCode =\n    PRODUCT_MAP[normalized] ??\n    PRODUCT_MAP[\"default\"];\n\n  return {\n    json: {\n      ...item.json,\n      product_code: productCode\n    }\n  };\n});"
-      },
-      "position": [
-        -4752,
-        1536
-      ],
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2
-    },
     {
       "disabled": true,
       "id": "42a19c27-9e18-4c37-84e8-4a9829249cc3",
@@ -1366,9 +1011,178 @@
       "typeVersion": 1
     },
     {
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "7Vqw3jgYTLrQfF8C",
+          "name": "Google Sheets Trigger account - soporte@interprika.com"
+        }
+      },
+      "id": "e82f0453-677e-484d-90ab-aac822adbb90",
+      "name": "Trigger: Google Sheets",
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "cachedResultName": "NEW OP 2026 - INTERPRIKA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit?usp=drivesdk",
+          "mode": "list",
+          "value": "1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c"
+        },
+        "options": {
+          "columnsToWatch": [
+            "PRODUCT INFORMATION",
+            "CUSTOMER INFORMATION",
+            "ACTIONS SUPPLIER",
+            "DATA WITH FORMULA"
+          ],
+          "dataLocationOnSheet": {
+            "values": {
+              "range": "A2:Z",
+              "rangeDefinition": "specifyRangeA1"
+            }
+          }
+        },
+        "pollTimes": {
+          "item": [
+            {
+              "hour": 8
+            }
+          ]
+        },
+        "sheetName": {
+          "__rl": true,
+          "cachedResultName": "NEW OP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c/edit#gid=0",
+          "mode": "list",
+          "value": "gid=0"
+        }
+      },
+      "position": [
+        -8544,
+        1920
+      ],
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1
+    },
+    {
+      "id": "87fbbc79-f05f-4351-b1ad-bcaf00ab3cf1",
+      "name": "Normalizar datos del Sheet",
+      "parameters": {
+        "jsCode": "function gsDateToISO(value) {\n  if (!value || isNaN(value)) return \"\";\n  const epoch = new Date(Date.UTC(1899, 11, 30));\n  epoch.setDate(epoch.getDate() + Number(value));\n  return epoch.toISOString().split(\"T\")[0];\n}\n\nfunction normalizeCity(raw) {\n  const c = String(raw || \"\").trim();\n  const lower = c.toLowerCase()\n    .normalize(\"NFD\")\n    .replace(/[\\u0300-\\u036f]/g, \"\");\n\n  // Todas las variantes de Estado de México → valor exacto en Monday\n  if (\n    lower === \"estado mexico\" ||\n    lower === \"estado de mexico\" ||\n    lower === \"edomex\" ||\n    lower === \"edo mexico\" ||\n    lower === \"edo. mexico\" ||\n    lower === \"edo. de mexico\" ||\n    lower === \"estado de mex\" ||\n    lower === \"estado mex\"\n  ) {\n    return \"Estado de México\";\n  }\n\n  return c;\n}\n\nreturn items.map(item => {\n  const j = item.json;\n  return {\n    json: {\n      product:           j[\"Product\"]        || \"\",\n      company_id:        j[\"ID EMPRESA\"]      || \"\",\n      customer_name:     j[\"Customer name\"]  || \"\",\n      address:           j[\"Address\"]        || \"\",\n      zipcode:           j[\"Zipcode\"]        || \"\",\n      telephone:         j[\"telephone\"]      || \"\",\n      mobile:            j[\"Mobile\"]         || \"\",\n      contact_person:    j[\"Contact person\"] || \"\",\n      email:             j[\"e-mail\"]         || \"\",\n      url_web:           j[\"URL Web\"]        || \"\",\n      city:              normalizeCity(j[\"City\"]),\n      id_venue:          String(j[\"ID EMPRESA\"] || \"\"),\n      end_contract_date: gsDateToISO(j[\"End Contract Date\"]),\n      rw_date:           gsDateToISO(j[\"RW date\"])\n    }\n  };\n});\n"
+      },
+      "position": [
+        -8208,
+        1920
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "dcfdac62-d1cf-4040-83b5-6892de16a388",
+      "name": "Preparar campos base",
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f9f27334-b72e-46e4-99a4-98994b15d7f3",
+              "name": "Product",
+              "type": "string",
+              "value": "={{ $json.product }}"
+            },
+            {
+              "id": "531051b2-90ce-42bc-947a-1bf8cef4b725",
+              "name": "Company ID",
+              "type": "string",
+              "value": "={{ $json.company_id }}"
+            },
+            {
+              "id": "d749176d-190f-483f-b0d3-800aa3cc3ba3",
+              "name": "Customer name",
+              "type": "string",
+              "value": "={{ $json.customer_name }}"
+            },
+            {
+              "id": "d8de32f3-309e-46b0-8311-19ddd329d47d",
+              "name": "Address",
+              "type": "string",
+              "value": "={{ $json.address }}"
+            },
+            {
+              "id": "632115ef-4a40-4fa1-8a83-2c79dbe0a2e7",
+              "name": "Zipcode",
+              "type": "string",
+              "value": "={{ $json.zipcode }}"
+            },
+            {
+              "id": "dd6a8e95-97cd-4ed0-9504-034589779b08",
+              "name": "Telephone",
+              "type": "string",
+              "value": "={{ $json.telephone }}"
+            },
+            {
+              "id": "b997f2bb-db1a-40a6-8d86-73b5c0c5b1f4",
+              "name": "Mobile",
+              "type": "string",
+              "value": "={{ $json.mobile }}"
+            },
+            {
+              "id": "1bfa6c13-afb6-403c-94ac-2ad3e5ea744b",
+              "name": "Contact person",
+              "type": "string",
+              "value": "={{ $json.contact_person }}"
+            },
+            {
+              "id": "a854fb53-e911-4d53-9338-33f5e4543975",
+              "name": "Email",
+              "type": "string",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "id": "2254acd8-96bd-4b0e-a2ff-fb70b543ef5e",
+              "name": "URL Web",
+              "type": "string",
+              "value": "={{ $json.url_web }}"
+            },
+            {
+              "id": "9b1a96c2-d8f6-455b-9fa9-20ba0b6460b2",
+              "name": "City",
+              "type": "string",
+              "value": "={{ $json.city }}"
+            },
+            {
+              "id": "7a06638e-d7ff-432a-83aa-083d105707a0",
+              "name": "End Contract Date",
+              "type": "string",
+              "value": "={{ $json.end_contract_date }}"
+            },
+            {
+              "id": "18334583-d86f-4327-be94-2ac80c7c7385",
+              "name": "RW date",
+              "type": "string",
+              "value": "={{ $json.rw_date }}"
+            },
+            {
+              "id": "c93a6414-1550-4dc1-bd52-234bd228accc",
+              "name": "ID Venue",
+              "type": "string",
+              "value": "={{ $json.id_venue }}"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "position": [
+        -7792,
+        1920
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
       "alwaysOutputData": false,
-      "id": "fb705777-7f5e-4ec6-aa2c-8ceef1ad97ab",
-      "name": "Mes y Año",
+      "id": "85091ff7-8503-4bfe-8c38-f596e46c286d",
+      "name": "Agregar Mes y Año actual",
       "parameters": {
         "assignments": {
           "assignments": [
@@ -1390,39 +1204,201 @@
         "options": {}
       },
       "position": [
-        -6304,
-        1504
+        -7312,
+        1920
       ],
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4
     },
     {
-      "id": "03feb93e-71ca-4d07-a42c-93acf8f60796",
-      "name": "Muere aquí",
-      "parameters": {},
-      "position": [
-        -4048,
-        1456
-      ],
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1
-    },
-    {
-      "id": "5259d588-b5db-4664-9b68-22073c3b5b06",
-      "name": "Reconstruir columnas desde Sheet con headers agrupados",
+      "alwaysOutputData": false,
+      "id": "8e3e33a3-706c-4992-8ce0-1dd74f489522",
+      "name": "Filtrar por mes actual",
       "parameters": {
-        "jsCode": "function gsDateToISO(value) {\n  if (!value || isNaN(value)) return \"\";\n  const epoch = new Date(Date.UTC(1899, 11, 30));\n  epoch.setDate(epoch.getDate() + Number(value));\n  return epoch.toISOString().split(\"T\")[0];\n}\n\nreturn items.map(item => {\n  const j = item.json;\n\n  return {\n    json: {\n      product: j[\"Product\"] || \"\",\n      company_id: j[\"ID EMPRESA\"] || \"\",\n      customer_name: j[\"Customer name\"] || \"\",\n      address: j[\"Address\"] || \"\",\n      zipcode: j[\"Zipcode\"] || \"\",\n      telephone: j[\"telephone\"] || \"\",\n      mobile: j[\"Mobile\"] || \"\",\n      contact_person: j[\"Contact person\"] || \"\",\n      email: j[\"e-mail\"] || \"\",\n      url_web: j[\"URL Web\"] || \"\",\n      city: j[\"City\"] || \"\",\n      end_contract_date: gsDateToISO(j[\"End Contract Date\"]),\n      rw_date: gsDateToISO(j[\"RW date\"])\n    }\n  };\n});\n"
+        "jsCode": "const TARGET_MONTH = $input.first().json.Month;\nconst TARGET_YEAR  = $input.first().json.Year;\n\nconst filtrados = items.filter(item => {\n  const j = item.json;\n  if (!j[\"Company ID\"] || j[\"Company ID\"] === 0 || j[\"Company ID\"] === \"\") return false;\n  if (!j[\"Product\"]) return false;\n  if (!j.Month || !j.Year) return false;\n  return (\n    Number(j.Month) === TARGET_MONTH &&\n    Number(j.Year)  === TARGET_YEAR\n  );\n});\n\nreturn filtrados;"
       },
       "position": [
-        -7328,
-        1504
+        -7088,
+        1920
       ],
       "type": "n8n-nodes-base.code",
       "typeVersion": 2
     },
     {
-      "id": "1656c893-90d1-4fe3-adcf-c55651d9b86f",
-      "name": "Mapeo de variables1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Ju2LPS4exSjQdWY8",
+          "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+        }
+      },
+      "id": "f338ce6a-0e33-4e87-9f14-c87e9ee483bf",
+      "name": "Obtener items de Monday",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { items_page(limit: 500) { items { id name column_values(ids:[\\\"id_venue\\\"]) { id text } } } } }\"\n}\n",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.monday.com/v2"
+      },
+      "position": [
+        -6736,
+        2080
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "93c4ddb3-5774-4047-8556-42a8b49aaf73",
+      "name": "Procesar cache Monday",
+      "parameters": {
+        "jsCode": "const CACHE_HOURS = 24;\n\nif (!globalThis.mondayCacheData) {\n  globalThis.mondayCacheData = { cache: [], lastUpdated: 0 };\n}\n\nconst cache = globalThis.mondayCacheData;\nconst now = Date.now();\nconst cacheIsValid = (now - cache.lastUpdated) < CACHE_HOURS * 3600 * 1000;\n\nif (cache.cache.length && cacheIsValid) {\n  return cache.cache.map(i => ({ json: i }));\n}\n\nconst response = items[0].json;\nconst mondayItems = response.data.boards[0].items_page.items.map(i => ({\n  ID_Venue:       String(i.column_values?.[0]?.text || \"\").trim(),\n  ID_Item_Monday: i.id,\n  Nombre:         i.name\n}));\n\nglobalThis.mondayCacheData = { cache: mondayItems, lastUpdated: now };\n\nreturn mondayItems.map(i => ({ json: i }));\n"
+      },
+      "position": [
+        -6544,
+        2080
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Ju2LPS4exSjQdWY8",
+          "name": "Header Auth account  - Monday API Token Bodas.com.mx"
+        }
+      },
+      "id": "174bb67c-3d43-4f4b-a2a8-7826bb7c9a5b",
+      "name": "Obtener etiquetas de producto",
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "jsonBody": "{\n  \"query\": \"query { boards (ids: 1209925112) { columns (ids: [\\\"color_mkqgwk4v\\\"]) { id title settings_str } } }\"\n}\n",
+        "method": "POST",
+        "options": {},
+        "sendBody": true,
+        "sendHeaders": true,
+        "specifyBody": "json",
+        "url": "https://api.monday.com/v2"
+      },
+      "position": [
+        -6736,
+        2288
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "id": "76844a3a-0e62-4d85-83bf-11029ba3435c",
+      "name": "Procesar etiquetas",
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      \"tour virtual\":  0,\n      \"my photo\":      1,\n      \"my photo cate\": 2,\n      \"default\":       3,\n      \"no aplica\":     5\n    }\n  }\n];\n"
+      },
+      "position": [
+        -6528,
+        2288
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "alwaysOutputData": true,
+      "id": "631e687b-72f8-4bef-980f-c6cc0bcba5ed",
+      "name": "JOIN: Sheet + Monday + Productos",
+      "parameters": {
+        "mode": "combineBySql",
+        "numberInputs": 3,
+        "options": {},
+        "query": "SELECT\n  a.*,\n  b.ID_Item_Monday AS ID_Item_Monday,\n  b.Nombre         AS Nombre_Monday,\n  c.`tour virtual`  AS tour_virtual,\n  c.`my photo`      AS my_photo,\n  c.`my photo cate` AS my_photo_cate,\n  c.`default`       AS default_label,\n  c.`no aplica`     AS no_aplica\nFROM input1 a\nLEFT JOIN input2 b\n  ON TRIM(CAST(a.`Company ID` AS TEXT)) = TRIM(b.`ID_Venue`)\nCROSS JOIN input3 c\n"
+      },
+      "position": [
+        -6000,
+        1936
+      ],
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2
+    },
+    {
+      "id": "deecad15-1320-4356-b43a-9fb539f91af2",
+      "name": "Calcular product_code",
+      "parameters": {
+        "jsCode": "function normalize(text) {\n  return String(text || \"\")\n    .toLowerCase().trim()\n    .normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\");\n}\n\nconst PRODUCT_MAP = {\n  \"tour virtual\":  0,\n  \"my photo\":      1,\n  \"my photo cate\": 2,\n  \"default\":       3,\n  \"no aplica\":     5\n};\n\nreturn items.map(item => {\n  const raw        = item.json.Product || item.json.product || \"\";\n  const normalized = normalize(raw);\n  const code       = PRODUCT_MAP[normalized] ?? PRODUCT_MAP[\"default\"];\n  return { json: { ...item.json, product_code: code } };\n});"
+      },
+      "position": [
+        -5760,
+        1952
+      ],
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2
+    },
+    {
+      "id": "19c9834e-2f8c-4f73-bd45-4b724b6b8738",
+      "name": "¿Ya existe en Monday?",
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "7b897370-524b-4874-bef4-9c1f07075093",
+              "leftValue": "={{ $json[\"ID_Item_Monday\"] === undefined || $json[\"ID_Item_Monday\"] === null || $json[\"ID_Item_Monday\"] === \"\" }}",
+              "operator": {
+                "operation": "false",
+                "singleValue": true,
+                "type": "boolean"
+              },
+              "rightValue": false
+            }
+          ],
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          }
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "position": [
+        -5504,
+        1952
+      ],
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2
+    },
+    {
+      "id": "83b1346b-46f5-4314-875c-39ffe826b827",
+      "name": "Ya existe – Omitir",
+      "parameters": {},
+      "position": [
+        -5056,
+        1872
+      ],
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1
+    },
+    {
+      "id": "78a42e3e-c966-47b4-8db0-fbf98756f0c8",
+      "name": "Preparar campos para Monday",
       "parameters": {
         "assignments": {
           "assignments": [
@@ -1435,14 +1411,14 @@
             {
               "id": "531051b2-90ce-42bc-947a-1bf8cef4b725",
               "name": "Company ID",
-              "type": "number",
-              "value": "={{ $json[\"Company ID\"] }}"
+              "type": "string",
+              "value": "={{ $json['Company ID'] }}"
             },
             {
               "id": "d749176d-190f-483f-b0d3-800aa3cc3ba3",
               "name": "Customer name",
               "type": "string",
-              "value": "={{ $json[\"Customer name\"] }}"
+              "value": "={{ $json['Customer name'] }}"
             },
             {
               "id": "d8de32f3-309e-46b0-8311-19ddd329d47d",
@@ -1460,7 +1436,7 @@
               "id": "dd6a8e95-97cd-4ed0-9504-034589779b08",
               "name": "Telephone",
               "type": "string",
-              "value": "={{ $json.telephone }}"
+              "value": "={{ $json.Telephone }}"
             },
             {
               "id": "b997f2bb-db1a-40a6-8d86-73b5c0c5b1f4",
@@ -1472,19 +1448,19 @@
               "id": "1bfa6c13-afb6-403c-94ac-2ad3e5ea744b",
               "name": "Contact person",
               "type": "string",
-              "value": "={{ $json[\"Contact person\"] }}"
+              "value": "={{ $json['Contact person'] }}"
             },
             {
               "id": "a854fb53-e911-4d53-9338-33f5e4543975",
               "name": "Email",
               "type": "string",
-              "value": "={{ $json[\"e-mail\"] }}"
+              "value": "={{ $json.Email }}"
             },
             {
               "id": "2254acd8-96bd-4b0e-a2ff-fb70b543ef5e",
               "name": "URL Web",
               "type": "string",
-              "value": "={{ $json[\"URL Web\"] }}"
+              "value": "={{ $json['URL Web'] }}"
             },
             {
               "id": "9b1a96c2-d8f6-455b-9fa9-20ba0b6460b2",
@@ -1495,14 +1471,26 @@
             {
               "id": "7a06638e-d7ff-432a-83aa-083d105707a0",
               "name": "End Contract Date",
-              "type": "number",
-              "value": "={{ $json[\"End Contract Date\"] }}"
+              "type": "string",
+              "value": "={{ $json['End Contract Date'] }}"
             },
             {
               "id": "18334583-d86f-4327-be94-2ac80c7c7385",
               "name": "RW date",
+              "type": "string",
+              "value": "={{ $json['RW date'] }}"
+            },
+            {
+              "id": "c93a6414-1550-4dc1-bd52-234bd228accc",
+              "name": "ID Venue",
+              "type": "string",
+              "value": "={{ $json['ID Venue'] }}"
+            },
+            {
+              "id": "aa11bb22-0000-0000-0000-000000000001",
+              "name": "product_code",
               "type": "number",
-              "value": "={{ $json[\"RW date\"] }}"
+              "value": "={{ $json.product_code }}"
             }
           ]
         },
@@ -1511,11 +1499,59 @@
         }
       },
       "position": [
-        -4048,
-        1728
+        -5056,
+        2144
       ],
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4
+    },
+    {
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      },
+      "id": "ef26520e-9ccc-494b-9044-f1e586ca26d7",
+      "name": "Crear item en Monday",
+      "parameters": {
+        "additionalFields": {
+          "columnValues": "={{ JSON.stringify({\n  id_venue:        String($json['Company ID']      || ''),\n  text6:           String($json['Address']         || ''),\n  text_mksz2qkn:   String($json['Telephone']       || ''),\n  text_mkszykzf:   String($json['Mobile']          || ''),\n  texto:           String($json['Contact person']  || ''),\n  texto_mkmf8jc0:  String($json['URL Web']         || ''),\n  email: {\n    email: String($json['Email'] || ''),\n    text:  String($json['Email'] || '')\n  },\n  date25:         { date: String($json['End Contract Date'] || '').slice(0, 10) },\n  date_mkszmtcq:  { date: String($json['RW date']          || '').slice(0, 10) },\n  date_mksvhg6v:  { date: String($json['RW date']          || '').slice(0, 10) },\n  color_mkqgwk4v: { index: $json['product_code'] },\n  dropdown9:      { labels: [String($json['City']          || '')] }\n}) }}\n"
+        },
+        "authentication": "oAuth2",
+        "boardId": "1209925112",
+        "groupId": "new_group45304",
+        "name": "={{ $json['Customer name'] }}",
+        "resource": "boardItem"
+      },
+      "position": [
+        -4688,
+        2144
+      ],
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1
+    },
+    {
+      "credentials": {
+        "mondayComOAuth2Api": {
+          "id": "dE8g2W2GVOjXMeZt",
+          "name": "Monday.com account majonb@interprika.com"
+        }
+      },
+      "id": "bfe0a822-3c65-4809-8a7e-6e3464de1200",
+      "name": "Verificar item creado",
+      "parameters": {
+        "authentication": "oAuth2",
+        "itemId": "={{$json.id }}",
+        "operation": "get",
+        "resource": "boardItem"
+      },
+      "position": [
+        -4080,
+        1936
+      ],
+      "type": "n8n-nodes-base.mondayCom",
+      "typeVersion": 1
     }
   ],
   "pinData": {},
@@ -1539,6 +1575,12 @@
       "documentId": "1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c",
       "lastRevision": 258,
       "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c&revision=258&exportFormat=xlsx",
+      "sheetId": 0
+    },
+    "node:Trigger: Google Sheets": {
+      "documentId": "1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c",
+      "lastRevision": 373,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1j7aqV9iP5CzeiSQNroJDtq2ASid4RCuWgrulB7yDI7c&revision=373&exportFormat=xlsx",
       "sheetId": 0
     }
   },
@@ -1581,6 +1623,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-02-09T15:27:50.162Z",
-  "versionId": "5a9fff62-a31f-478e-8499-45a16d89e513"
+  "updatedAt": "2026-03-17T22:35:14.371Z",
+  "versionId": "c4d36bd2-886b-4eb7-8aaa-ca5599a0d4f2"
 }
